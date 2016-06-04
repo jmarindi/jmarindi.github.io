@@ -1,45 +1,622 @@
-<!DOCTYPE HTML>
-<html>
 
-<head>
-<script type="text/javascript">
-window.onload = function () {
-	var chart = new CanvasJS.Chart("chartContainer",
-	{
-		title:{
-			text: "Top Categories of New Year's Resolution"
-		},
-		exportFileName: "Pie Chart",
-		exportEnabled: true,
-                animationEnabled: true,
-		legend:{
-			verticalAlign: "bottom",
-			horizontalAlign: "center"
-		},
-		data: [
-		{       
-			type: "pie",
-			showInLegend: true,
-			toolTipContent: "{legendText}: <strong>{y}%</strong>",
-			indexLabel: "{label} {y}%",
-			dataPoints: [
-				{  y: 35, legendText: "Health", exploded: true, label: "Health" },
-				{  y: 20, legendText: "Finance", label: "Finance" },
-				{  y: 18, legendText: "Career", label: "Career" },
-				{  y: 15, legendText: "Education", label: "Education"},
-				{  y: 5, legendText: "Family", label: "Family" },
-				{  y: 7, legendText: "Real Estate", label: "Real Estate"}
-			]
-	}
-	]
-	});
-	chart.render();
+ <!DOCTYPE html>
+ <html lang="en-US" prefix="og: http://ogp.me/ns#">
+ <head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Chart Editor - CanvasJS</title>
+  <!-- <title></title> -->
+
+
+  <link rel="profile" href="http://gmpg.org/xfn/11" />
+  <link rel="pingback" href="http://canvasjs.com/xmlrpc.php" />
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <script>
+    (function(e,t){typeof module!="undefined"&&module.exports?module.exports=t():typeof define=="function"&&define.amd?define(t):this[e]=t()})("$script",function(){function p(e,t){for(var n=0,i=e.length;n<i;++n)if(!t(e[n]))return r;return 1}function d(e,t){p(e,function(e){return!t(e)})}function v(e,t,n){function g(e){return e.call?e():u[e]}function y(){if(!--h){u[o]=1,s&&s();for(var e in f)p(e.split("|"),g)&&!d(f[e],g)&&(f[e]=[])}}e=e[i]?e:[e];var r=t&&t.call,s=r?t:n,o=r?e.join(""):t,h=e.length;return setTimeout(function(){d(e,function t(e,n){if(e===null)return y();e=!n&&e.indexOf(".js")===-1&&!/^https?:\/\//.test(e)&&c?c+e+".js":e;if(l[e])return o&&(a[o]=1),l[e]==2?y():setTimeout(function(){t(e,!0)},0);l[e]=1,o&&(a[o]=1),m(e,y)})},0),v}function m(n,r){var i=e.createElement("script"),u;i.onload=i.onerror=i[o]=function(){if(i[s]&&!/^c|loade/.test(i[s])||u)return;i.onload=i[o]=null,u=1,l[n]=2,r()},i.async=1,i.src=h?n+(n.indexOf("?")===-1?"?":"&")+h:n,t.insertBefore(i,t.lastChild)}var e=document,t=e.getElementsByTagName("head")[0],n="string",r=!1,i="push",s="readyState",o="onreadystatechange",u={},a={},f={},l={},c,h;return v.get=m,v.order=function(e,t,n){(function r(i){i=e.shift(),e.length?v(i,r):v(i,t,n)})()},v.path=function(e){c=e},v.urlArgs=function(e){h=e},v.ready=function(e,t,n){e=e[i]?e:[e];var r=[];return!d(e,function(e){u[e]||r[i](e)})&&p(e,function(e){return u[e]})?t():!function(e){f[e]=f[e]||[],f[e][i](t),n&&n(r)}(e.join("|")),v},v.done=function(e){v([null],e)},v})		
+  </script>
+
+  
+<!-- This site is optimized with the Yoast SEO plugin v3.2.5 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="http://canvasjs.com/editor/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Chart Editor - CanvasJS" />
+<meta property="og:url" content="http://canvasjs.com/editor/" />
+<meta property="og:site_name" content="CanvasJS" />
+<!-- / Yoast SEO plugin. -->
+
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/canvasjs.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.5.2"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
 }
-</script>
-<script type="text/javascript" src="/assets/script/canvasjs.min.js"></script>
-</head>
-<body>
-<div id="chartContainer" style="height: 300px; width: 100%;"></div>
-</body>
+</style>
+<link rel='stylesheet' id='BsCmCcmCusPre_CSS-css'  href='http://canvasjs.com/wp-content/themes/bootstrap_child/assets/css/bs-cm-ccm-cus-pre.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css'  href='http://canvasjs.com/wp-content/plugins/jetpack/css/jetpack.css?ver=4.0.3' type='text/css' media='all' />
+<script type='text/javascript' src='http://canvasjs.com/wp-includes/js/jquery/jquery.js?ver=1.12.3'></script>
+<script type='text/javascript' src='http://canvasjs.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.0'></script>
+<link rel='https://api.w.org/' href='http://canvasjs.com/wp-json/' />
+<link rel='shortlink' href='http://canvasjs.com/?p=2461' />
+<link rel="alternate" type="application/json+oembed" href="http://canvasjs.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fcanvasjs.com%2Feditor%2F" />
+<link rel="alternate" type="text/xml+oembed" href="http://canvasjs.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fcanvasjs.com%2Feditor%2F&#038;format=xml" />
+		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		  <!-- le styles -->
 
+  <!--
+  <link href="http://canvasjs.com/wp-content/themes/bootstrap_child/assets/css/bs-cm-ccm-cus-pre.css" rel="stylesheet">
+-->
+
+  <!--[if lt IE 9]>
+    <script type="text/javascript"  src="http://canvasjs.com/wp-content/themes/bootstrap_child/assets/css/respond.min.js">
+	<script type="text/javascript" src = "http://canvasjs.com/wp-content/themes/bootstrap_child/assets/js/jquery-1.8.3.min.js"> </script>
+  <![endif]-->
+
+
+  <script>
+  var jsFiles = {
+      CanvasJS    :   '/assets/script/canvasjs.min.js',
+      BsCcForPreUnvInvDem :   "http://canvasjs.com/wp-content/themes/bootstrap_child/assets/js/bs-cc-for-pre-unv-inv-dem.js",
+      JQueryUiJS : "http://canvasjs.com/wp-content/themes/bootstrap_child/assets/js/jquery-ui.js"
+  };
+
+  $script(jsFiles.CanvasJS,'CanvasJS');
+  $script(jsFiles.BsCcForPreUnvInvDem,'BsCcForPreUnvInvDem');
+  </script>
+
+  	<script type="text/javascript">
+
+	(function(d){"function"===typeof define&&define.amd?define(["jquery"],d):"object"===typeof exports?module.exports=d(require("jquery")):d(jQuery)})(function(d){function p(b){b=e.json?JSON.stringify(b):String(b);return e.raw?b:encodeURIComponent(b)}function n(b,g){var a;if(e.raw)a=b;else a:{var c=b;0===c.indexOf('"')&&(c=c.slice(1,-1).replace(/\\"/g,'"').replace(/\\\\/g,"\\"));try{c=decodeURIComponent(c.replace(l," "));a=e.json?JSON.parse(c):c;break a}catch(h){}a=void 0}return d.isFunction(g)?g(a):
+a}var l=/\+/g,e=d.cookie=function(b,g,a){if(1<arguments.length&&!d.isFunction(g)){a=d.extend({},e.defaults,a);if("number"===typeof a.expires){var c=a.expires,h=a.expires=new Date;h.setMilliseconds(h.getMilliseconds()+864E5*c)}return document.cookie=[e.raw?b:encodeURIComponent(b),"=",p(g),a.expires?"; expires="+a.expires.toUTCString():"",a.path?"; path="+a.path:"",a.domain?"; domain="+a.domain:"",a.secure?"; secure":""].join("")}for(var c=b?void 0:{},h=document.cookie?document.cookie.split("; "):[],
+m=0,l=h.length;m<l;m++){var f=h[m].split("="),k;k=f.shift();k=e.raw?k:decodeURIComponent(k);f=f.join("=");if(b===k){c=n(f,g);break}b||void 0===(f=n(f))||(c[k]=f)}return c};e.defaults={};d.removeCookie=function(b,e){d.cookie(b,"",d.extend({},e,{expires:-1}));return!d.cookie(b)}});
+	
+		var isModernBrowser = (!!document.createElement("canvas").getContext);
+		var countryNames = { AF: "Afghanistan", AX: "Aland Islands", AL: "Albania", DZ: "Algeria", AS: "American Samoa", AD: "Andorra", AO: "Angola", AI: "Anguilla", AQ: "Antarctica", AG: "Antigua and Barbuda", AR: "Argentina", AM: "Armenia", AW: "Aruba", AU: "Australia", AT: "Austria", AZ: "Azerbaijan", BS: "Bahamas", BH: "Bahrain", BD: "Bangladesh", BB: "Barbados", BY: "Belarus", BE: "Belgium", BZ: "Belize", BJ: "Benin", BM: "Bermuda", BT: "Bhutan", BO: "Bolivia, Plurinational State of", BQ: "Bonaire, Sint Eustatius and Saba", BA: "Bosnia and Herzegovina", BW: "Botswana", BV: "Bouvet Island", BR: "Brazil", IO: "British Indian Ocean Territory", BN: "Brunei Darussalam", BG: "Bulgaria", BF: "Burkina Faso", BI: "Burundi", KH: "Cambodia", CM: "Cameroon", CA: "Canada", CV: "Cape Verde", KY: "Cayman Islands", CF: "Central African Republic", TD: "Chad", CL: "Chile", CN: "China", CX: "Christmas Island", CC: "Cocos (Keeling) Islands", CO: "Colombia", KM: "Comoros", CG: "Congo", CD: "Congo, the Democratic Republic of the", CK: "Cook Islands", CR: "Costa Rica", CI: "CÃ´te d'Ivoire", HR: "Croatia", CU: "Cuba", CW: "CuraÃ§ao", CY: "Cyprus", CZ: "Czech Republic", DK: "Denmark", DJ: "Djibouti", DM: "Dominica", DO: "Dominican Republic", EC: "Ecuador", EG: "Egypt", SV: "El Salvador", GQ: "Equatorial Guinea", ER: "Eritrea", EE: "Estonia", ET: "Ethiopia", FK: "Falkland Islands (Malvinas)", FO: "Faroe Islands", FJ: "Fiji", FI: "Finland", FR: "France", GF: "French Guiana", PF: "French Polynesia", TF: "French Southern Territories", GA: "Gabon", GM: "Gambia", GE: "Georgia", DE: "Germany", GH: "Ghana", GI: "Gibraltar", GR: "Greece", GL: "Greenland", GD: "Grenada", GP: "Guadeloupe", GU: "Guam", GT: "Guatemala", GG: "Guernsey", GN: "Guinea", GW: "Guinea-Bissau", GY: "Guyana", HT: "Haiti", HM: "Heard Island and McDonald Islands", VA: "Holy See (Vatican City State)", HN: "Honduras", HK: "Hong Kong", HU: "Hungary", IS: "Iceland", IN: "India", ID: "Indonesia", IR: "Iran, Islamic Republic of", IQ: "Iraq", IE: "Ireland", IM: "Isle of Man", IL: "Israel", IT: "Italy", JM: "Jamaica", JP: "Japan", JE: "Jersey", JO: "Jordan", KZ: "Kazakhstan", KE: "Kenya", KI: "Kiribati", KP: "Korea, Democratic People's Republic of", KR: "Korea, Republic of", KW: "Kuwait", KG: "Kyrgyzstan", LA: "Lao People's Democratic Republic", LV: "Latvia", LB: "Lebanon", LS: "Lesotho", LR: "Liberia", LY: "Libya", LI: "Liechtenstein", LT: "Lithuania", LU: "Luxembourg", MO: "Macao", MK: "Macedonia, the Former Yugoslav Republic of", MG: "Madagascar", MW: "Malawi", MY: "Malaysia", MV: "Maldives", ML: "Mali", MT: "Malta", MH: "Marshall Islands", MQ: "Martinique", MR: "Mauritania", MU: "Mauritius", YT: "Mayotte", MX: "Mexico", FM: "Micronesia, Federated States of", MD: "Moldova, Republic of", MC: "Monaco", MN: "Mongolia", ME: "Montenegro", MS: "Montserrat", MA: "Morocco", MZ: "Mozambique", MM: "Myanmar", NA: "Namibia", NR: "Nauru", NP: "Nepal", NL: "Netherlands", NC: "New Caledonia", NZ: "New Zealand", NI: "Nicaragua", NE: "Niger", NG: "Nigeria", NU: "Niue", NF: "Norfolk Island", MP: "Northern Mariana Islands", NO: "Norway", OM: "Oman", PK: "Pakistan", PW: "Palau", PS: "Palestine, State of", PA: "Panama", PG: "Papua New Guinea", PY: "Paraguay", PE: "Peru", PH: "Philippines", PN: "Pitcairn", PL: "Poland", PT: "Portugal", PR: "Puerto Rico", QA: "Qatar", RE: "RÃ©union", RO: "Romania", RU: "Russian Federation", RW: "Rwanda", BL: "Saint BarthÃ©lemy", SH: "Saint Helena, Ascension and Tristan da Cunha", KN: "Saint Kitts and Nevis", LC: "Saint Lucia", MF: "Saint Martin (French part)", PM: "Saint Pierre and Miquelon", VC: "Saint Vincent and the Grenadines", WS: "Samoa", SM: "San Marino", ST: "Sao Tome and Principe", SA: "Saudi Arabia", SN: "Senegal", RS: "Serbia", SC: "Seychelles", SL: "Sierra Leone", SG: "Singapore", SX: "Sint Maarten (Dutch part)", SK: "Slovakia", SI: "Slovenia", SB: "Solomon Islands", SO: "Somalia", ZA: "South Africa", GS: "South Georgia and the South Sandwich Islands", SS: "South Sudan", ES: "Spain", LK: "Sri Lanka", SD: "Sudan", SR: "Suriname", SJ: "Svalbard and Jan Mayen", SZ: "Swaziland", SE: "Sweden", CH: "Switzerland", SY: "Syrian Arab Republic", TW: "Taiwan, Province of China", TJ: "Tajikistan", TZ: "Tanzania, United Republic of", TH: "Thailand", TL: "Timor-Leste", TG: "Togo", TK: "Tokelau", TO: "Tonga", TT: "Trinidad and Tobago", TN: "Tunisia", TR: "Turkey", TM: "Turkmenistan", TC: "Turks and Caicos Islands", TV: "Tuvalu", UG: "Uganda", UA: "Ukraine", AE: "United Arab Emirates", GB: "United Kingdom", US: "United States", UM: "United States Minor Outlying Islands", UY: "Uruguay", UZ: "Uzbekistan", VU: "Vanuatu", VE: "Venezuela, Bolivarian Republic of", VN: "Viet Nam", VG: "Virgin Islands, British", VI: "Virgin Islands, U.S.", WF: "Wallis and Futuna", EH: "Western Sahara", YE: "Yemen", ZM: "Zambia", ZW: "Zimbabwe" };	
+		var topCountries = ["AU","NZ","GB","AT","CH","CZ","DE","DK","IE","IS","SK","ES","ZA","IL","KR","SG","US","CA"];		
+		var cfCountryCode = jQuery.cookie("cfCountryCode") || null;
+		//console.log(cfCountryCode);
+		//var cfCountryCode = "N/A";
+		var countryCodeCallbacks = [];
+		
+		function getCountryCode(fcn){
+			if(cfCountryCode !== null)
+				fcn(cfCountryCode);
+			else
+				countryCodeCallbacks.push(fcn);
+		}
+		
+					var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-38086017-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+
+		
+	</script>
+
+  <!--[if IE 6]>
+    <link href="http://canvasjs.com/wp-content/themes/bootstrap_child/assets/css/ie6.min.css" rel="stylesheet">
+  <![endif]-->
+</head>
+<body class="page page-id-2461 page-template page-template-page-editor page-template-page-editor-php"  data-spy="scroll" data-target=".bs-docs-sidebar" data-offset="10">
+  <div id = "wrap">
+
+    <div class="navbar navbar-inverse navbar-relative-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="http://canvasjs.com/" title="CanvasJS" rel="home">CanvasJS</a>
+
+          <div class="nav-collapse collapse"><ul id="main-menu" class="nav"><li id="menu-item-8589" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8589"><a title="javascript charts" href="http://canvasjs.com/javascript-charts/">charts gallery    <i class="icon-picture"></i></a></li>
+<li id="menu-item-3166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3166"><a href="http://canvasjs.com/download-html5-charting-graphing-library/">download   <i class="icon-download-alt"></i></a></li>
+<li id="menu-item-4170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4170"><a href="http://canvasjs.com/license-canvasjs/">buy  <i class="icon-shopping-cart"></i></a></li>
+<li id="menu-item-3165" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3165"><a href="http://canvasjs.com/docs/charts/basics-of-creating-html5-chart/">docs   <i class="icon-book"></i></a></li>
+<li id="menu-item-8700" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8700"><a href="/forums/">support <i class="icon-comment"></i></a></li>
+<li id="menu-item-3177" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3177"><a href="http://canvasjs.com/blog/">blog  <i class="icon-bullhorn"></i></a></li>
+<li id="menu-item-6229" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6229"><a target="_blank" href="https://angel.co/canvasjs/jobs">we are hiring! <i class="icon-user"></i></a></li>
+</ul></div>						<!--div id="gSearchContainer" class="visible-desktop" style="position:absolute;right:2px; margin-top: 5px;height:150px;width:300px;"-->								
+            <div id="gSearchContainer" class="visible-desktop" style="position:fixed;z-index:9999; right:2px; margin-top: 5px;height:150px;width:300px;">								
+				<div id="gSearch" style="position:absolute;right:35px; margin-top: 0px;max-height:27px;max-width:185px;">					
+					<gcse:search></gcse:search>							
+				</div>				
+				<button id="gSearchButton" style="position:absolute;right:2px; margin-top: 0px;max-height:29px;display:none;" class="btn btn-success"><i class="icon-search"></i></button>
+			</div>		
+				
+			<!--div class="visible-desktop" style="position:absolute;right:10px;top:12px;"><a href="https://twitter.com/canvasjs" class="twitter-follow-button " data-show-count="false"  data-show-screen-name="false"></a></div-->
+			          </div>
+        </div>
+      </div>
+      <div class = "container">
+        <br/>
+        <!-- End Header. Begin Template Content -->
+
+	
+<script type="text/javascript">
+$script.ready(['BsCcForPreUnvInvDem'], function () {
+	jQuery(document).ready(function($) {
+
+		var urlFetchSuccess = 0;
+
+		function getUrlId() {
+			var vars = {};
+		// window.location.href.replace
+		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+			vars[key] = value;
+		});
+		return vars;
+	}
+	url = getUrlId()["id"];
+
+	url = decodeURIComponent(url);
+	if (url !== "undefined"){
+
+		var defaultCode = jQuery("#preview1").attr('data-content');
+		jQuery("#preview1").attr('data-content', "");
+
+		$.ajax({ type: "GET",
+			url: url + "?ga=false",
+			async: true,
+			success : function(text){
+				urlFetchSuccess = 1;
+				// console.log(text);
+				content = text;
+				// editor.setValue(content)
+
+				//jQuery("#code1")[0].value = content;
+				jQuery("#preview1").attr('data-content', content);
+
+				var editorDom = $('.CodeMirror');
+				var editor;
+				if(editorDom && editorDom.length > 0)
+				{
+					editor = editorDom[0].CodeMirror;
+					editor.setValue(content);
+				}
+
+				//codeMirrorAdd("preview1", "code1");
+			},
+			error: function(){
+				urlFetchSuccess = 0;
+				editor.setValue(defaultCode);
+				console.log("invalid URL.");
+			}
+		});
+	}
+	else {
+		//jQuery("#preview1").attr('data-content', defaultCode);
+		//editor.setValue(defaultCode);
+	}
+
+	});
+
+});
+</script>
+
+	<div class = "container">
+		<div class = "row">
+			<div class = "span8">
+				<span class = "label label-warning">CanvasJS </span>
+
+<iframe id="preview1" class="codemirrorIframe"  data-content =
+'<!DOCTYPE HTML>
+<html>
+	<head>
+	<script type="text/javascript">
+		window.onload = function () {
+			var chart = new CanvasJS.Chart("chartContainer",
+			{
+				title:{
+					text: "Chart Title"
+				},
+				axisX: {
+					title:"Axis X Title"
+				},
+				axisY:{
+					title: "Axis Y Title"
+				},
+
+				data: [
+				{
+					type: "column",
+
+					dataPoints: [
+
+					{ x: 10, y: 6, label:"Apple" },
+					{ x: 20, y: 2, label:"Mango" },
+					{ x: 30, y: 5, label:"Orange" },
+					{ x: 40, y: 7, label:"Banana" },
+					{ x: 50, y: 1, label:"Pineapple" },
+					{ x: 60, y: 5, label:"Pears" },
+					{ x: 70, y: 5, label:"Grapes" },
+					{ x: 80, y: 2, label:"Lychee" },
+					{ x: 90, y: 2, label:"Jackfruit" }
+					]
+				}
+				]
+			});
+
+			chart.render();
+		}
+	</script>
+	<script type="text/javascript" src="/assets/script/canvasjs.min.js"></script>
+	</head>
+<body>
+	<div id="chartContainer" style="height: 300px; width: 100%;">
+	</div>
+</body>
+</html>'
+>
+</iframe>
+
+			<textarea class="codemirrorEditor" name="code" id="code1" cols="15" rows="20" style="margin: 2px;"></textarea>
+		</div>
+		<!-- span8 -->
+	</div> <!-- row -->
+</div> 	<!-- container -->
+</div> <!-- outer container  -->
+<div id = "push"></div>
+</div> <!-- wrap -->
+<!-- End Template Content -->
+
+<div id="searchDialog" class="modal hide fade">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h3>Didn't find what you were looking for?</h3>
+	</div>
+	<div class="modal-body">
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="span4 text-center">
+					<h4 class="">Try Searching:</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span4">
+					<input id="modalSearchInput" name="loc" class="span4" type="text" placeholder="Line Chart, Pie Chart, etc.">
+				</div>
+
+				<div class="span1">
+					<button id="modalSearchButton" type="submit" class="btn btn-success"> Search</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div class = "hidden-phone footer">
+ <div class="container">
+  <div class = "row-fluid">
+   <div class = "span3"><p><strong>&copy; 2013 fenopix</strong><br/><a href="mailto:info@canvasjs.com">info@canvasjs.com</a><br/><a href="http://canvasjs.com/privacy-policy/">Privacy Policy</a></p></div>
+   <div class = "span3"><p><strong>Browse</strong><br/><a href="/javascript-charts/">JavaScript Charts</a><br/><a href="/download-html5-charting-graphing-library/">Download</a><br/><a href="/license-canvasjs/">License</a></p> </div>
+   <div class = "span3"><p><strong>Key</strong><br/><a href="/docs/charts/basics-of-creating-html5-chart/">Documentation</a><br/><a href="/blog/">Blog</a></p> </div>
+   <div class = "span3"><p><strong>Contact</strong><br/><a href="mailto:sales@canvasjs.com" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Sales Enquiries</a><br/><a href="/forums/">Support Forum</a><br/><a href="https://twitter.com/canvasjs" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Twitter Support Handle</a></p></div>
+
+ </div>
+</div> <!-- /container -->
+</div>
+
+<div class = "visible-phone footer">
+ <div class="container">
+
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+
+        <th class = "topFoot">Browse</th>
+        <th class = "topFoot">Key</th>
+        <th class = "topFoot">Contact</th>
+      </tr>
+      <tbody>
+        <tr>
+          <td><a href="/javascript-charts/">JavaScript Charts</a></td>
+          <td><a href="/docs/charts/basics-of-creating-html5-chart/">Docs</a></td>
+          <td><a href="mailto:sales@canvasjs.com">sales@canvasjs.com</a></td>
+        </tr>
+
+        <tr>
+          <td><a href="/download-html5-charting-graphing-library/">Download</a></td>
+          <td><a href="/forums/">Support</a></td>
+          <td></td>
+
+        </tr>
+
+        <tr>
+          <td><a href="/license-canvasjs/">License</a></td>
+          <td><a href="/blog/">Blog</a></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+	<p style="text-align: center;">
+     <a href="http://canvasjs.com/privacy-policy/">Privacy Policy</a>&nbsp;&nbsp;&copy;  2013 fenopix
+   </p>
+ </div> <!-- /container -->
+</div>
+<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201622'></script>
+<script type='text/javascript' src='http://canvasjs.com/wp-includes/js/comment-reply.min.js?ver=4.5.2'></script>
+<script type='text/javascript' src='http://canvasjs.com/wp-includes/js/wp-embed.min.js?ver=4.5.2'></script>
+<!-- foot -->
+
+	<style type="text/css">
+	.fb_iframe_widget iframe {
+
+	  left: 0px;
+	}
+	</style>
+
+
+<script type="text/javascript">
+
+	var isGSearchVisible = false;	
+	function loadGSearch(animate){
+		
+		if(!isGSearchVisible){
+			isGSearchVisible = true; 
+			 
+				(function() {
+					var cx = '003885473777254040257:tc5-nrqnihg';
+					var gcse = document.createElement('script');
+					gcse.type = 'text/javascript';
+					gcse.async = true;
+					gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+						'//cse.google.com/cse.js?cx=' + cx;
+					var s = document.getElementsByTagName('script')[0];
+					s.parentNode.insertBefore(gcse, s);
+				})();
+			
+				//Search Engine for Test Purposes
+				/*(function() {
+					var cx = '003885473777254040257:gqvurg7injy';
+					var gcse = document.createElement('script');
+					gcse.type = 'text/javascript';
+					gcse.async = true;
+					gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+						'//cse.google.com/cse.js?cx=' + cx;
+					var s = document.getElementsByTagName('script')[0];
+					s.parentNode.insertBefore(gcse, s);
+				})();*/
+				
+				setTimeout(function(){
+					jQuery("#gSearch").animate(
+					{						
+						width: '220px',						
+					}, animate ? 500 : 0);
+				}, animate ? 100 : 0);
+				
+				jQuery("#gSearchButton").on("click", function(){
+					jQuery(".gsc-search-button").trigger( "click" );
+				});
+			}
+	}
+	
+	 jQuery(window).load(function(){
+		 
+		if(cfCountryCode === null)
+		{	
+			jQuery.getJSON("/services/geo.php", function(data){
+				if(data.cfCountryCode){
+					cfCountryCode =  data.cfCountryCode;
+					//cfCountryCode = "GB"
+					//console.log("Service: " + cfCountryCode);
+					jQuery.cookie("cfCountryCode", cfCountryCode, { expires: 365, path: '/' });
+				}
+				
+				for(var i = 0; i < countryCodeCallbacks.length; i++){
+					countryCodeCallbacks[i](cfCountryCode);					
+				}
+				
+				countryCodeCallbacks = [];
+			});
+		}
+		 //isModernBrowser &&
+		 // added search support for IE8-
+		 if ( (isModernBrowser || true) && jQuery(window).width() > 1000) {
+			 
+			 jQuery("#gSearchContainer").on("mouseover",function(){			 
+				
+				loadGSearch();
+				
+			 });
+			 
+			 jQuery("#gSearchButton").show();
+			 
+			 getCountryCode(function(cfCountryCode){
+				 
+				if(jQuery.inArray(cfCountryCode, topCountries) >= 0 ){
+					 <!--Start of Zopim Live Chat Script-->
+
+					window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+					d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+					_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
+					$.src="//v2.zopim.com/?14p6ACoNGU7hnWgwqcbkklq10WeJOQta";z.t=+new Date;$.
+					type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+
+					<!--End of Zopim Live Chat Script-->
+				}
+			 });
+		}
+
+		jQuery(".canvasjsEvent").click(function(){
+			var gaEvent = jQuery(this).data("gaevent");
+			//alert(" " + gaEvent.category + gaEvent.action + gaEvent.label + gaEvent.value);
+			if(typeof(_gaq) !== "undefined")
+				_gaq.push(['_trackEvent', gaEvent.category, gaEvent.action, gaEvent.label, gaEvent.value]);
+
+		});
+
+		$script.ready(["BsCcForPreUnvInvDem"], function(){
+
+			var codeArray = jQuery(".codemirrorEditor");
+			var frameArray = jQuery(".codemirrorIframe");
+			for (var i = 0; i < codeArray.length; i++) {
+				codeMirrorAdd(frameArray[i].id,codeArray[i].id);
+			}
+
+			function  codeMirrorAdd(preview,code){
+			var delay;
+			var editor = CodeMirror.fromTextArea(document.getElementById(code), {
+			  mode: 'htmlmixed',
+			  smartIndent: true,
+			  tabMode: 'indent',
+			  gutter: false,
+			  lineWrapping: true,
+			  reindentOnLoad: true,
+			  autoMatchParens: true,
+			  onChange: function () {
+					//updatePreview(editor, preview);
+					clearTimeout(delay);
+					delay = setTimeout(function () {
+					  updatePreview(editor, preview);
+					}, 300);
+				  }
+				});
+
+			var content = jQuery("#"+preview).attr('data-content');
+			 // console.log(content);
+
+			 if (content)
+			   editor.setValue(content);
+			}
+
+			//var updateCount = 0;
+			function updatePreview(editor, id) {
+				//console.log("update: " + updateCount++);
+				var previewFrame = document.getElementById(id);
+				var preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
+				preview.open();
+				preview.write(editor.getValue());
+				preview.close();
+			}
+
+
+			// removing allowed tags from form
+			jQuery(".form-allowed-tags").hide();
+
+			// Highligting current page in nav menue tags
+			jQuery(".current-menu-item").addClass("active");
+			jQuery(".current_page_parent").addClass("active");
+
+			jQuery(document).ready(function($) {
+				$("img.lazy").unveil(200);
+			});
+			
+
+			var bounceTime = 20000;
+			var bounceVisitCount = 10;
+			var pageReadyTime = new Date();			
+			var excludeCountryCode = ["US"];
+
+			var pageCount = jQuery.cookie("pageCount", Number) || 0;
+			jQuery.cookie("pageCount", ++pageCount, { expires: 365, path: '/' });
+			
+			var searchModalShown = jQuery.cookie("searchModalShown", Boolean) || false;	
+			
+			if(pageCount > 1){
+				loadGSearch(true);
+			}
+
+			//console.log("Page Count: " + pageCount);
+
+			if (pageCount <= bounceVisitCount) {
+				
+				jQuery('#searchDialog').on("shown", function () {
+				jQuery('#modalSearchInput').focus();
+				});
+
+				jQuery('#modalSearchInput').keyup(function (e) {
+					if (e.keyCode == 13) {
+						doSearchFromModal();
+					}
+				});
+
+				jQuery("#modalSearchButton").on("click", function () {
+					doSearchFromModal();
+				});
+
+				function doSearchFromModal() {
+					var searchString = jQuery("#modalSearchInput").val();
+					if (searchString && searchString.length) {
+						jQuery(".gsc-input").val(jQuery("#modalSearchInput").val());
+						jQuery(".gsc-search-button").trigger("click");
+					}
+				}
+				
+				jQuery(window.document).on("mouseout", function (e) {
+					var pageX = e.clientX || e.pageX;
+					var pageY = e.clientY || e.pageY;
+					
+					//console.log(e.pageX + "; " + e.pageY);
+					//console.log(e.clientX + "; " + e.clientY);
+					//console.log(pageX + "; " + pageY);
+					
+					if (pageX < 0 || pageY < 0) {
+						
+						loadGSearch(false);
+						
+						var timeSincePageReady = (new Date()).getTime() - pageReadyTime.getTime();
+						if ((!cfCountryCode || (cfCountryCode && jQuery.inArray(cfCountryCode, excludeCountryCode) < 0)) && !searchModalShown &&  timeSincePageReady < bounceTime) {
+							
+							//console.log("Outside the window!");
+							searchModalShown = true;
+							jQuery.cookie("searchModalShown", true, { expires: 365, path: '/' });
+														
+							if(typeof(_gaq) !== "undefined"){
+								var timeBucketLow = Math.floor(timeSincePageReady / 5000) * 5;
+								//console.log(timeBucketLow + " - " + (timeBucketLow + 5));
+								_gaq.push(['_trackEvent', "UnBounce", "Search Modal", timeBucketLow + " - " + (timeBucketLow + 5), 1, true]);
+							}
+														
+							jQuery('#searchDialog').modal({ backdrop: true, keyboard: true, show: true });							
+						}
+					}
+				});
+			}
+			
+		});
+
+		
+		$script("https://fenopix.agilecrm.com/stats/min/agile-min.js", "AgileCRM", function(){
+			_agile.set_account('1hlpkvg7im3jjk429mc7i7gurb', 'fenopix');
+			_agile.set_tracking_domain ('canvasjs.com');
+			
+						
+			_agile.track_page_view();  _agile_execute_web_rules();
+		});		
+		
+	});
+</script>
+
+
+<!--[if IE 6]>
+<script>
+    jQuery(function(){if($.browser.msie&&parseInt($.browser.version,10)===6){jQuery('.row div[class^="span"]:last-child').addClass("last-child");jQuery('[class*="span"]').addClass("margin-left-20");jQuery(':button[class="btn"], :reset[class="btn"], :submit[class="btn"], input[type="button"]').addClass("button-reset");jQuery(":checkbox").addClass("input-checkbox");jQuery('[class^="icon-"], [class*=" icon-"]').addClass("icon-sprite");jQuery(".pagination li:first-child a").addClass("pagination-first-child")}});
+</script>
+<![endif]-->
+
+</body>
 </html>
