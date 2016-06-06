@@ -20,7 +20,7 @@ document.write('<style type="text/css">.tabber{display:none;}<\/style>');
 
 </head>
 <body>
-		  	<style>
+<style>
 /*
 .chart rect {
   fill: steelblue;
@@ -188,8 +188,39 @@ legend.append('text')
      <div class="tabbertab">
 	  <h2>Health Indicators</h2>
 	  <p>
-
-<svg class="chart"></svg>
+<style>
+/*
+.chart rect {
+  fill: steelblue;
+}
+*/
+.chart1 .legend {
+  fill: black;
+  font: 14px sans-serif;
+  text-anchor: start;
+  font-size: 12px;
+}
+.chart1 text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: end;
+}
+.chart1 .label {
+  fill: black;
+  font: 14px sans-serif;
+  text-anchor: end;
+}
+.bar:hover {
+  fill: brown;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+</style>
+<svg class="chart1"></svg>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 var data = {
@@ -237,11 +268,11 @@ var yAxis = d3.svg.axis()
     .tickSize(0)
     .orient("left");
 // Specify the chart area and dimensions
-var chart = d3.select(".chart")
+var chart1 = d3.select(".chart1")
     .attr("width", spaceForLabels + chartWidth + spaceForLegend)
     .attr("height", chartHeight);
 // Create bars
-var bar = chart.selectAll("g")
+var bar = chart1.selectAll("g")
     .data(zippedData)
     .enter().append("g")
     .attr("transform", function(d, i) {
@@ -271,7 +302,7 @@ bar.append("text")
         return data.labels[Math.floor(i/data.series.length)];
       else
         return ""});
-chart.append("g")
+chart1.append("g")
       .attr("class", "y axis")
       .attr("transform", "translate(" + spaceForLabels + ", " + -gapBetweenGroups/2 + ")")
       .call(yAxis);
@@ -300,7 +331,6 @@ legend.append('text')
     .attr('y', legendRectSize - legendSpacing)
     .text(function (d) { return d.label; });
 </script>
-	  	
 	  	
 	  </p>
      </div>
