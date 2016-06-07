@@ -120,7 +120,7 @@ for (var i=0; i<data.labels.length; i++) {
   }
 }
 // Color scale
-var color = d3.scale.category20();
+var color = d3.scale.category10();
 var chartHeight = barHeight * zippedData.length + gapBetweenGroups * data.labels.length;
 var x = d3.scale.linear()
     .domain([0, d3.max(zippedData)])
@@ -271,7 +271,7 @@ for (var i=0; i<data.labels.length; i++) {
   }
 }
 // Color scale
-var color = d3.scale.category20();
+var color = d3.scale.category10();
 var chartHeight = barHeight * zippedData.length + gapBetweenGroups * data.labels.length;
 var x = d3.scale.linear()
     .domain([0, d3.max(zippedData)])
