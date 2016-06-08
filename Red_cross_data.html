@@ -166,7 +166,7 @@ bar.append("text")
       if (i % data.series.length === 0)
         return data.labels[Math.floor(i/data.series.length)];
       else
-        return "" + '%'});
+        return "" });
 chart.append("g")
       .attr("class", "y axis")
       .attr("transform", "translate(" + spaceForLabels + ", " + -gapBetweenGroups/2 + ")")
