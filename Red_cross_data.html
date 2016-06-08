@@ -210,18 +210,18 @@ legend.append('text')
   fill: steelblue;
 }
 */
-.chart1 .legend {
+.chart .legend {
   fill: black;
   font: 14px sans-serif;
   text-anchor: start;
   font-size: 12px;
 }
-.chart1 text {
+.chart text {
   fill: white;
   font: 10px sans-serif;
   text-anchor: end;
 }
-.chart1 .label {
+.chart .label {
   fill: black;
   font: 14px sans-serif;
   text-anchor: end;
@@ -236,7 +236,7 @@ legend.append('text')
   shape-rendering: crispEdges;
 }
 </style>
-<svg class="chart1"></svg>
+<svg class="chart"></svg>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 var data = {
@@ -284,15 +284,15 @@ var yAxis = d3.svg.axis()
     .tickSize(0)
     .orient("left");
 // Specify the chart area and dimensions
-var chart1 = d3.select(".chart1")
+var chart = d3.select(".chart")
     .attr("width", spaceForLabels + chartWidth + spaceForLegend)
     .attr("height", chartHeight);
 // Create bars
-var bar = chart1.selectAll("g")
+var bar = chart.selectAll("g")
     .data(zippedData)
     .enter().append("g")
     .attr("transform", function(d, i) {
-      return "translate(" + spaceForLabels + "," + (i * barHeight + gapBetweenGroups * (0.5 + Math.floor(i/data.series.length))) ")";
+      return "translate(" + spaceForLabels + "," + (i * barHeight + gapBetweenGroups * (0.5 + Math.floor(i/data.series.length))) + ")";
     });
 // Create rectangles of the correct width
 bar.append("rect")
@@ -318,14 +318,14 @@ bar.append("text")
         return data.labels[Math.floor(i/data.series.length)];
       else
         return ""});
-chart1.append("g")
+chart.append("g")
       .attr("class", "y axis")
       .attr("transform", "translate(" + spaceForLabels + ", " + -gapBetweenGroups/2 + ")")
       .call(yAxis);
 // Draw legend
 var legendRectSize = 18,
     legendSpacing  = 4;
-var legend = chart1.selectAll('.legend')
+var legend = chart.selectAll('.legend')
     .data(data.series)
     .enter()
     .append('g')
