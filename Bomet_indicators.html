@@ -62,7 +62,7 @@ var chartWidth       = 600,
 // Zip the series data together (first values, second values, etc.)
 var zippedData = [];
 for (var i=0; i<data.labels.length; i++) {
-  for (var j=0; j<data.series.length; j++) + "%" {
+  for (var j=0; j<data.series.length; j++)  {
     zippedData.push(data.series[j].values[i]);
   }
 }
@@ -116,7 +116,7 @@ bar.append("text")
         return ""});
 chart.append("g")
       .attr("class", "y axis")
-      .attr("transform", "translate(" + spaceForLabels + ", " + -gapBetweenGroups/2 + ")")
+      .attr("transform", "translate(" + spaceForLabels + ", " + -gapBetweenGroups/2 + " + "%")")
       .call(yAxis);
 // Draw legend
 var legendRectSize = 18,
