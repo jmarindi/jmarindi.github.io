@@ -90,7 +90,7 @@ td {
 #lineChartTitle2 {
 	font-family: Verdana;
 	font-size  : 72px;
-	fill       : grey;
+	fill       : green;
 	text-anchor: middle;
 	font-weight: bold;
 	/*font-style: italic;*/
@@ -707,6 +707,11 @@ function dsLineChartBasics() {
 		}			
 		;
 }
+function numberWithCommas(x) {
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+}
 function dsLineChart() {
 	var firstDatasetLineChart = datasetLineChartChosen(group);    
 	
@@ -745,7 +750,7 @@ function dsLineChart() {
 		/* descriptive titles as part of plot -- start */
 	var dsLength=firstDatasetLineChart.length;
 	plot.append("text")
-		.text(firstDatasetLineChart[dsLength-1].measure)
+		.text(numberWithCommas(firstDatasetLineChart[dsLength-1].measure))
 		.attr("id","lineChartTitle2")
 		.attr("x",width/2)
 		.attr("y",height/2)	
@@ -813,7 +818,7 @@ function updateLineChart(group, colorChosen) {
 	var dsLength=currentDatasetLineChart.length;
 	
 	plot.select("text")
-		.text(currentDatasetLineChart[dsLength-1].measure)
+		.text(numberWithCommas(currentDatasetLineChart[dsLength-1].measure))
 		;
 	/* descriptive titles -- end */
 	   
