@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>d3 learning</title>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<style type="text/css">
+  body {
+    padding: 15px;
+    font: 14px sans-serif;
+  }
+
+</style>
+</head>
+<body>
+<script type="text/javascript">
+
+var margin = {top: 10, right: 10, bottom: 10, left: 10};
+
+var width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var body = d3.select("body");
+
+var formatComma = d3.format(","),
+    formatDecimal = d3.format(".1f"), 
+    formatDecimalComma = d3.format(",.2f"),
+    formatSuffix = d3.format("s"),
+    formatSuffixDecimal1 = d3.format(".1s"),
+    formatSuffixDecimal2 = d3.format(".2s"),
+    formatMoney = function(d) { return "$" + formatDecimalComma(d); },
+    formatPercent = d3.format(",.2%");
+    
+var number = 1500;
+
+body.append("p").text("Starting number: " + number).style("font-weight", "bold");
+body.append("p").text(function() { return 'd3.format(",") : ' + formatComma(number); });
+body.append("p").text(function() { return 'd3.format(".1f") : ' + formatDecimal(number); });
+body.append("p").text(function() { return 'd3.format(",.2f") : ' + formatDecimalComma(number); });
+body.append("p").text(function() { return 'd3.format("s") : ' + formatSuffix(number); });
+body.append("p").text(function() { return 'd3.format(".1s") : ' + formatSuffixDecimal1(number); });
+body.append("p").text(function() { return 'd3.format(".2s") : ' + formatSuffixDecimal2(number); });
+body.append("p").text(function() { return 'function(d) { return "$" + d3.format(",.2f")(d); } : ' + formatMoney(number); });
+body.append("p").text(function() { return 'd3.format(",.2%") : ' + formatPercent(number); });
+
+</script>
+</body>
+</html>
