@@ -4,26 +4,26 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <title>Integrity_action</title>
    <!--<script type="text/javascript" src="d3/d3.v2.js"></script>-->
-    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
 	<!-- Note: I made good use of the sample code provided by the D3JS community and extended it to fit my needs to create this simple dashboard -->
     <style type="text/css">
 #pieChart {    
 	position:absolute;
-	top:30px;
-	left:20px;
-	width:500px;
-	height:500px; 
+	top:60px;
+	left:30px;
+	width:400px;
+	height:400px; 
 }
 #lineChart {    
 	position:absolute;
 	top:30px;
-	left:510px;
+	left:430px;
 	height: 150px;
 }
 #barChart {
 	position:absolute;
 	top:190px;
-	left:510px;
+	left:430px;
 	height: 450px;
 }
 .slice {
@@ -83,7 +83,7 @@ td {
 #lineChartTitle1 {
 	font-family: Verdana;
 	font-size  : 14px;
-	fill       : Black;
+	fill       : green;
 	font-weight: bold;
 	text-anchor: middle;
 }
@@ -125,17 +125,17 @@ var 	formatAsPercentage = d3.format("%"),
 */
 function dsPieChart(){
 	var dataset = [
-		  {category: "Nepal", measure: 57.50},
-		  {category: "Sierra_leone", measure: 11.94},
-		  {category: "Ivory_coast", measure: 9.37},
-	      {category: "Timor_Leste", measure: 6.59},
-	      {category: "Kyrgyzstan", measure: 6.21},
-		  {category: "DR_Congo", measure: 3.54},
-	      {category: "Afghanistan", measure: 2.62},
-	      {category: "Palestine", measure: 1.36},
-	      {category: "Liberia ", measure:0.66},
-	      {category: "Kenya", measure: 0.18},
-		  {category: "South_sudan", measure: 0.02}
+		  {category: "Kenya", measure: 31.21},
+		  {category: "Nepal", measure: 12.06},
+		  {category: "Afghanistan", measure: 9.57},
+	      {category: "DR_Congo", measure: 9.22},
+	      {category: "Timor_Leste", measure: 9.22},
+		  {category: "Palestine", measure: 9.22},
+	      {category: "Kyrgyzstan", measure: 7.45},
+	      {category: "Ivory_coast", measure: 4.26},
+	      {category: "Liberia ", measure:3.55},
+	      {category: "South_sudan", measure: 2.48},
+		  {category: "Sierra_leone", measure: 1.77}
 		  ]
 	      ;
 		  
@@ -160,6 +160,20 @@ function dsPieChart(){
 				
    var arc = d3.svg.arc()              //this will create <path> elements for us using arc data
         	.outerRadius(outerRadius).innerRadius(innerRadius);
+			
+			
+			//For Formatting numbers
+	var formatComma = d3.format(","),
+    formatDecimal = d3.format(".1f"), 
+    formatDecimalComma = d3.format(",.2f"),
+    formatSuffix = d3.format("s"),
+    formatSuffixDecimal1 = d3.format(".1s"),
+    formatSuffixDecimal2 = d3.format(".2s"),
+    formatMoney = function(d) { return "$" + formatDecimalComma(d); },
+    formatPercent = d3.format(",.2%"),
+	formatDecimalPercentage = function(d) { return formatDecimalComma(d) + "%"; };
+			
+			
    
    // for animation
    var arcFinal = d3.svg.arc().innerRadius(innerRadiusFinal).outerRadius(outerRadius);
@@ -179,8 +193,9 @@ function dsPieChart(){
         arcs.append("svg:path")
                .attr("fill", function(d, i) { return color(i); } ) //set the color for each slice to be chosen from the color function defined above
                .attr("d", arc)     //this creates the actual SVG path using the associated data (pie) with the arc drawing function
-					.append("svg:title") //mouseover title showing the figures
-				   .text(function(d) { return d.data.category + ": " + formatAsPercentage(d.data.measure); });			
+					.append("svg:title") //mouseover title showing the figures. parseFloat(Math.round(num3 * 100) / 100).toFixed(2)
+				   //.text(function(d) { return d.data.category + ": " + formatAsPercentage(d.data.measure); });	//	
+                   .text(function(d) { return d.data.category + ":" + formatDecimalPercentage(d.data.measure); });				   
         d3.selectAll("g.slice").selectAll("path").transition()
 			    .duration(750)
 			    .delay(10)
@@ -209,7 +224,7 @@ function dsPieChart(){
 		vis.append("svg:text")
 	     	.attr("dy", ".35em")
 	      .attr("text-anchor", "middle")
-	      .text("Donor Aid Share")
+	      .text("% of projects monitored")
 	      .attr("class","title")
 	      ;		    
 		
@@ -368,10 +383,10 @@ function datasetBarChosen(group) {
 	return ds;
 }
 function dsBarChartBasics() {
-		var margin = {top: 30, right: 5, bottom: 20, left: 50},
+		var margin = {top: 30, right: 5, bottom: 40, left: 50},
 		width = 700 - margin.left - margin.right,
-	   height = 450 - margin.top - margin.bottom,
-		colorBar = d3.scale.category20(),
+	   height = 470 - margin.top - margin.bottom,
+		colorBar = d3.scale.category10(),
 		barPadding = 1
 		;
 		
@@ -442,7 +457,7 @@ function dsBarChart() {
 			.attr("height", function(d) {
 			    return height-yScale(d.measure);
 			})
-			.attr("fill", "lightgrey")
+			.attr("fill", "DarkOliveGreen")
 			;
 	
 		
@@ -461,7 +476,7 @@ function dsBarChart() {
 			return (i * (width / firstDatasetBarChart.length)) + ((width / firstDatasetBarChart.length - barPadding) / 2);
 	})
 	.attr("y", function(d) {
-			return yScale(d.measure) + 14;
+			return yScale(d.measure) + 15;
 	})
 	.attr("class", "yAxis")
 	/* moved to CSS			   
@@ -497,10 +512,10 @@ function dsBarChart() {
 	
 	svg.append("text")
 		.attr("x", (width + margin.left + margin.right)/2)
-		.attr("y", 15)
+		.attr("y", 465)
 		.attr("class","title")				
 		.attr("text-anchor", "middle")
-		.text("Total amount spent in Projects per sector in USD")
+		.text("Total amount spent in Projects per sector")
 		;
 }
 dsBarChart();
@@ -574,7 +589,7 @@ function updateBarChart(group, colorChosen) {
 		
 		svg.selectAll("text.title") // target the text element(s) which has a title class defined
 			.attr("x", (width + margin.left + margin.right)/2)
-			.attr("y", 15)
+			.attr("y", 465)
 			.attr("class","title")				
 			.attr("text-anchor", "middle")
 			.text(group + "'s Projects allocation per sector in USD")
@@ -689,13 +704,18 @@ function datasetLineChartChosen(group) {
 	var ds = [];
 	for (x in datasetLineChart) {
 		 if(datasetLineChart[x].group==group){
-		 	ds.push(datasetLineChart[x]);
+		  	ds.push(datasetLineChart[x]);
 		 } 
 		}
 	return ds;
 }
+function numberWithCommas(x) {
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+}
 function dsLineChartBasics() {
-	var margin = {top: 20, right: 10, bottom: 0, left: 50},
+	var margin = {top: 20, right: 10, bottom: 5, left: 50},
 	    width = 500 - margin.left - margin.right,
 	    height = 150 - margin.top - margin.bottom
 	    ;
@@ -706,11 +726,6 @@ function dsLineChartBasics() {
 			height : height
 		}			
 		;
-}
-function numberWithCommas(x) {
-    var parts = x.toString().split(".");
-    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    return parts.join(".");
 }
 function dsLineChart() {
 	var firstDatasetLineChart = datasetLineChartChosen(group);    
@@ -749,6 +764,7 @@ function dsLineChart() {
 	    ;
 		/* descriptive titles as part of plot -- start */
 	var dsLength=firstDatasetLineChart.length;
+	
 	plot.append("text")
 		.text(numberWithCommas(firstDatasetLineChart[dsLength-1].measure))
 		.attr("id","lineChartTitle2")
@@ -761,7 +777,7 @@ function dsLineChart() {
 	    .attr("class", "line")
 	    .attr("d", line)	
 	    // add color
-		.attr("stroke", "lightgrey")
+		.attr("stroke", "DarkOliveGreen")
 	    ;
 	  
 	plot.selectAll(".dot")
@@ -774,7 +790,7 @@ function dsLineChart() {
 	    .attr("cx", line.x())
 	    .attr("cy", line.y())
 	    .attr("r", 3.5)
-	    .attr("stroke", "lightgrey")
+	    .attr("stroke", "DarkOliveGreen")
 	    .append("title")
 	    .text(function(d) { return d.category + ": " + formatAsInteger(d.measure); })
 	    ;
@@ -836,7 +852,7 @@ function updateLineChart(group, colorChosen) {
 		.selectAll(".dot")
 	   .data(currentDatasetLineChart)
 	   .transition()
-		.duration(750)
+	   .duration(750)
 	   .attr("class", "dot")
 	   .attr("fill", function (d) { return d.measure==d3.min(currentDatasetLineChart, function(d) { return d.measure; }) ? "red" : (d.measure==d3.max(currentDatasetLineChart, function(d) { return d.measure; }) ? "green" : "white") } )
 	   .attr("cx", line.x())
