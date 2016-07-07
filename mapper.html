@@ -1,0 +1,552 @@
+
+<!DOCTYPE html encoding="utf-16">
+<html>
+<head>
+	<style>
+
+		.bar text.value {
+			fill: gray;
+			font: 11px sans-serif;
+		}
+
+		.axis {
+			shape-rendering: crispEdges;
+			font: 10px sans-serif;
+		}
+
+		.axis path {
+			fill: none;
+		}
+
+		.x.axis line {
+			stroke: black;
+		}
+
+		.y.axis path {
+			stroke: black;
+		}
+		
+		div.tooltip {
+			position: absolute;
+			text-align: center;
+			height: 12px;
+			padding: 4px;
+			font: 11px sans-serif;
+			background: #FFF;
+			border: solid 1px #AAA;
+			border-radius: 5px;
+			pointer-events: none;
+		}
+		
+		h1, p {
+			padding-left: 20px;
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			color: #656565;
+		}
+		
+		h1 {
+			padding-top: 20px;		
+			font-size: 20px;
+		}
+		
+		p {
+			font-size: 13px;
+		}
+		
+		p.impressum{
+			font-size: 10px;
+		}
+		
+		svg {
+			padding: 20px;
+		}
+		
+		.infowindow-name, .infowindow-capital, .infowindow-heading {
+			font-family: Helvetica, Arial, sans-serif;
+			font-size: 10pt;
+		
+		}
+		.infowindow-heading {
+			fill: #999;
+		}
+		.infowindow-name, .infowindow-capital {
+			fill: #333;
+		}
+		
+		.hexagons { fill: none; stroke: #B0B0B0; opacity: 1; }
+
+		.bar_canton, .AG, .AI, .AR, .BE, .BL, .FR, .GE, .GL, .GR, .JU,
+		.LU, .NE, .NW, .OW, .SG, .SH, .SO, .SZ, .TG, .TI, .UR, .VD, .VS,
+		.ZG, .ZH {
+			fill: #7AC85B;
+		}		
+		
+		.bar_city {
+			fill: #725ec9;
+			fill-opacity: 0.8;
+		}
+		
+		.Basel, .Bern, .Biel, .Genf, .Lausanne, .Lugano, .Luzern,
+		.Sankt_Gallen, .Winterthur, .Zuerich {
+			fill: #725ec9;
+		}
+
+		.AG, .AI, .AR, .Basel, .BE, .Bern, .Biel, .BL, .FR, .GE, .Genf, .GL, 
+		.GR, .JU, .Lausanne, .LU, .Lugano, .Luzern, .NE, .NW, .OW, .SG, .SH, 
+		.SO, .Sankt_Gallen, .SZ, .TG, .TI, .UR, .VD, .VS, .Winterthur, .ZG, 
+		.ZH, .Zuerich {
+			stroke: #F4F4F4;
+			stroke-width: 1px;
+			fill-opacity: 0.8;
+		}
+
+	</style>
+
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="http://d3js.org/topojson.v0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+</head>
+
+	
+<body>	
+	
+	<h1>Population: les cantons et les 10 plus grandes villes de la Suisse</h1>
+	
+	<p><a href='index.html'>Deutsche Version</a>
+	<p>La Suisse compte 26 cantons et demi-cantons. Dans l&apos;illustration ci-dessous, on ajoute &agrave; ceux-ci les dix 
+	villes les plus peupl&eacute;es, &agrave; savoir Zurich, Gen&egrave;ve, B&acirc;le, Lausanne, Berne, Winterthour, St-Gall, 
+	Lucerne, Lugano et Bienne.</p>
+	<p>Dans le cadre de votations (n&eacute;cessitant la majorit&eacute; des cantons), de questions politiques en lien avec 
+	des probl&eacute;matiques urbanistiques et à propos de la repr&eacute;sentation des cantons au Conseil des Etats, le rôle 
+	et l'importance des villes est quotidiennement sujet à controverses. Actuellement, les villes ne sont pas en tant que 
+	telles repr&eacute;sent&eacute;es au Conseil des Etats et leur opinion politique n'est donc pas directement 
+	repr&eacute;sent&eacute;e. Les communes suisses à caractère urbain ont donc uni leurs forces en cr&eacute;ant 
+	<a href='http://staedteverband.ch/fr/Bienvenue'>l'Union des Villes Suisses</a>, une structure charg&eacute;e de 
+	d&eacute;fendre leurs int&eacute;rêts.</p>
+	<p>Le graphique en barres (&agrave; gauche) montre le nombre d'habitants des zones concern&eacute;es. Pour les cantons qui 
+	abritent une des dix plus grandes villes (prises ici isol&eacute;ment), le chiffre se r&eacute;f&egrave;re uniquement 
+	&agrave; la population non concern&eacute;e par l'agglom&eacute;ration en question. Le demi-canton de B&acirc;le-Ville est 
+	dans son ensemble consid&eacute;r&eacute; comme un milieu urbain. On ne se r&eacute;f&egrave;re donc ici pas seulement 
+	&agrave; la population de la ville de B&acirc;le mais &agrave; celle de tout le demi-canton.</p>
+	<p>La Suisse d&eacute;form&eacute;e (en haut &agrave; droite) est une cartographie en anamorphose. Elle a &eacute;t&eacute; 
+	g&eacute;n&eacute;r&eacute;e en tenant compte du nombre d'habitants qui peuplent les cantons et les villes de telle sorte 
+	que les &quot;nouvelles&quot; surfaces de ces territoires sont toujours repr&eacute;sentatives de leur population. Le 
+	canton des Grisons, par exemple, bien qu'il soit g&eacute;ographiquement tr&egrave;s important en terme de surface, apparaît 
+	ici tr&egrave;s petit en raison de sa population peu nombreuse. A l'inverse, la ville de Genève gagne beaucoup de surface 
+	par rapport &agrave; une carte traditionnelle. De fait, chacun des petits hexagones de la carte correspond &agrave; un peu 
+	plus de 3000 habitants. La carte non fauss&eacute;e (en bas &agrave; droite) permet une comparaison imm&eacute;diate.</p>
+	<p class="impressum">&copy; Cartographie en anamorphose, donn&eacute;es cartographie en anamorphose, code, texte: Ralph Straumann, 
+	traduction fran&ccedil;aise par <a href='http://www.martingrandjean.ch/'>Martin Grandjean</a><br>
+	&copy; Donn&eacute;es non-d&eacute;form&eacute;es: SwissBoundaries 3D / Swisstopo (g&eacute;n&eacute;ralis&eacute;es)<br>
+	Nombre d&apos;habitants d&eacute;riv&eacute; du recensement &copy; Office f&eacute;d&eacute;ral de la statistique</p>
+	
+	<script type="text/javascript">
+		
+		// python -m SimpleHTTPServer 8008
+		
+	
+		regions = { "AG": {
+						"type": "canton",
+						"name": "Aargau",
+						"inhabitants": 615000
+					},
+					"AI": {
+						"type": "canton",
+						"name": "Appenzell–Innerrhoden",
+						"inhabitants": 16500
+					},
+					"AR": {
+						"type": "canton",
+						"name": "Appenzell–Ausserrhoden",
+						"inhabitants": 55000
+					},
+					"BE": {
+						"type": "canton",
+						"name": "Bern",
+						"inhabitants": 816500
+					},
+					"BL": {
+						"type": "canton",
+						"name": "Basel–Landschaft",
+						"inhabitants": 275500
+					},
+					"FR": {
+						"type": "canton",
+						"name": "Fribourg",
+						"inhabitants": 282500
+					},
+					"GE": {
+						"type": "canton",
+						"name": "Genève",
+						"inhabitants": 270000
+					},
+					"GL": {
+						"type": "canton",
+						"name": "Glarus",
+						"inhabitants": 39000
+					},
+					"GR": {
+						"type": "canton",
+						"name": "Graubünden",
+						"inhabitants": 195500
+					},
+					"JU": {
+						"type": "canton",
+						"name": "Jura",
+						"inhabitants": 71000
+					},
+					"LU": {
+						"type": "canton",
+						"name": "Luzern",
+						"inhabitants": 322000
+					},
+					"NE": {
+						"type": "canton",
+						"name": "Neuchâtel",
+						"inhabitants": 173500
+					},
+					"NW": {
+						"type": "canton",
+						"name": "Nidwalden",
+						"inhabitants": 41500
+					},
+					"OW": {
+						"type": "canton",
+						"name": "Obwalden",
+						"inhabitants": 36500
+					},
+					"SG": {
+						"type": "canton",
+						"name": "St. Gallen",
+						"inhabitants": 411500
+					},
+					"SH": {
+						"type": "canton",
+						"name": "Schaffhausen",
+						"inhabitants": 77000
+					},
+					"SO": {
+						"type": "canton",
+						"name": "Solothurn",
+						"inhabitants": 257000
+					},
+					"SZ": {
+						"type": "canton",
+						"name": "Schwyz",
+						"inhabitants": 148500
+					},
+					"TG": {
+						"type": "canton",
+						"name": "Thurgau",
+						"inhabitants": 250500
+					},
+					"TI": {
+						"type": "canton",
+						"name": "Ticino",
+						"inhabitants": 285500
+					},
+					"UR": {
+						"type": "canton",
+						"name": "Uri",
+						"inhabitants": 36000
+					},
+					"VD": {
+						"type": "canton",
+						"name": "Vaud",
+						"inhabitants": 591500
+					},
+					"VS": {
+						"type": "canton",
+						"name": "Valais",
+						"inhabitants": 317000
+					},
+					"ZG": {
+						"type": "canton",
+						"name": "Zug",
+						"inhabitants": 113500
+					},
+					"ZH": {
+						"type": "canton",
+						"name": "Zürich",
+						"inhabitants": 902500
+					},
+					"Basel": {
+						"type": "city",
+						"name": "Basel",
+						"inhabitants": 185000
+					},
+					"Bern": {
+						"type": "city",
+						"name": "Stadt Bern",
+						"inhabitants": 124500
+					},
+					"Biel": {
+						"type": "city",
+						"name": "Stadt Biel",
+						"inhabitants": 52000
+					},
+					"Genf": {
+						"type": "city",
+						"name": "Ville de Genève",
+						"inhabitants": 188500
+					},
+					"Lausanne": {
+						"type": "city",
+						"name": "Ville de Lausanne",
+						"inhabitants": 127500
+					},
+					"Lugano": {
+						"type": "city",
+						"name": "Città di Lugano",
+						"inhabitants": 51500
+					},
+					"Luzern": {
+						"type": "city",
+						"name": "Stadt Luzern",
+						"inhabitants": 59000
+					},
+					"Sankt_Gallen": {
+						"type": "city",
+						"name": "Stadt St. Gallen",
+						"inhabitants": 73000
+					},
+					"Winterthur": {
+						"type": "city",
+						"name": "Stadt Winterthur",
+						"inhabitants": 101500
+					},
+					"Zuerich": {
+						"type": "city",					
+						"name": "Stadt Zürich",
+						"inhabitants": 373500
+					}
+				}
+
+
+		var highlight = function (){
+			
+			var item = d3.select(this);
+			var item_class = item.attr("class");
+			var show_tooltip = true;
+			
+			if (item_class == "bar_canton" || item_class == "bar_city"){
+				item_class = item.attr("id");
+				show_tooltip = false;
+			}
+			
+			// In order to draw the highlighted feature properly, we have
+			// to append it to the end of the <svg>, so that it is on top
+			// of everything else
+			var detached = $('.' + item_class).detach();
+			$('svg').append(detached);
+				
+			$('.' + item_class).css("stroke", "#606060")
+					   .css("stroke-width", "1.5px")
+					   .css("fill-opacity", "0.9");
+			
+			if (show_tooltip == true){
+				tooltip.text(regions[item_class]["name"])
+					   .style("left", (d3.event.pageX - 34) + "px")
+					   .style("top", (d3.event.pageY - 12) + "px");			
+				
+				tooltip.transition()
+					   .duration(500)
+					   .style("opacity", 0.8);;
+			}
+				   
+			$('#' + item_class).css("stroke", "#606060")
+					   .css("stroke-width", "2px");
+		}
+		
+		var unhighlight = function (){
+			var item = d3.select(this);
+			var show_tooltip = true;
+			
+			var item_class = item.attr("class");
+			if (item_class == "bar_canton" || item_class == "bar_city"){
+				item_class = item.attr("id");
+				show_tooltip = false;
+			}
+			
+			$('.' + item_class).css("stroke", "#F4F4F4")
+			                   .css("stroke-width", "1px")
+							   .css("fill-opacity", "0.8");
+			
+			if (show_tooltip == true){
+				tooltip.transition()
+					   .duration(1000)
+					   .style("opacity", 1e-6);
+			}
+				   
+			$('#' + item_class).css("stroke", "none");				   
+		}		
+		
+
+		var width = 1000,
+			height = 650,
+			center_lon = 8,
+			center_lat = 45.81, //46.87,
+			scale = 8500;
+
+		var svg = d3.select("body").append("svg").attr("width", width).attr("height", height);
+
+		// MAP
+		var projection = d3.geo.albers().center([0, center_lat]).rotate([-center_lon, 0])
+						   .parallels([40, 50]).scale(scale).translate([width / 2 + 220, height / 2]);
+		
+		// Draw hexagonal units
+		d3.json("swiss_regions.json", function(error, data) {
+
+			var path = d3.geo.path()
+						 .projection(projection);
+
+			svg.append("path")
+			   .datum(topojson.object(data, data.objects.hex_pop_cartogram_switzerland_wgs84))
+			   .attr("class", "hexagons")
+			   .attr("d", path);
+		
+		// Draw geo-regions, i.e. undistorted geographic situation
+			svg.selectAll(".geo_regions")
+			   .data(topojson.object(data, data.objects.geo_regions).geometries)
+			   .enter()
+			   .append("path")
+			   .attr("class", function(d) { return d.properties.Entity; })
+			   .on("mouseover", highlight)
+			   .on("mousemove", mousemove)
+			   .on("mouseout", unhighlight)
+			   .attr("d", path);
+			   
+		
+		// Draw regions
+			
+			svg.selectAll(".hex_pop_cartogram_switzerland_dissolved_wgs84")
+			   .data(topojson.object(data, data.objects.hex_pop_cartogram_switzerland_dissolved_wgs84).geometries)
+			   .enter()
+			   .append("path")
+			   .attr("class", function(d) { return d.properties.Entity; })
+			   .attr("d", path)
+			   .on("mouseover", highlight)
+			   .on("mousemove", mousemove)
+			   .on("mouseout", unhighlight);
+		});
+    
+		var tooltip = d3.select("body")
+				.append("div")
+				.attr("class", "tooltip")
+				.style("opacity", 1e-6);
+		
+		function mousemove() {
+			tooltip.style("left", (d3.event.pageX + 3) + "px")
+			       .style("top", (d3.event.pageY - 26) + "px");
+		}
+		
+		
+		// BAR CHART
+		// modelled after http://bl.ocks.org/mbostock/1389927#index.html
+		
+		var format = d3.format(",.0f");
+		
+		var x = d3.scale.linear().range([0, 450]),
+			y = d3.scale.ordinal().rangeRoundBands([18, height], .1);
+
+		var xAxis = d3.svg.axis().scale(x).orient("top").ticks(5).tickSize(5),
+		    yAxis = d3.svg.axis().scale(y).orient("left").tickSize(0);			
+
+		d3.csv("inhabitants.csv", function(data) {
+
+			// Parse numbers, and sort by value.
+			data.forEach(function(d) { d.value = +d.value; });
+			data.sort(function(a, b) { return b.value - a.value; });
+
+			// Set the scale domain.
+			x.domain([0, d3.max(data, function(d) { return d.value; })]);
+			y.domain(data.map(function(d) { 
+				if (regions[d.name]["type"] == "canton"){
+					return d.name;
+				}
+				else{
+					return regions[d.name]["name"].replace("Stadt", "").replace("Ville de ", "").replace("Città di ", "");
+				}
+			}));
+
+			var bar = svg.selectAll("g.bar")
+						 .data(data)
+						 .enter().append("g")
+						 .attr("class", "bar")
+						 .attr("transform", function(d) { 
+							if (regions[d.name]["type"] == "canton"){
+								return "translate(55," + y(d.name) + ")";
+							}
+							else{
+								return "translate(55," + y(regions[d.name]["name"].replace("Stadt", "").replace("Ville de ", "").replace("Città di ", "")) + ")";
+							}
+						 });
+
+
+			
+			bar.append("rect")
+				.attr("width", function(d) { return x(d.value); })
+				.attr("height", y.rangeBand())
+				.attr("class", function(d) { return "bar_" + regions[d.name]["type"]; })
+				.attr("id", function(d) { return d.name; })
+				.on("mouseover", highlight)
+				.on("mouseout", unhighlight);
+
+			svg.append("g")
+			  .attr("class", "x axis")
+			  .attr("transform", function(d) { return "translate(55,20)"; })			  
+			  .call(xAxis);
+
+			svg.append("g")
+			  .attr("class", "y axis")
+			  .attr("transform", function(d) { return "translate(55,0)"; })	
+			  .call(yAxis);
+			  
+			bar.append("text")
+			   .attr("class", "value")
+			   .attr("x", function(d) { return x(d.value); })
+				.attr("y", y.rangeBand() / 2)
+				  .attr("dx", +3)
+				  .attr("dy", ".35em")
+				  .attr("text-anchor", "begin")
+				  .text(function(d) { return format(d.value); });
+		});
+		
+		   
+	</script>
+
+
+</body>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
