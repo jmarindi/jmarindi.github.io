@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Norwegian Refugee council</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/dc.css"/>
+    <style>
+      #table td {
+        padding-left: 10px;
+      }
+    </style>
+</head>
+<body>
+
+<div class="container">
+<script type="text/javascript" src="header.js"></script>
+<table style="width:100%">
+<TH></TH><TH></TH><TH></TH>
+<tr>
+<td><b> People reached per country</b> </td>
+<td><b> Total reached per Cluster</b></td>
+<td></td>
+</tr>
+
+<tr>
+    <td>
+      <div id="Country-ring-chart" style="width:300px; height:300px">
+           <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+             <a href="javascript:CountryRingChart.filterAll();dc.redrawAll();">reset</a>
+           </div>
+       </div>
+  
+    </td> 
+    <td>
+       <div id="chart-row-reached">
+             <div class="reset" style="visibility: hidden;width:700px; height:100px">selected: <span class="filter"></span>
+               <a href="javascript:ReachedRowChart.filterAll();dc.redrawAll();">reset</a>
+             </div>
+       </div>
+    </td>
+    <td></td>
+ 
+</tr> 
+<tr>
+    <td> </td>
+    <td> </td>
+    <td></td>
+</tr>
+<tr>
+    <td> <b>People reached per Gender </b></td>
+    <td> <b>Total Targeted per Cluster</b></td>
+    <td></td>
+</tr>
+
+<tr>
+     <td>
+        <div id="Gender-ring-chart" style="width:200px; height:200px">
+             <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+                <a href="javascript:GenderRingChart.filterAll();dc.redrawAll();">reset</a>
+             </div>
+       </div>
+  
+    </td>
+
+<td align="left">
+  <div id="chart-row-targeted" style="width:800px; height:200px">
+    <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+      <a href="javascript:targetedRowChart.filterAll();dc.redrawAll();">reset</a>
+    </div>
+  </div>
+  
+  </td>
+<td> </td>
+
+</tr>
+
+<tr>
+
+  <td></td>
+  <td></td>
+  
+  </tr>
+  
+  <tr>
+  <td></td>
+    
+     <td>
+        <div style="clear: both; margin: 30px; float: left">
+            <div id="table"></div>
+                <div id="download-type" style="clear: both; float: left">
+               <div><label><input type=radio name="operation" value="raw" checked="true">&nbsp;all data</label></div>
+               <div><label><input type=radio name="operation" value="table">&nbsp;table data</label></div>
+           </div>
+    <div style="float: left">
+      <button class="btn" id="download">download</button>
+    </div>
+  </div>
+</td>
+<td></td>
+</tr>
+</table>
+
+<script type="text/javascript" src="js/d3.js"></script>
+<script type="text/javascript" src="js/crossfilter.js"></script>
+<script type="text/javascript" src="js/dc.js"></script>
+<script type="text/javascript" src="js/FileSaver.js"></script>
+<script type="text/javascript">
+
+var CountryRingChart = dc.pieChart("#Country-ring-chart"),
+    GenderRingChart = dc.pieChart("#Gender-ring-chart"),
+    ReachedRowChart = dc.rowChart("#chart-row-reached")
+	targetedRowChart = dc.rowChart("#chart-row-targeted");
+
+var table = dc.dataTable('#table');
+
+// use static or load via d3.csv("spendData.csv", function(error, spendData) {/* do stuff */});
+var spendData = [
+          {Gender :'Male', cluster : 'Food Security', country :'South Sudan', Reached : 122916,Targeted:275457,countryid:5},
+          {Gender :'Male', cluster : 'Food Security', country :'Somalia', Reached : 33186,Targeted:38272, countryid :4},
+          {Gender :'Male', cluster : 'Food Security', country :'Yemen', Reached : 133427,Targeted:146453, countryid :7},
+          {Gender :'Male', cluster : 'Food Security', country :'Kenya', Reached : 27454,Targeted:92358, countryid :3},
+          {Gender :'Male', cluster : 'Food Security', country :'Ethiopia',Reached :4700,Targeted:5621 , countryid :2},
+          {Gender :'Male', cluster : 'Food Security', country :'Djibouti', Reached:1041,Targeted:1040 , countryid :1},
+          {Gender :'Male', cluster : 'Food Security', country :'Uganda', Reached : 1655, Targeted : 1250,countryid : 6},
+          {Gender :'Female', cluster : 'Food Security',country : 'South Sudan', Reached :219430,Targeted : 316376,countryid	:5},
+          {Gender :'Female', cluster : 'Food Security',country : 'Somalia', Reached :50880,Targeted :40011, countryid : 4 },
+          {Gender :'Female', cluster : 'Food Security',country : 'Yemen',Reached: 143951, Targeted : 169621, countryid : 7 },
+          {Gender :'Female', cluster : 'Food Security',country : 'Kenya',Reached: 25501, Targeted : 89685, countryid : 3 },
+          {Gender :'Female', cluster : 'Food Security',country : 'Ethiopia',Reached : 8334, Targeted : 8209, countryid : 2}	,
+          {Gender :'Female', cluster : 'Food Security',country : 'Djibouti',Reached :1010, Targeted : 1011, countryid:1 },
+          {Gender :'Female', cluster : 'Food Security',country : 'Uganda',Reached :	2007, Targeted: 1250, countryid:6},
+		  {Gender :'Male', cluster : 'WASH',country : 'South Sudan', Reached : 7920,Targeted : 10272, countryid	: 5	},
+          {Gender :'Male', cluster : 'WASH',country : 'Somalia',Reached :44712, Targeted :61875,countryid : 4 },
+          {Gender :'Male', cluster : 'WASH',country : 'Yemen',Reached: 24758, Targeted	:25328 , countryid : 7},
+          {Gender :'Male', cluster : 'WASH',country : 'Kenya',Reached: 112802 ,Targeted	:213193	, countryid :3 },
+          {Gender :'Male', cluster : 'WASH',country : 'Ethiopia',Reached : 72973, Targeted:75420 , countryid :2},
+          {Gender :'Male', cluster : 'WASH',country : 'Djibouti',Reached : 5900, Targeted: 5900	,countryid: 1},
+          {Gender :'Male', cluster : 'WASH',country : 'Uganda',Reached : 0, Targeted :	0 ,	countryid :	6},
+          {Gender :'Female', cluster : 'WASH', country : 'South Sudan', Reached	: 10745	,Targeted: 10669,countryid :5},
+          {Gender :'Female', cluster : 'WASH', country : 'Somalia', Reached	: 47648, Targeted: 52091,countryid :4 },
+          {Gender :'Female', cluster : 'WASH', country : 'Yemen',Reached : 27154, Targeted: 27433,countryid :7},
+          {Gender :'Female', cluster : 'WASH', country : 'Kenya',Reached : 124157, Targeted: 214015,countryid: 3},
+          {Gender :'Female', cluster : 'WASH', country : 'Ethiopia',Reached	: 128684, Targeted: 93715,countryid:2},
+          {Gender :'Female', cluster : 'WASH', country : 'Djibouti',Reached	: 8851,	Targeted: 8851,	countryid:1},
+          {Gender :'Female', cluster : 'WASH', country : 'Uganda',Reached: 0, Targeted :0,countryid	:6 },
+		  {Gender :'Male', cluster : 'Shelter', country: 'South Sudan',Reached:78486,Targeted:61220,countryid:5},
+          {Gender: 'Male', cluster : 'Shelter', country: 'Somalia',Reached:38768,Targeted:36602,countryid	:4},
+          {Gender: 'Male', cluster : 'Shelter', country: 'Yemen' ,Reached	:13619,Targeted:13233,countryid:7},
+          {Gender: 'Male', cluster : 'Shelter', country: 'Kenya',	Reached	:239,Targeted:242,countryid	:3}	,
+          {Gender: 'Male', cluster : 'Shelter', country: 'Ethiopia',Reached:20146,Targeted:39481,countryid:2},
+          {Gender: 'Male', cluster : 'Shelter', country: 'Djibouti',Reached:1055,	Targeted:3706,countryid	:1}	,
+          {Gender: 'Male', cluster : 'Shelter', country: 'Uganda',Reached	:0,	Targeted:0,	countryid:6	},
+          {Gender: 'Female', cluster:'Shelter' ,country: 'South Sudan',Reached:94016,Targeted:67780,countryid:5}	,
+          {Gender: 'Female', cluster:'Shelter', country: 'Somalia',Reached:37855,Targeted:36808,	countryid:4	},
+          {Gender: 'Female', cluster:'Shelter', country: 'Yemen',Reached	:14165,	Targeted:14092,	countryid:7	},
+          {Gender: 'Female', cluster:'Shelter', country: 'Kenya',Reached	:373,Targeted:243,	countryid:3	}	,
+          {Gender: 'Female', cluster:'Shelter', country: 'Ethiopia',Reached:18015,Targeted:	38241,countryid	:2}	,
+          {Gender: 'Female', cluster:'Shelter', country: 'Djibouti',Reached:	960,Targeted:3960,countryid	:1},
+          {Gender: 'Female', cluster:'Shelter', country: 'Uganda',Reached:0,	Targeted:0,countryid:6}	,
+          {Gender: 'Male', cluster:'Education',country:'South Sudan',Reached:53247,	Targeted:17358,countryid:5},
+          {Gender: 'Male', cluster:'Education',country:'Somalia',Reached:29880,	Targeted:33040,countryid:4}	,
+          {Gender: 'Male', cluster:'Education',country:'Yemen',Reached:0,Targeted:0,countryid:7	},
+          {Gender: 'Male', cluster:'Education',country:'Kenya',Reached:2246,Targeted:1959,countryid	:3},
+          {Gender: 'Male', cluster:'Education',country:'Ethiopia',Reached:12117,Targeted:12217,countryid:2}	,
+          {Gender: 'Male', cluster:'Education',country:'Djibouti',Reached:0,Targeted:0,countryid:1},
+          {Gender: 'Male', cluster:'Education',country:'Uganda',Reached	:3186,Targeted:3300,countryid:6},
+          {Gender: 'Female',cluster:'Education',country:'South Sudan',Reached:50764,Targeted:13015,	countryid:5	},
+          {Gender: 'Female',cluster:'Education',country:'Somalia',Reached:29370,Targeted:32941,	countryid:4	},
+          {Gender: 'Female',cluster:'Education',country:'Yemen',Reached	:0,	Targeted:0	,countryid:	7}	,
+          {Gender: 'Female',cluster:'Education',country:'Kenya',Reached	:1975,Targeted:1938,countryid:3	},
+          {Gender: 'Female',cluster:'Education',country:'Ethiopia',Reached:12342,Targeted:11949	,countryid:2}	,
+          {Gender: 'Female',cluster:'Education',country:'Djibouti',Reached:0,Targeted:0,countryid:1	},
+          {Gender: 'Female',cluster:'Education',country:'Uganda',	Reached	:3771,Targeted:	3300,countryid:	6},
+		  {Gender:'Male',cluster: 'ICLA',country:'South Sudan',	Reached	:14725,Targeted	:6805,countryid:5},
+          {Gender:'Male',cluster: 'ICLA',country:'Somalia',	Reached	:27669,Targeted	:14167,countryid:4}	,
+          {Gender:'Male',cluster: 'ICLA',country:'Yemen',Reached:0,	Targeted:0,countryid:7}	,
+          {Gender:'Male',cluster: 'ICLA',country:'Kenya',Reached:4562,Targeted:	3500,countryid:	3},
+          {Gender:'Male',cluster: 'ICLA',country:'Ethiopia'	,Reached:0,Targeted:0,	countryid:2	},
+          {Gender:'Male',cluster: 'ICLA',country:'Djibouti',Reached	:0,	Targeted:0,	countryid:1	},
+          {Gender:'Male',cluster: 'ICLA',country:'Uganda',Reached:	0,Targeted:	0,countryid	:6}	,
+          {Gender:'Female',cluster:'ICLA',country:'South Sudan',Reached:21073,Targeted:8170,countryid:5	},
+          {Gender:'Female',cluster:'ICLA',country:'Somalia',Reached	:35273,Targeted:17248,countryid	:4	},
+          {Gender:'Female',cluster:'ICLA',country:'Yemen',Reached:0,Targeted:0,countryid:7},
+          {Gender:'Female',cluster:'ICLA',country:'Kenya',Reached:4558,Targeted	:3500,countryid	:3},
+          {Gender:'Female',cluster:'ICLA',country:'Ethiopia',Reached:0,	Targeted:0,	countryid:2},
+          {Gender:'Female',cluster:'ICLA',country:'Djibouti',Reached:0,	Targeted:0,	countryid:1},
+          {Gender:'Female',cluster:'ICLA',country:'Uganda',Reached:0,Targeted:0,countryid:6	}	
+
+];                                                                    
+
+
+// set crossfilter
+var ndx = crossfilter(spendData),
+    CountryDim  = ndx.dimension(function(d) {return d.country;}),
+	GenderDim  = ndx.dimension(function(d) {return d.Gender;}),
+	ReachedDim  = ndx.dimension(function(d) {return d.Reached;}),
+	TargetedDim  = ndx.dimension(function(d) {return d.Targeted;}),
+	ClusterDim  = ndx.dimension(function(d) {return d.cluster;}),
+    ReachedPerCountry = CountryDim.group().reduceSum(function(d) {return +d.Reached;}),
+	ReachedPerGender = GenderDim.group().reduceSum(function(d) {return +d.Reached;}),
+	ReachedPerCluster = ClusterDim.group().reduceSum(function(d) {return +d.Reached;}),
+	TargetedPerCluster = ClusterDim.group().reduceSum(function(d) {return +d.Targeted;});
+	
+	//spendPerYear = yearDim.group().reduceSum(function(d) {return +d.Spent;}),
+	//spendPerYear = yearDim.group().reduceSum(function(d) {return +d.Spent;}),	   
+    //spendPerYear = yearDim.group().reduceSum(function(d) {return +d.Spent;}),
+    //spendPerName = nameDim.group().reduceSum(function(d) {return +d.Spent;}),
+	//Numbers1percluster = ClusterDim.group().reduceSum(function(d) {return +d.Number_Assisted;}),
+	//spendPerGender = GenderDim.group().reduceSum(function(d) {return +d.Spent;}),
+    //spendHist    = spendDim.group().reduceCount();
+
+  CountryRingChart
+    .width(300)
+    .height(300)
+    .dimension(CountryDim)
+    .group(ReachedPerCountry)
+    .innerRadius(50)
+    .controlsUseVisibility(true);
+	
+GenderRingChart
+    .width(300)
+    .height(300)
+    .dimension(GenderDim)
+    .group(ReachedPerGender)
+    .innerRadius(50)
+    .controlsUseVisibility(true);
+
+ReachedRowChart
+    .dimension(ReachedDim)
+    .group(ReachedPerCluster)
+    .elasticX(true)
+    .controlsUseVisibility(true);
+	
+targetedRowChart
+    .dimension(TargetedDim)
+    .group(TargetedPerCluster)
+    .elasticX(true)
+    .controlsUseVisibility(true);
+
+//var allDollars = ndx.groupAll().reduceSum(function(d) { return +d.Spent; });
+var reached = ndx.groupAll().reduceSum(function(d) { return +d.reached; });
+
+ // table
+ //     .dimension(spendDim)
+ //     .group(function(d) {
+ //         return d.value;
+ //     })
+ //     .showGroups(false)
+ //     .columns(['Name',
+ //               {
+ //                   label: 'Spent',
+ //                   format: function(d) {
+ //                       return '$' + d.Spent;
+ //                   }
+ //               },
+ //               'Country',
+ //               {
+ //                   label: 'Percent of Total',
+ //                   format: function(d) {
+ //                       return Math.floor((d.Spent / allDollars.value()) * 100) + '%';
+ //                   }
+ //               }]);
+
+d3.select('#download')
+    .on('click', function() {
+        var data = CountryDim.top(Infinity);
+        if(d3.select('#download-type input:checked').node().value==='table') {
+            data = data.map(function(d) {
+                var row = {};
+                table.columns().forEach(function(c) {
+                    row[table._doColumnHeaderFormat(c)] = table._doColumnValueFormat(c, d);
+                });
+                return row;
+            });
+        }
+        var blob = new Blob([d3.csv.format(data)], {type: "text/csv;charset=utf-8"});
+        saveAs(blob, 'data.csv');
+    });
+
+dc.renderAll();
+
+</script>
+
+</div>
+</body>
+</html>
