@@ -93,7 +93,7 @@
             <div id="table"></div>
                 <div id="download-type" style="clear: both; float: left">
                <div><label><input type=radio name="operation" value="raw" checked="true">&nbsp;all data</label></div>
-               <div><label><input type=radio name="operation" value="table">&nbsp;table data</label></div>
+               <div><label><a href="https://data.humdata.org/dataset/number-of-beneficiaries-per-cluster-per-country">Data on HDX</a></label></div>
            </div>
     <div style="float: left">
       <button class="btn" id="download">download</button>
@@ -175,7 +175,7 @@ var spendData = [
           {Gender: 'Female',cluster:'Education',country:'Ethiopia',Reached:12342,Targeted:11949	,countryid:2}	,
           {Gender: 'Female',cluster:'Education',country:'Djibouti',Reached:0,Targeted:0,countryid:1	},
           {Gender: 'Female',cluster:'Education',country:'Uganda',	Reached	:3771,Targeted:	3300,countryid:	6},
-		  {Gender:'Male',cluster: 'ICLA',country:'South Sudan',	Reached	:14725,Targeted	:6805,countryid:5},
+          {Gender:'Male',cluster: 'ICLA',country:'South Sudan',	Reached	:14725,Targeted	:6805,countryid:5},
           {Gender:'Male',cluster: 'ICLA',country:'Somalia',	Reached	:27669,Targeted	:14167,countryid:4}	,
           {Gender:'Male',cluster: 'ICLA',country:'Yemen',Reached:0,	Targeted:0,countryid:7}	,
           {Gender:'Male',cluster: 'ICLA',country:'Kenya',Reached:4562,Targeted:	3500,countryid:	3},
@@ -200,18 +200,10 @@ var ndx = crossfilter(spendData),
 	ReachedDim  = ndx.dimension(function(d) {return d.Reached;}),
 	TargetedDim  = ndx.dimension(function(d) {return d.Targeted;}),
 	ClusterDim  = ndx.dimension(function(d) {return d.cluster;}),
-    ReachedPerCountry = CountryDim.group().reduceSum(function(d) {return +d.Reached;}),
+        ReachedPerCountry = CountryDim.group().reduceSum(function(d) {return +d.Reached;}),
 	ReachedPerGender = GenderDim.group().reduceSum(function(d) {return +d.Reached;}),
 	ReachedPerCluster = ClusterDim.group().reduceSum(function(d) {return +d.Reached;}),
 	TargetedPerCluster = ClusterDim.group().reduceSum(function(d) {return +d.Targeted;});
-	
-	//spendPerYear = yearDim.group().reduceSum(function(d) {return +d.Spent;}),
-	//spendPerYear = yearDim.group().reduceSum(function(d) {return +d.Spent;}),	   
-    //spendPerYear = yearDim.group().reduceSum(function(d) {return +d.Spent;}),
-    //spendPerName = nameDim.group().reduceSum(function(d) {return +d.Spent;}),
-	//Numbers1percluster = ClusterDim.group().reduceSum(function(d) {return +d.Number_Assisted;}),
-	//spendPerGender = GenderDim.group().reduceSum(function(d) {return +d.Spent;}),
-    //spendHist    = spendDim.group().reduceCount();
 
   CountryRingChart
     .width(300)
@@ -244,27 +236,7 @@ targetedRowChart
 //var allDollars = ndx.groupAll().reduceSum(function(d) { return +d.Spent; });
 var reached = ndx.groupAll().reduceSum(function(d) { return +d.reached; });
 
- // table
- //     .dimension(spendDim)
- //     .group(function(d) {
- //         return d.value;
- //     })
- //     .showGroups(false)
- //     .columns(['Name',
- //               {
- //                   label: 'Spent',
- //                   format: function(d) {
- //                       return '$' + d.Spent;
- //                   }
- //               },
- //               'Country',
- //               {
- //                   label: 'Percent of Total',
- //                   format: function(d) {
- //                       return Math.floor((d.Spent / allDollars.value()) * 100) + '%';
- //                   }
- //               }]);
-
+ 
 d3.select('#download')
     .on('click', function() {
         var data = CountryDim.top(Infinity);
