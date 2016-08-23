@@ -35,7 +35,6 @@ function initialize(){ //the first function called once the html is loaded
 	setMap();
 };
  
-
 function setMap(){ //set choropleth map parameters	
 	//map frame dimensions
 	var width = 500;
@@ -112,8 +111,6 @@ function setMap(){ //set choropleth map parameters
 		};
 			
 		
-		
-		
 		//add regions to map as enumeration units colored by data
 		var regions = map.selectAll(".regions")
 			.data(topojson.feature(AfricaData, AfricaData.objects.Africa).features) //bind regions data to path element
@@ -136,15 +133,7 @@ function setMap(){ //set choropleth map parameters
 		//}			
 
 		createDropdown(csvData); //create the dropdown menu
-		
-		//pickcountry();	
-		
-		//createDescwindow();
-		//createCharts();
-		//createChartswindow();
-		
-		
-
+	
 	};
 };
 
