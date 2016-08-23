@@ -1,7 +1,5 @@
 
 //global variables
-//var keyArray = ["Country","pop_all_sexes","pop_male","pop_female","pop_av_annual_g_rate","pop_active","pop_0_14_years","pop_15_64_years","pop_65_more_years","pop_econ_activ_agric","pop_crude_birth_rate","pop_crude_death_rate","pop_total_fertility_rt","pop_proportion_urban","pop_life_exp_at_birth","pop_dependency_ratio","helt_u_five_mort_rt_all","helt_infant_mort_rt_all","helt_births_reg_per_1000","helt_deaths_reg_per_1000","helt_mort_rt_neonatal"];
-//
 
 var keyArray = [
 "Totalpops",
@@ -167,7 +165,7 @@ function createDropdown(csvData){
 		.append("option")
 		.attr("value", function(d){ return d })
 		.text(function(d) {
-			d = d[0].toUpperCase() + d.substring(1,3) + " " + d.substring(3);
+			d = d.substring();
 			return d
 			
 		});
