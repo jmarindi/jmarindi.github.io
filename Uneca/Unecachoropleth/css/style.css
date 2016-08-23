@@ -1,0 +1,157 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	width: 100%;
+	height: 100%;
+	padding-left: 20px;
+	font-family: "Proxima Nova Rg", Arial, Helvetica, sans-serif;
+	/* text unselectable */
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+}
+svgpane{
+	width: 40%;
+	height: 100%;
+	padding-left: 20px;
+
+}
+
+svg {
+	margin-left : 300px;
+	position: absolute;
+	width: 500px;
+	position:absolute;
+}
+
+.gratBackground {
+  fill: #D5E3FF;
+}
+
+.gratLines {
+  fill: none;
+  stroke: #999;
+  stroke-width: 0px;
+}
+
+.map {
+	border: medium solid #999;
+}
+
+.countries {
+  fill: #fff;
+  stroke: #ccc;
+  stroke-width: 2px;
+}
+
+.regions {
+  fill: none;
+  stroke: #000;
+  stroke-width: 0.5px;
+  stroke-linecap: round;
+}
+
+.dropdown {
+	
+	margin-right:200px;
+	width: 200px;
+}
+
+.infolabel {
+	position: absolute;
+	width: 280px;
+	height: 70px;
+	color: #fff;
+	background-color: #000;
+	border: solid thin #fff;
+	padding: 5px;
+}
+
+.infolabel h1 {
+	margin: 0px;
+	padding: 0px;
+	display: inline-block;
+	line-height: 1em;
+}
+
+.infolabel b {
+	float: left;
+}
+
+.labelname {
+	display: inline-block;
+	float: right;
+	margin: -25px 0px 0px 40px;
+	font-size: 1em;
+	font-weight: bold;
+	position: absolute;
+}
+.labeldesc {
+	display: inline-block;
+	float: right;
+	margin: 0px 0px 0px 0px;
+	font-size: 1em;
+	font-weight: bold;
+	position: absolute;
+}
+.infowindow {
+	position:absolute;
+	margin-left:800px;
+	margin-top: 2px;
+	width: 300px;
+	height: 100px;
+	color: #ffffff;
+	background-color: #000;
+	border: solid thin #fff;
+	padding: 5px;
+}
+	
+.titlebar {
+	margin-left:520px;
+	margin-bottom:80px;
+	background-color: #000;
+	width: 600px;
+	height: 20px;
+	
+		
+}
+descwindow {
+	position: right;
+	margin-left:520px;
+	margin-top:2px;
+}
+chartswindow {
+	margin-top:0px;
+	margin-left:10px;
+	background:lightgreen;
+	height: 380px;
+	width: 700px;
+     position:absolute;	
+	}
+.total_pop{
+	width:100px;
+	height:200px;
+	background:lightgreen;
+	
+}
+.femalepop{
+	
+	width:100px;
+	height:200px;
+	background:lightgreen;
+	
+}
+.malepop{
+	
+	width:100px;
+	height:200px;
+		
+}
+.birthrate{
+	
+	width:100px;
+	height:200px;
+	background:darkblue;
+	
+}

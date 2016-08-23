@@ -1,0 +1,15 @@
+var sortByCnt = counts.sort(function (a, b) { return a.cnt < b.cnt; });
+var names = sortByCnt.map(function (d) { return d.name; });
+
+chart
+  .width(768)
+  .height(380)
+  .x(d3.scale.ordinal().domain(names))
+  .xUnits(dc.units.ordinal)
+  .brushOn(false)
+  .xAxisLabel("Fruit")
+  .yAxisLabel("Quantity Sold")
+  .dimension(fruitDimension)
+  .barPadding(0.1)
+  .outerPadding(0.05)
+  .group(sumGroup);
