@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>UNECA Indicators</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/dc.css"/>
+	<!-- <link rel="stylesheet" type="text/css" href="css/tablestyler2.css"/> -->
+	 <link rel="stylesheet" type="text/css" href="css/table3.css"/>
+
+</head>
+<body>
+<table>
+<th></th><th></th><th></th> <th></th><th></th>
+<tr>
+<td colspan="5" align = "center"><b><h1>UNECA INDICATORS</b></h1></td>
+</tr>
+<!--- POPULATION GROWTH INDICATORS-->
+<tr>
+<td><b> Population growth</b>
+</td>
+  <td>
+  <div id="chart-bar-popcbr" style="width:350px; ">
+    <b><color = "Blue"> Crude Birth rate (Click to filter range)</b>
+    <div class="reset" style="visibility: hidden;">range: <span class="filter"></span>
+      <a href="javascript:popcbrchart.filterAll();dc.redrawAll();">reset</a>
+    </div>
+  </div>  
+  </td>
+<td>
+   <div id="chart-row-popfertility">
+    <b>Fertility rate (Top 10)</b>
+     <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+      <a href="javascript:popfertilitychart.filterAll();dc.redrawAll();">reset</a>
+    </div>
+  </div>
+  </td>
+    <td>
+  <div id="chart-row-popgrate">
+   <b>Population growth rate (Top 10) </b>
+    <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+      <a href="javascript:popgratechart.filterAll();dc.redrawAll();">reset</a>
+    </div>
+  </div>
+  </td>
+  <td>
+  <div id="chart-row-popcdr">
+   <b>Crude death rate (Top 10) </b>
+    <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+      <a href="javascript:popcdrchart.filterAll();dc.redrawAll();">reset</a>
+    </div>
+  </div>
+  </td>
+  
+
+  </tr>
+      
+  <!-- POPULATION INDICATORS ---->
+  <tr>
+<td><b> Raw Population</b>
+</td>
+  <td>
+  <div id="chart-row-poptotal">
+    <b>Total Population(Millions)</b>
+     <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+      <a href="javascript:Activepopchart.filterAll();dc.redrawAll();">reset</a>
+    </div>
+  </div>
+  </td>
+<td>
+   <div id="chart-row-activpop">
+    <b>Active Population (Millions)</b>
+     <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+      <a href="javascript:popfertilitychart.filterAll();dc.redrawAll();">reset</a>
+    </div>
+  </div>
+  </td>
+    <td>
+  <div id="chart-row-zero214">
+   <b>0-14 Years population(Millions) </b>
+    <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+      <a href="javascript:zero214chart.filterAll();dc.redrawAll();">reset</a>
+    </div>
+  </div>
+  </td>
+  <td>
+  <div id="chart-row-fifteen264">
+   <b>15 - 64 Years (Millions)  </b>
+    <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+      <a href="javascript:fifteen264chart.filterAll();dc.redrawAll();">reset</a>
+    </div>
+  </div>
+  </td>
+  
+  </tr>
+  <!-- HEALTH INDICATORS ---->
+
+  <tr>
+<td><b> Health</b>
+</td>
+  <td>
+  <div id="chart-row-birthsper1000">
+    <b>Number of live births per 1000</b>
+     <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+      <a href="javascript:birthsper1000chart.filterAll();dc.redrawAll();">reset</a>
+    </div>
+  </div>
+  </td>
+<td>
+   <div id="chart-row-u5mort">
+    <b>Under Five Mortality rate</b>
+     <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+      <a href="javascript:chart-row-u5mort.filterAll();dc.redrawAll();">reset</a>
+    </div>
+  </div>
+  </td>
+    <td>
+  <div id="chart-row-neonatal">
+   <b>Neonatal Mortality rate </b>
+    <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+      <a href="javascript:neonatalchart.filterAll();dc.redrawAll();">reset</a>
+    </div>
+  </div>
+  </td>
+  <td>
+  <div id="chart-row-infantmort">
+   <b>15 - 64 Years (Millions)  </b>
+    <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+      <a href="javascript:infantmortchart.filterAll();dc.redrawAll();">reset</a>
+    </div>
+  </div>
+  </td>
+  
+  </tr>
+  
+  
+  </table>
+ 
+<script type="text/javascript" src="js/d3.js"></script>
+<script type="text/javascript" src="js/crossfilter.js"></script>
+<script type="text/javascript" src="js/dc.js"></script>
+<script type="text/javascript" src="js/FileSaver.js"></script>
+<!--<script type="text/javascript" src="js/mainjs.js"></script> -->
+<script type="text/javascript" src="js/maincombinedjs.js"></script>
+
+
+</div>
+</body>
+</html>
