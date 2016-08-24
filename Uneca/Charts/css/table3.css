@@ -1,7 +1,12 @@
+
+html, body {
+    margin:10 px;
+    height: 100%;
+}
+
 table {
 color: #333;
 font-family: Helvetica, Arial, sans-serif;
-width:900px;
 border-collapse:
 collapse; border-spacing: 0;
 }
