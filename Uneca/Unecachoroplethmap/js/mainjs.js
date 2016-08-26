@@ -328,21 +328,21 @@ function renameIndicator(){
 	} else if (expressed == "pop_male"){
 		renamed_indicator = "Total Male population";
 	} else if (expressed == "Totalpops"){
-		renamed_indicator = "Total Country population in Millions";
+		renamed_indicator = "Total Country population (in Millions)";
 	} else if (expressed == "Malepops"){
 		renamed_indicator = "Total Male population (In Millions)";
 	} else if (expressed == "pop_female"){
-		renamed_indicator = "Total female population";
+		renamed_indicator = "Total female population(In Millions)";
 	} else if (expressed == "Femalepops"){
 		renamed_indicator = "Total female population (In Millions)";
 	} else if (expressed == "pop_av_annual_g_rate"){
-		renamed_indicator = "Annual population growth rate";
+		renamed_indicator = "Annual population growth rate (Percentage)";
 	} else if (expressed == "pop_active"){
-		renamed_indicator = "Active Population";
+		renamed_indicator = "Active Population(in Millions)";
 	} else if (expressed == "Activpops"){
 		renamed_indicator = "Active Population (in Millions)";
 	} else if (expressed == "pop_0_14_years"){
-		renamed_indicator = "Number of people between 0 and 14 years";
+		renamed_indicator = "Number of people between 0 and 14 years (In Millions)";
 	} else if (expressed == "zero214yrspop"){
 		renamed_indicator = "Number of people between 0 and 14 years (in Millions)";
 	} else if (expressed == "pop_15_64_years"){
@@ -354,13 +354,13 @@ function renameIndicator(){
 	} else if (expressed == "Morethan65yrspop"){
 		renamed_indicator = "Number of people above 65 years (in Millions)";
 	} else if (expressed == "pop_econ_activ_agric"){
-		renamed_indicator = "Population practising Agriculture as an economic activity";
+		renamed_indicator = "Population practising Agriculture as an economic activity(In Millions)";
 	} else if (expressed == "pop_crude_birth_rate"){
-		renamed_indicator = "Crude Birth Rate";
+		renamed_indicator = "Crude Birth Rate (Percentage)";
 	} else if (expressed == "pop_crude_death_rate"){
-		renamed_indicator = "Crude Death rate";
+		renamed_indicator = "Crude Death rate(Percentage)";
 	} else if (expressed == "pop_total_fertility_rt"){
-		renamed_indicator = "Total population fertility rate";
+		renamed_indicator = "Total population fertility rate (percentage)";
 	} else if (expressed == "pop_proportion_urban"){
 		renamed_indicator = "Percentage of urban population";
 	} else if (expressed == "pop_life_exp_at_birth"){
