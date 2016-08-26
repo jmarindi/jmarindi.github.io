@@ -328,7 +328,7 @@ function renameIndicator(){
 	} else if (expressed == "pop_male"){
 		renamed_indicator = "Total Male population";
 	} else if (expressed == "Totalpops"){
-		renamed_indicator = "Total Country population";
+		renamed_indicator = "Total Country population in Millions";
 	} else if (expressed == "Malepops"){
 		renamed_indicator = "Total Male population (In Millions)";
 	} else if (expressed == "pop_female"){
