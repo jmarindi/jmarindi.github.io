@@ -291,7 +291,7 @@ function roundRight(number){
 function renameIndicator(){
 	
 	if (expressed == "pop_all_sexes"){
-		renamed_indicator = "Total Population (Male and Female";
+		renamed_indicator = "Total Population (Male and Female) ";
 	} else if (expressed == "pop_male"){
 		renamed_indicator = "Total Male population";
 	} else if (expressed == "Malepops"){
