@@ -170,43 +170,69 @@ function createDropdown(csvData){
 				
 };
 
+	function colorScale(csvData){
+       	
+       		var color = d3.scaleQuantile() //designate quantile scale generator
+       		.range([
+                    "#74B9F6",
+                    "#6AACED",
+                    "#619EE4",
+                    "#5990DB",
+                    "#5183D2",
+                    "#4976C9",
+                    "#4269C0",
+                    "#3B5DB7",
+                    "#3451AE",
+                    "#2E46A5",
+                    "#283B9C",
+                    "#223193",
+                    "#1D278A",
+                    "#191E81",
+                    "#141678",
+                    "#12106F",
+                    "#120D66",
+                    "#120A5D",
+                    "#110754",
+                    "#11054C"
+       		]);	
 
-function colorScale(csvData){
-	var color = d3.scaleQuantile() //designate quantile scale generator
-		.range([
-                "#C1F9B4",
-                "#BCF3AF",
-                "#B7EDAA",
-                "#B2E8A6",
-                "#ADE2A1",
-                "#A8DD9D",
-                "#A3D798",
-                "#9ED294",
-                "#99CC8F",
-                "#94C78B",
-                "#8FC186",
-                "#8ABC82",
-                "#85B67D",
-                "#80B179",
-                "#7BAB74",
-                "#77A670",
-                "#72A06B",
-                "#6D9B67",
-                "#689562",
-                "#63905E",
-                "#5E8A59",
-                "#598555",
-                "#547F50",
-                "#4F7A4C",
-                "#4A7447",
-                "#456F43",
-                "#40693E",
-                "#3B643A",
-                "#365E35",
-                "#325931"
-       
-              
-		]);			
+
+//function colorScale(csvData){
+//	var color = d3.scaleQuantile() //designate quantile scale generator
+//		.range([
+//                "#C1F9B4",
+//                "#BCF3AF",
+//                "#B7EDAA",
+//                "#B2E8A6",
+//                "#ADE2A1",
+//                "#A8DD9D",
+//                "#A3D798",
+//                "#9ED294",
+//                "#99CC8F",
+//                "#94C78B",
+//                "#8FC186",
+//                "#8ABC82",
+//                "#85B67D",
+//                "#80B179",
+//                "#7BAB74",
+//                "#77A670",
+//                "#72A06B",
+//                "#6D9B67",
+//                "#689562",
+//                "#63905E",
+//                "#5E8A59",
+//                "#598555",
+//                "#547F50",
+//                "#4F7A4C",
+//                "#4A7447",
+//                "#456F43",
+//                "#40693E",
+//                "#3B643A",
+//                "#365E35",
+//                "#325931"
+//       
+//              
+//		]);			
 
 	//build array of all currently expressed values for input domain
 	var domainArray = [];
