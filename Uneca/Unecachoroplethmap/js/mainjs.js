@@ -329,9 +329,9 @@ function renameIndicator(){
 function highlight(data){
 	
 	var props = data.properties; //json properties
-	var indic = "Indicator:";
-	var countryselec = "Country:";
-	var val = "Value:";
+	var indic = "Indicator: ";
+	var countryselec = "Country: ";
+	var val = "Value: ";
 
 	d3.select("#"+("props.myID")) //select the current region in the DOM
 		.style("fill", "#000"); //set the enumeration unit fill to black
@@ -349,26 +349,7 @@ function highlight(data){
 			
 	
 	mapclickedcountry = labelName;
-	//create info label div
-//	var infolabel = d3.select("body")
-//		.append("div") //create the label div
-//		.attr("class", "infolabel")
-//		.attr("id", ("props.myID") +"label") //for styling label
-//		.html(labelAttribute) //add text
-//		.append("div") //add child div for feature name
-//		.attr("class", "labelname") //for styling name
-//		.html(labelName); //add feature name to label
-		
-				//create title bar with the full title of selected variable	
-//	var titlebar = d3.select("body")
-//		.append("div") //create the information div
-//		.attr("class", "titlebar")
-//		.attr("id", "label") //for styling label
-//		.html(TitleFeature) //add text
-//		.append("div"); //add child div for feature name
-//		//.attr("class", "labeldesc") //for styling name
-//		//.html(labelName); //add feature name to label		
-		
+
 		
 	//create info window div for broader explanation of selected variable
 	var infowindow = d3.select("body")
