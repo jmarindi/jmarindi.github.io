@@ -272,33 +272,33 @@ function renameIndicator(){
 	} else if (expressed == "pop_male"){
 		renamed_indicator = "Total Male population";
 	} else if (expressed == "Totalpops"){
-		renamed_indicator = "Total Country population (in Millions)";
+		renamed_indicator = "Total Country population (Millions)";
 	} else if (expressed == "Malepops"){
-		renamed_indicator = "Total Male population (In Millions)";
+		renamed_indicator = "Total Male population (Millions)";
 	} else if (expressed == "pop_female"){
-		renamed_indicator = "Total female population(In Millions)";
+		renamed_indicator = "Total female population(Millions)";
 	} else if (expressed == "Femalepops"){
-		renamed_indicator = "Total female population (In Millions)";
+		renamed_indicator = "Total female population (Millions)";
 	} else if (expressed == "pop_av_annual_g_rate"){
 		renamed_indicator = "Annual population growth rate (Percentage)";
 	} else if (expressed == "pop_active"){
-		renamed_indicator = "Active Population(in Millions)";
+		renamed_indicator = "Active Population(Millions)";
 	} else if (expressed == "Activpops"){
-		renamed_indicator = "Active Population (in Millions)";
+		renamed_indicator = "Active Population (Millions)";
 	} else if (expressed == "pop_0_14_years"){
-		renamed_indicator = "Number of people between 0 and 14 years (In Millions)";
+		renamed_indicator = "Number of people between 0 and 14 years (Millions)";
 	} else if (expressed == "zero214yrspop"){
-		renamed_indicator = "Number of people between 0 and 14 years (in Millions)";
+		renamed_indicator = "Number of people between 0 and 14 years (Millions)";
 	} else if (expressed == "pop_15_64_years"){
 		renamed_indicator = "Number of people between 15 and 64 years";
 	} else if (expressed == "Fifteen264yrspop"){
-		renamed_indicator = "Number of people between 15 and 64 years (In Millions)";
+		renamed_indicator = "Number of people between 15 and 64 years (Millions)";
 	} else if (expressed == "pop_65_more_years"){
 		renamed_indicator = "Number of people above 65 years";
 	} else if (expressed == "Morethan65yrspop"){
-		renamed_indicator = "Number of people above 65 years (in Millions)";
+		renamed_indicator = "Number of people above 65 years (Millions)";
 	} else if (expressed == "pop_econ_activ_agric"){
-		renamed_indicator = "Population practising Agriculture as an economic activity(In Millions)";
+		renamed_indicator = "Population practising Agriculture as an economic activity(Millions)";
 	} else if (expressed == "pop_crude_birth_rate"){
 		renamed_indicator = "Crude Birth Rate (Percentage)";
 	} else if (expressed == "pop_crude_death_rate"){
