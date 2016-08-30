@@ -169,25 +169,7 @@ function createDropdown(csvData){
 		});
 				
 };
-//function createMapTitle(){
-//      var maptitle = d3.select("body")
-//		.append("div") //create the information div
-//		.attr("class", "maptitle")
-//		.html("<h4><b>" +renamed_indicator+"</b></h4>") //a
-//		}
-		
-		
 
-//create an information description window
-function createDescwindow(){
-      var descwindow = d3.select("body")
-		.append("div") //create the information div
-		.attr("class", "descwindow")
-		.html("<h3> I changed the text===============================</h3>") //add text //mapclickedcountry = "";
-		//.html(mapclickedcountry)
-		.append("div") //add child div for feature name
-		
-}
 
 function colorScale(csvData){
 	
