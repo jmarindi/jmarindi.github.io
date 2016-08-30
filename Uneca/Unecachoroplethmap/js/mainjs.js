@@ -198,8 +198,8 @@ function colorScale(csvData){
 		
 //function colorScale(csvData){
 
-	var color = d3.scaleQuantile() //designate quantile scale generator
-		.range([
+//	var color = d3.scaleQuantile() //designate quantile scale generator
+//		.range([
 //                "#C1F9B4",
 //                "#BCF3AF",
 //                "#B7EDAA",
