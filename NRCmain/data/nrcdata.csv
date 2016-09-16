@@ -1,0 +1,71 @@
+Gender,cluster,country,Reached,Targeted,countryid
+Male,Food Security,South Sudan,122916,275457,5
+Male,Food Security,Somalia,33186,38272,4
+Male,Food Security,Yemen,133427,146453,7
+Male,Food Security,Kenya,27454,92358,3
+Male,Food Security,Ethiopia,4700,5621,2
+Male,Food Security,Djibouti,1041,1040,1
+Male,Food Security,Uganda,1655,1250,6
+Female,Food Security,South Sudan,219430,316376,5
+Female,Food Security,Somalia,50880,40011,4
+Female,Food Security,Yemen,143951,169621,7
+Female,Food Security,Kenya,25501,89685,3
+Female,Food Security,Ethiopia,8334,8209,2
+Female,Food Security,Djibouti,1010,1011,1
+Female,Food Security,Uganda,2007,1250,6
+Male,WASH,South Sudan,7920,10272,5
+Male,WASH,Somalia,44712,61875,4
+Male,WASH,Yemen,24758,25328,7
+Male,WASH,Kenya,112802,213193,3
+Male,WASH,Ethiopia,72973,75420,2
+Male,WASH,Djibouti,5900,5900,1
+Male,WASH,Uganda,0,0,6
+Female,WASH,South Sudan,10745,10669,5
+Female,WASH,Somalia,47648,52091,4
+Female,WASH,Yemen,27154,27433,7
+Female,WASH,Kenya,124157,214015,3
+Female,WASH,Ethiopia,128684,93715,2
+Female,WASH,Djibouti,8851,8851,1
+Female,WASH,Uganda,0,0,6
+Male,Shelter,South Sudan,78486,61220,5
+Male,Shelter,Somalia,38768,36602,4
+Male,Shelter,Yemen,13619,13233,7
+Male,Shelter,Kenya,239,242,3
+Male,Shelter,Ethiopia,20146,39481,2
+Male,Shelter,Djibouti,1055,3706,1
+Male,Shelter,Uganda,0,0,6
+Female,Shelter,South Sudan,94016,67780,5
+Female,Shelter,Somalia,37855,36808,4
+Female,Shelter,Yemen,14165,14092,7
+Female,Shelter,Kenya,373,243,3
+Female,Shelter,Ethiopia,18015,38241,2
+Female,Shelter,Djibouti,960,3960,1
+Female,Shelter,Uganda,0,0,6
+Male,Education,South Sudan,53247,17358,5
+Male,Education,Somalia,29880,33040,4
+Male,Education,Yemen,0,0,7
+Male,Education,Kenya,2246,1959,3
+Male,Education,Ethiopia,12117,12217,2
+Male,Education,Djibouti,0,0,1
+Male,Education,Uganda,3186,3300,6
+Female,Education,South Sudan,50764,13015,5
+Female,Education,Somalia,29370,32941,4
+Female,Education,Yemen,0,0,7
+Female,Education,Kenya,1975,1938,3
+Female,Education,Ethiopia,12342,11949,2
+Female,Education,Djibouti,0,0,1
+Female,Education,Uganda,3771,3300,6
+Male,ICLA,South Sudan,14725,6805,5
+Male,ICLA,Somalia,27669,14167,4
+Male,ICLA,Yemen,0,0,7
+Male,ICLA,Kenya,4562,3500,3
+Male,ICLA,Ethiopia,0,0,2
+Male,ICLA,Djibouti,0,0,1
+Male,ICLA,Uganda,0,0,6
+Female,ICLA,South Sudan,21073,8170,5
+Female,ICLA,Somalia,35273,17248,4
+Female,ICLA,Yemen,0,0,7
+Female,ICLA,Kenya,4558,3500,3
+Female,ICLA,Ethiopia,0,0,2
+Female,ICLA,Djibouti,0,0,1
+Female,ICLA,Uganda,0,0,6

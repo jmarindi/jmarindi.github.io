@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Norwegian Refugee council</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/dc.css"/>
+
+</head>
+<body>
+
+<div class="container">
+<table style="width:100%">
+<TH></TH><TH></TH><TH></TH>
+<tr>
+	<td><b><font size="4" color ="#FF5733"><u> NRC - Beneficiaries per country</u></font></b> </td>
+</tr>
+<tr>
+<td><b> People reached per country</b> </td>
+<td><b> Total reached per Cluster</b></td>
+<td></td>
+</tr>
+
+<tr>
+    <td>
+      <div id="Country-ring-chart" style="width:300px; height:300px">
+           <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+             <a href="javascript:CountryRingChart.filterAll();dc.redrawAll();">reset</a>
+           </div>
+       </div>
+  
+    </td> 
+    <td>
+       <div id="chart-row-reached">
+             <div class="reset" style="visibility: hidden;width:600px; height:100px">selected: <span class="filter"></span>
+               <a href="javascript:ReachedRowChart.filterAll();dc.redrawAll();">reset</a>
+             </div>
+       </div>
+    </td>
+    <td></td>
+ 
+</tr> 
+<tr>
+    <td> </td>
+    <td> </td>
+    <td></td>
+</tr>
+<tr>
+    <td> <b>People reached per Gender </b></td>
+    <td> <b>Total Targeted per Cluster</b></td>
+    <td></td>
+</tr>
+
+<tr>
+     <td>
+        <div id="Gender-ring-chart" style="width:200px; height:200px">
+             <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+                <a href="javascript:GenderRingChart.filterAll();dc.redrawAll();">reset</a>
+             </div>
+       </div>
+  
+    </td>
+
+<td align="left">
+  <div id="chart-row-targeted" style="width:700px; height:200px">
+    <div class="reset" style="visibility: hidden;">selected: <span class="filter"></span>
+      <a href="javascript:targetedRowChart.filterAll();dc.redrawAll();">reset</a>
+    </div>
+  </div>
+  
+  </td>
+<td> </td>
+
+</tr>
+
+<tr>
+
+  <td></td>
+  <td></td>
+  
+  </tr>
+  
+  <tr>
+  <td></td>
+<td></td>
+</tr>
+</table>
+
+<script type="text/javascript" src="js/d3.js"></script>
+<script type="text/javascript" src="js/crossfilter.js"></script>
+<script type="text/javascript" src="js/dc.js"></script>
+<script type="text/javascript" src="js/queue.js"></script>
+<script type="text/javascript"  src="js/mainscript.js"></script>
+</div>
+</body>
+</html>
