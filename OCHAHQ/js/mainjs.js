@@ -105,11 +105,11 @@
 					name: "World Average",
 					dataPoints: [
 					
-					{ x: new Date(2011, 00), y: 2.5},
-					{ x: new Date(2012, 0), y: 2.5},
-					{ x: new Date(2013, 0), y: 2.5},
-					{ x: new Date(2014, 0), y: 2.5},
-					{ x: new Date(2015, 0), y: 2.5}
+					{ x: new Date(2011), y: 2.5},
+					{ x: new Date(2012), y: 2.5},
+					{ x: new Date(2013), y: 2.5},
+					{ x: new Date(2014), y: 2.5},
+					//{ x: new Date(2015, 0), y: 2.5}
 					
 					]
 				},
@@ -120,11 +120,11 @@
 					name: "Country in Need",
 					axisYType: "secondary",
 					dataPoints: [
-					{ x: new Date(2011, 00), y: 4.9},
-					{ x: new Date(2012, 0), y: 5.2},
-					{ x: new Date(2013, 0), y: 4.2},
-					{ x: new Date(2014, 0), y: 3.6},
-					{ x: new Date(2015, 0), y: 3.6}
+					{ x: new Date(2011), y: 4.9},
+					{ x: new Date(2012), y: 5.2},
+					{ x: new Date(2013), y: 4.2},
+					{ x: new Date(2014), y: 3.6},
+					//{ x: new Date(2015, 0), y: 3.6}
 					]
 				}
 				],
