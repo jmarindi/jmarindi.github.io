@@ -249,11 +249,11 @@
 					showInLegend: true,
 					name: "World Average",
 					dataPoints: [
-					{ x: new Date(2011, 0), y: 70.8},
-					{ x: new Date(2012, 0), y: 71.0},
-					{ x: new Date(2013, 0), y: 71.2},
-					{ x: new Date(2014, 0), y: 71.5},
-					{ x: new Date(2015, 0), y: 63.5}
+					{ x: 2011, y: 70.8},
+					{ x: 2012, y: 71.0},
+					{ x: 2013, y: 71.2},
+					{ x: 2014, y: 71.5}
+					//{ x: new Date(2015, 0), y: 63.5}
 					
 					]
 				},
@@ -264,11 +264,11 @@
 					name: "Country in Need",
 					axisYType: "secondary",
 					dataPoints: [
-					{ x: new Date(2011, 00), y: 54.3},
-					{ x: new Date(2012, 0), y: 56.2},
-					{ x: new Date(2013, 0), y: 48.9},
-					{ x: new Date(2014, 0), y: 47.2},
-					{ x: new Date(2015, 0), y: 39.8},
+					{ x: 2011, y: 54.3},
+					{ x: 2012, y: 56.2},
+					{ x: 2013, y: 48.9},
+					{ x: 2014, y: 47.2},
+					//{ x: new Date(2015, 0), y: 39.8},
 					]
 				}
 				],
