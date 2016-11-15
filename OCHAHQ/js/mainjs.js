@@ -464,7 +464,6 @@
 					showInLegend: true,
 					name: "World Average",
 					dataPoints: [
-					//{ x: new Date(2012, 07, 1), y: 28, indexLabel: "loss", markerType: "circle", markerColor: "tomato", markerSize: 12 },
 					{ x: new Date(2011, 0), y: 88.9},
 					{ x: new Date(2012, 0), y: 89.5},
 					{ x: new Date(2013, 0), y: 90.1},
@@ -536,7 +535,6 @@
 					showInLegend: true,
 					name: "World Average",
 					dataPoints: [
-					//{ x: new Date(2012, 07, 1), y: 28, indexLabel: "loss", markerType: "circle", markerColor: "tomato", markerSize: 12 },
 					{ x: new Date(2011, 0), y: 65.3},
 					{ x: new Date(2012, 0), y: 65.9},
 					{ x: new Date(2013, 0), y: 66.5},
@@ -793,13 +791,13 @@
 				zoomEnabled: false,
 				animationEnabled: true,
 				title: {
-					text: "Combined people need"
+					text: "Prevalence of undernourishment"
 				},
 				axisY2: {
 					valueFormatString: "0",
 
-					maximum: 140,
-					interval: 20,
+					maximum: 20,
+					interval: 5,
 					interlacedColor: "#F5F5F5",
 					gridColor: "#D7D7D7",
 					tickColor: "#D7D7D7"
@@ -820,14 +818,13 @@
 					lineThickness: 3,
 					axisYType: "secondary",
 					showInLegend: true,
-					name: "Annual GDP (Millions)",
+					name: "Country in Need",
 					dataPoints: [
-					//{ x: new Date(2012, 07, 1), y: 28, indexLabel: "loss", markerType: "circle", markerColor: "tomato", markerSize: 12 },
-					{ x: new Date(2011, 0), y: 5.7},
-					{ x: new Date(2012, 0), y: 5.7},
-					{ x: new Date(2013, 0), y: 9.0},
-					{ x: new Date(2014, 0), y: 10.4},
-					{ x: new Date(2015, 0), y: 10.6}
+					{ x: new Date(2011, 0), y: 15.4},
+					{ x: new Date(2012, 0), y: 14.3},
+					{ x: new Date(2013, 0), y: 11.1},
+					{ x: new Date(2014, 0), y: 10.2},
+					{ x: new Date(2015, 0), y: 9.8}
 					
 					]
 				},
@@ -835,44 +832,17 @@
 					type: "line",
 					lineThickness: 3,
 					showInLegend: true,
-					name: "population in Need",
+					name: "World Average",
 					axisYType: "secondary",
 					dataPoints: [
-					{ x: new Date(2011, 00), y: 61.7},
-					{ x: new Date(2012, 0), y: 63.1},
-					{ x: new Date(2013, 0), y: 88.3},
-					{ x: new Date(2014, 0), y: 126.0},
-					{ x: new Date(2015, 0), y: 124.7}
-					]
-				},
-				{
-					type: "line",
-					lineThickness: 3,
-					showInLegend: true,
-					name: "Refugees (Millions)",
-					axisYType: "secondary",
-					dataPoints: [
-					{ x: new Date(2011, 00), y: 5.3},
-					{ x: new Date(2012, 0), y: 11.3},
-					{ x: new Date(2013, 0), y: 11.9},
-					{ x: new Date(2014, 0), y: 15.0},
-					{ x: new Date(2015, 0), y: 12.5}
-					]
-				},
-				{
-					type: "line",
-					lineThickness: 3,
-					showInLegend: true,
-					name: "IDPs (Millions)",
-					axisYType: "secondary",
-					dataPoints: [
-					{ x: new Date(2011, 00), y: 5.6},
-					{ x: new Date(2012, 0), y: 9.3},
-					{ x: new Date(2013, 0), y: 14.0},
-					{ x: new Date(2014, 0), y: 23.5},
-					{ x: new Date(2015, 0), y: 27.1}
+					{ x: new Date(2011, 00), y: 11.8},
+					{ x: new Date(2012, 0), y: 11.4},
+					{ x: new Date(2013, 0), y: 11.2},
+					{ x: new Date(2014, 0), y: 11.0},
+					{ x: new Date(2015, 0), y: 10.8}
 					]
 				}
+				
 				],
 				legend: {
 					cursor: "pointer",
