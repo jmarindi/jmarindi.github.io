@@ -818,7 +818,7 @@
 					lineThickness: 3,
 					axisYType: "secondary",
 					showInLegend: true,
-					name: "Country in Need",
+					name: "World Average",
 					dataPoints: [
 					{ x: new Date(2011, 0), y: 15.4},
 					{ x: new Date(2012, 0), y: 14.3},
@@ -832,7 +832,7 @@
 					type: "line",
 					lineThickness: 3,
 					showInLegend: true,
-					name: "World Average",
+					name: "Country in Need",
 					axisYType: "secondary",
 					dataPoints: [
 					{ x: new Date(2011, 00), y: 11.8},
