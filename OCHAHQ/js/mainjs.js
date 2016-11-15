@@ -821,11 +821,11 @@
 					name: "World Average",
 					dataPoints: [
 					//{ x: new Date(2012, 07, 1), y: 28, indexLabel: "loss", markerType: "circle", markerColor: "tomato", markerSize: 12 },
-					{ x: new Date(2011, 0), y: 6.0},
-					{ x: new Date(2012, 0), y: 6.0},
-					{ x: new Date(2013, 0), y: 6.0},
-					{ x: new Date(2014, 0), y: 5.9},
-					{ x: new Date(2015, 0), y: 5.9}
+					{ x: new Date(2011, 0), y: 11.8},
+					{ x: new Date(2012, 0), y: 11.4},
+					{ x: new Date(2013, 0), y: 11.2},
+					{ x: new Date(2014, 0), y: 11.0},
+					{ x: new Date(2015, 0), y: 10.8}
 					
 					]
 				},
@@ -836,11 +836,11 @@
 					name: "Country in Need",
 					axisYType: "secondary",
 					dataPoints: [
-					{ x: new Date(2011, 00), y: 7.9},
-					{ x: new Date(2012, 0), y: 7.0},
-					{ x: new Date(2013, 0), y: 6.2},
-					{ x: new Date(2014, 0), y: 6.5},
-					{ x: new Date(2015, 0), y: 6.5}
+					{ x: new Date(2011, 00), y: 15.4},
+					{ x: new Date(2012, 0), y: 14.2},
+					{ x: new Date(2013, 0), y: 11.1},
+					{ x: new Date(2014, 0), y: 10.2},
+					{ x: new Date(2015, 0), y: 9.8}
 					]
 				}
 				],
