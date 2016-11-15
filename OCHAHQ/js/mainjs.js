@@ -813,7 +813,21 @@
 					fontSize: 15,
 					fontFamily: "Lucida Sans Unicode"
 				},
-				data: [{
+				data: [	{
+					type: "line",
+					lineThickness: 3,
+					showInLegend: true,
+					name: "Country in Need",
+					axisYType: "secondary",
+					dataPoints: [
+					{ x: new Date(2011, 00), y: 11.8},
+					{ x: new Date(2012, 0), y: 11.4},
+					{ x: new Date(2013, 0), y: 11.2},
+					{ x: new Date(2014, 0), y: 11.0},
+					{ x: new Date(2015, 0), y: 10.8}
+					]
+				},
+				{
 					type: "line",
 					lineThickness: 3,
 					axisYType: "secondary",
@@ -827,22 +841,7 @@
 					{ x: new Date(2015, 0), y: 9.8}
 					
 					]
-				},
-				{
-					type: "line",
-					lineThickness: 3,
-					showInLegend: true,
-					name: "Country in Need",
-					axisYType: "secondary",
-					dataPoints: [
-					{ x: new Date(2011, 00), y: 11.8},
-					{ x: new Date(2012, 0), y: 11.4},
-					{ x: new Date(2013, 0), y: 11.2},
-					{ x: new Date(2014, 0), y: 11.0},
-					{ x: new Date(2015, 0), y: 10.8}
-					]
 				}
-				
 				],
 				legend: {
 					cursor: "pointer",
