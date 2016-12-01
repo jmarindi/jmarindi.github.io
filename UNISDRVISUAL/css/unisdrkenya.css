@@ -65,11 +65,19 @@ div.tooltip {
     width: 700px;
 	float:right;
     }  
+#chart1_main {
+    width: 700px;
+	float:left;
+    }  
 #chart2 {
     width: 500px;
 	float:left;
     }  	
 #chart3 {
+    width: 400px;
+	float:right;
+    } 
+#chart3_main {
     width: 400px;
 	float:right;
     }  
