@@ -1,0 +1,79 @@
+path {
+  stroke:white;
+  stroke-width: 1px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+.svgcontainer{
+	position: right-side;
+	margin-left:700px;
+	margin-top:2px;
+	width:300px;
+	height:500px
+}
+
+.city {
+  font: 10px sans-serif;
+  font-weight: bold;
+}
+.country {
+  font: 6px sans-serif;
+  font-weight: bold;
+}
+
+.legend {
+  font-size: 12px;
+}
+
+div.tooltip {   
+  position: absolute;           
+  text-align: center;           
+  width: 150px;                  
+  height: 25px;                 
+  padding: 2px;             
+  font-size: 10px;     
+  background: #FFFFE0;
+  border: 1px;      
+  border-radius: 8px;           
+  pointer-events: none;         
+}  
+#spacer {
+    width: 10px;
+	height:300px;
+	
+}
+#Rowspacer {
+    width: 1000px;
+	height:70px;
+	}
+#Rowspacer2 {
+    width: 600px;
+	height:10px;
+	}	
+	
+#map {
+    width: 400px;
+	float:left;
+    }   
+#chart1 {
+    width: 700px;
+	float:left;
+    }  
+#chart2 {
+    width: 500px;
+	float:left;
+    }  	
+#chart3 {
+    width: 400px;
+	float:right;
+    }  
+#chart4 {
+    width: 450px;
+	float:right;
+    }  
+#chart5 {
+    width: 450px;
+	float:right;
+    }  
