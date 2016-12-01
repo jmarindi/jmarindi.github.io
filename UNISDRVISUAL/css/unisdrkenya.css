@@ -57,6 +57,10 @@ div.tooltip {
     width: 400px;
 	float:left;
     }   
+#mapplaceholder {
+    width: 400px;
+	float:left;
+    }   
 #chart1 {
     width: 700px;
 	float:right;
