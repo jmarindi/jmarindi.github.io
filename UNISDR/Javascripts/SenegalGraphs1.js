@@ -175,8 +175,8 @@ anychart.onDocumentReady(function() {
     var general_data_set_map2 = general_data_set.mapAs({value: [2], x: [0], value_2: [1]});
 	
 	//var general_data_set_map3 = general_data_set.mapAs({value: [3], x: [0], value_3: [9]});
-	var general_data_set_map3 = general_data_set.mapAs({value: [3], x: [0], value_2: [9]});
-    var general_data_set_map4 = general_data_set.mapAs({value: [4], x: [0], value_2: [10]});
+	var general_data_set_map3 = general_data_set.mapAs({value: [3], x: [0], value_2: [10]});
+    var general_data_set_map4 = general_data_set.mapAs({value: [4], x: [0], value_2: [11]});
 	
 	//var general_data_set_map1 = general_data_set.mapAs({value: [1], x: [0], value_2: [2]});
     //var general_data_set_map2 = general_data_set.mapAs({value: [2], x: [0], value_2: [1]});
