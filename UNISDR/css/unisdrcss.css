@@ -64,20 +64,20 @@ div.tooltip {
     }   
 #chart1 {
     /*width: 700px; */
-	width: 500px;
+	width: 700px;
 	float:right;
     }  
 #chart1_main {
   /*  width: 700px; */
-	 width: 500px;
+	 width: 600px;
 	float:left;
     }  
 #chart2 {
-    width: 500px;
+    width: 700px;
 	float:left;
     }  	
 #chart3 {
-    width: 400px;
+    width: 500px;
 	/* float:right; */
 	float:left;
     } 
