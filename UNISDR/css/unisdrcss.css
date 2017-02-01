@@ -76,7 +76,8 @@ div.tooltip {
     }  	
 #chart3 {
     width: 400px;
-	float:right;
+	/* float:right; */
+	float:left;
     } 
 #chart3_main {
     width: 400px;
