@@ -9,7 +9,7 @@ body {
 .svgcontainer{
 	/*position: right-side; 
 	margin-left:700px; */
-	margin-left:200px;
+	margin-left:100px;
 	margin-top:2px;
 	width:300px;
 	height:500px
@@ -46,7 +46,7 @@ div.tooltip {
 	
 }
 #Rowspacer {
-    width: 900px;
+    width: 700px;
 	height:70px;
 	}
 #Rowspacer2 {
