@@ -11,7 +11,7 @@ anychart.onDocumentReady(function() {
     var drawMapChart = function () {
         var map = anychart.map();
         map.geoData(anychart.maps["kenya"]);
-        map.title().enabled(true).useHtml(true).text('<span style="color: #212121;">Cummulative People impact in kenya</span>').fontSize(18).padding([15,0,15,0]);
+        map.title().enabled(true).useHtml(true).text('<span style="color: #212121;">Cumulative People impact in kenya</span>').fontSize(18).padding([15,0,15,0]);
 
         var cr = map.colorRange();
         cr.enabled(true).colorLineSize(10).padding([15,0,0,0]);
