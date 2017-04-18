@@ -127,9 +127,9 @@ function ready(error, risk) {
                                 continuousWorld: false,
                                 noWrap: true
                             },
-                            maxZoom: 9,
+                            maxZoom: 8,
                             center: [45, 60],
-                            zoom: 4.2
+                            zoom: 4
                           });
 
   var choroplethLayer = L.geoJson().addTo(map);
