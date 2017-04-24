@@ -8,7 +8,7 @@
   var legend_labels = ["Missing data","< 5,000", "5,000+", "10,000+", "15,000+", "20,000+", "> 25,000"]              
   var color = d3.scale.threshold()
   .domain(color_domain)
-  .range(["#d3d3d3","#d3d3d3", "#ccd652", "#8ca338", "#4d701f", "#0d3d05", "#003300"]);
+  .range(["#d3d3d3","#ddff66", "#ccd652", "#8ca338", "#4d701f", "#0d3d05", "#003300"]);
    
   
    var div = d3.select("body").append("div")   
