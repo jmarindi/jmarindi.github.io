@@ -3,8 +3,8 @@
   
     // Setting color domains(intervals of values) for our map
 
-  var color_domain = [1, 5000, 10000, 15000, 20000, 25000]
-  var ext_color_domain = [1, 5000, 10000, 15000, 20000, 25000]
+  var color_domain = [0,1, 5000, 10000, 15000, 20000, 25000]
+  var ext_color_domain = [0, 1, 5000, 10000, 15000, 20000, 25000]
   var legend_labels = ["Missing data","< 5,000", "5,000+", "10,000+", "15,000+", "20,000+", "> 25,000"]              
   var color = d3.scale.threshold()
   .domain(color_domain)
