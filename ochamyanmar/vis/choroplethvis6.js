@@ -72,7 +72,7 @@ var path = d3.geo.path()
   .style("fill", function(d) {
     return color(rateById[d.properties.TS_PCODE]); 
   })
-  .style("opacity", 0.8)
+  .style("opacity", 1.1)
 
   //Adding mouseevents
   .on("mouseover", function(d) {
