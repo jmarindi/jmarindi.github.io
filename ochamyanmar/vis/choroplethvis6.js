@@ -6,14 +6,10 @@
 
   var color_domain = [0, 1, 10000, 40000]
   var ext_color_domain = [0, 1, 10000, 40000]
-  var legend_labels = ["No Projects","< 10,000", "10,000 - 40,000", " > 40,000"]   
- // var color_domain = [0, 1, 5000, 10000, 15000, 20000, 25000]
- // var ext_color_domain = [0, 1, 5000, 10000, 15000, 20000, 25000]
-//  var legend_labels = ["No Projects","< 5,000", "5,000+", "10,000+", "15,000+", "20,000+", "> 25,000"]              
+  var legend_labels = ["No Projects","< 10,000", "10,000 - 40,000", " > 40,000"]             
   var color = d3.scale.threshold()
   .domain(color_domain)
- // .range(["#C0C0C0","#C0C0C0","#ddff66", "#ccd652", "#8ca338", "#4d701f", "#0d3d05", "#003300"]);
-   .range(["#C0C0C0","#C0C0C0","#92CDDB", "#32849B", "#235868"]);
+  .range(["#C0C0C0","#C0C0C0","#92CDDB", "#32849B", "#235868"]);
   
    var div = d3.select("body").append("div")   
   .attr("class", "tooltip")               
