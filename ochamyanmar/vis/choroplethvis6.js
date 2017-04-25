@@ -5,7 +5,7 @@
 
   var color_domain = [1, 10000, 40000]
   var ext_color_domain = [1, 10000, 40000]
-  var legend_labels = ["< 10,000", "10,000 - 40,000", " > 40,000"]  
+  var legend_labels = ["1 - 10,000", "10,000 - 40,000", " > 40,000"]  
  // var color_domain = [0, 1, 10000, 40000]
  // var ext_color_domain = [0, 1, 10000, 40000]
 //  var legend_labels = ["No Projects","< 10,000", "10,000 - 40,000", " > 40,000"]             
