@@ -39,7 +39,7 @@ var path = d3.geo.path()
 
   queue()
   .defer(d3.json, "geo/myanmar_good.json")
-  .defer(d3.csv, "data/sumd_cashdata.csv")
+  .defer(d3.csv, "data/myanmarcashdata.csv")
   .await(ready);
   
 
