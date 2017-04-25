@@ -3,13 +3,16 @@
   
     // Setting color domains(intervals of values) for our map
 
-
-  var color_domain = [0, 1, 10000, 40000]
-  var ext_color_domain = [0, 1, 10000, 40000]
-  var legend_labels = ["No Projects","< 10,000", "10,000 - 40,000", " > 40,000"]             
+  var color_domain = [1, 10000, 40000]
+  var ext_color_domain = [1, 10000, 40000]
+  var legend_labels = ["< 10,000", "10,000 - 40,000", " > 40,000"]  
+ // var color_domain = [0, 1, 10000, 40000]
+ // var ext_color_domain = [0, 1, 10000, 40000]
+//  var legend_labels = ["No Projects","< 10,000", "10,000 - 40,000", " > 40,000"]             
   var color = d3.scale.threshold()
   .domain(color_domain)
-  .range(["#C0C0C0","#C0C0C0","#92CDDB", "#32849B", "#235868"]);
+  .range(["#C0C0C0","#92CDDB", "#32849B", "#235868"]);
+ // .range(["#C0C0C0","#C0C0C0","#92CDDB", "#32849B", "#235868"]);
   
    var div = d3.select("body").append("div")   
   .attr("class", "tooltip")               
