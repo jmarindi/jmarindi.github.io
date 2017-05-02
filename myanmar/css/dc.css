@@ -207,3 +207,5 @@ div.dc-chart {
 
 .dc-hard .number-display {
   float: none; }
+.dc-chart g.row text {
+  fill: black;}
