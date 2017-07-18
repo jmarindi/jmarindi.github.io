@@ -26,7 +26,7 @@ fieldHierarchy = [
   },
   {
     field: "Vulnerable Groups",
-    subset: ["Uprooted people", "Health Conditions", "Children U5", "Recent Shocks", "Food Security", "Other Vulnerable Groups"]
+    subset: ["Uprooted people", "Health Conditions", "Children U5", "Recent Shocks", "Food Security"]
   },
   {
     field: "Uprooted people",
@@ -48,21 +48,13 @@ fieldHierarchy = [
     field: "Food Security",
     subset: ["Food Security"]
   },
-  {
-    field: "Other Vulnerable Groups",
-    subset: ["Other Vulnerable Groups"]
-  },
-  {
+   {
     field: "LACK OF COPING CAPACITY",
     subset: ["Institutional", "Infrastructure"]
   },
   {
     field: "Institutional",
-    subset: ["DRR", "Governance"]
-  },
-  {
-    field: "DRR",
-    subset: ["DRR"]
+    subset: ["Governance"]
   },
   {
     field: "Governance",
@@ -90,7 +82,7 @@ fieldHierarchy = [
   },
   {
     field: "Natural",
-    subset: ["Earthquake", "Flood", "Tsunami", "Tropical Cyclone", "Drought"]
+    subset: ["Earthquake", "Flood", "Drought"]
   },
   {
     field: "Earthquake",
@@ -100,28 +92,17 @@ fieldHierarchy = [
     field: "Flood",
     subset: ["Flood"]
   },
-  {
-    field: "Tsunami",
-    subset: ["Tsunami"]
-  },
-  {
-    field: "Tropical Cyclone",
-    subset: ["Tropical Cyclone"]
-  },
+   
   {
     field: "Drought",
     subset: ["Drought"]
   },
   {
     field: "Human",
-    subset: ["Projected Conflict Risk", "Current Highly Violent Conflict Intensity"]
+    subset: ["Projected Conflict Risk"]
   },
   {
     field: "Projected Conflict Risk",
     subset: ["Projected Conflict Risk"]
-  },
-  {
-    field: "Current Highly Violent Conflict Intensity",
-    subset: ["Current Highly Violent Conflict Intensity"]
   }
-];
+  ];
