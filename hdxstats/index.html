@@ -92,7 +92,7 @@ $.get('hdxstats.csv', function(csv) {
                                 },
                                 headingText: this.series.name,
                                 maincontentText: Highcharts.dateFormat('%A, %b %e, %Y', this.x) + ':<br/> ' +
-                                    this.y + this.series.name,
+                                    this.y + ' ' + this.series.name,
                                 width: 200
                             });
                         }
