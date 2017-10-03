@@ -1,0 +1,22 @@
+CountryID,projectcount,Cluster,Country,Partner,Budget,Budget2,Status,NumberOfchildren,Beneficiaries,Beneficiaries2,Year,Conflict_incidences
+5,1,WASH,Syria,Insan Leilek,2477.98,2.48,In School,200,1375,13.75,12/31/2011,20
+5,1,WASH,Syria,MSDSP,311801.98,311.8,Risk dropping out,100,23722,237.22,12/31/2011,
+5,1,WASH,Syria,MSDSP,51080.1,51.08,Out of  School,350,670,6.7,12/31/2011,
+5,1,Roads,Syria,MSDSP,41080.1,41.08,In School,300,870,8.7,12/31/2012,15
+5,1,Roads,Syria,TCC,160000,160,Risk dropping out,250,13000,130,12/31/2012,
+5,1,WASH,Syria,TCC,253436.03,253.44,Out of  School,500,4000,40,12/31/2012,
+5,1,Roads,Syria,Insan Leilek,234223,442,In School,600,23722,123,12/31/2013,18
+5,1,Governance,Syria,MSDSP,242344,333,Risk dropping out,450,670,221,12/31/2013,
+5,1,WASH,Syria,MSDSP,3233323,233,Out of  School,800,870,232,12/31/2013,
+5,1,Roads,Syria,TCC,323411,342,Risk dropping out,550,23722,421,12/31/2014,32
+5,1,Roads,Syria,Insan Leilek,323451,632,Out of  School,800,670,452,12/31/2014,
+5,1,Roads,Syria,MSDSP,192138,192.14,In School,400,870,70.1,12/31/2014,
+5,1,Governance,Syria,MSDSP,142787.01,142.79,Risk dropping out,250,13000,127.5,12/31/2015,24
+5,1,WASH,Syria,MSDSP,179661.26,179.66,Out of  School,500,5783,57.83,12/31/2015,
+5,1,Governance,Syria,TCC,152231.86,152.23,In School,550,42000,420,12/31/2015,
+5,1,Roads,Syria,TCC,93107.02,93.11,Risk dropping out,300,12000,120,12/31/2016,53
+5,1,Roads,Syria,TCC,168325.25,168.33,Out of  School,600,23251,232.51,12/31/2016,
+5,1,Roads,Syria,TCC,133234,123,In School,700,23722,442,12/31/2016,
+5,1,Governance,Syria,MSDSP,23211,221,Risk dropping out,480,670,333,12/31/2017,64
+5,1,WASH,Syria,TCC,523432,232,Out of  School,900,870,233,12/31/2017,
+5,1,Governance,Syria,TCC,33234,441,In School,800,13000,332,12/31/2017,

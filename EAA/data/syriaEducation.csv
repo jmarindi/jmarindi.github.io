@@ -1,0 +1,24 @@
+CountryID,projectcount,Cluster,Country,Budget,Budget2,Status,NumberOfchildren,Beneficiaries,Beneficiaries2,Year,Conflict_incidences
+5,1,WASH,Syria,2477.98,2.48,In School,2000,1375,13.75,2011,200
+5,1,WASH,Syria,311801.98,311.8,Risk dropping out,1000,23722,237.22,2011,200
+5,1,WASH,Syria,51080.1,51.08,Out of  School,3500,670,6.7,2011,200
+5,1,Roads,Syria,41080.1,41.08,In School,3000,870,8.7,2012,150
+5,1,Roads,Syria,160000,160,Risk dropping out,2500,13000,130,2012,150
+5,1,WASH,Syria,253436.03,253.44,Out of  School,5000,4000,40,2012,150
+5,1,Roads,Syria,234223,442,In School,6000,23722,123,2013,180
+5,1,Governance,Syria,242344,333,Risk dropping out,4500,670,221,2013,180
+5,1,WASH,Syria,3233323,233,Out of  School,8000,870,232,2013,180
+5,1,Governance,Syria,323442,332,In School,7000,13000,441,2014,321
+5,1,Roads,Syria,323411,342,Risk dropping out,5500,23722,421,2014,321
+5,1,Roads,Syria,323451,632,Out of  School,8000,670,452,2014,321
+5,1,Roads,Syria,192138,192.14,In School,4000,870,70.1,2011,240
+5,1,Governance,Syria,142787.01,142.79,Risk dropping out,2500,13000,127.5,2011,240
+5,1,WASH,Syria,179661.26,179.66,Out of  School,5000,5783,57.83,2011,240
+5,1,Governance,Syria,152231.86,152.23,In School,5500,42000,420,2012,530
+5,1,Roads,Syria,93107.02,93.11,Risk dropping out,3000,12000,120,2012,530
+5,1,Roads,Syria,168325.25,168.33,Out of  School,6000,23251,232.51,2012,530
+5,1,Roads,Syria,133234,123,In School,7000,23722,442,2013,643
+5,1,Governance,Syria,23211,221,Risk dropping out,4800,670,333,2013,643
+5,1,WASH,Syria,523432,232,Out of  School,9000,870,233,2013,643
+5,1,Governance,Syria,33234,441,In School,8000,13000,332,2014,400
+5,1,Roads,Syria,2234,421,Risk dropping out,7000,5783,342,2014,400
