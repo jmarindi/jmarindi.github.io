@@ -1,0 +1,22 @@
+Status,NumberOfchildren,Year,Conflict_incidences,Year_num
+In School,200,12/31/2011,20,2011
+Risk dropping out,100,12/31/2011,0,2011
+Out of  School,350,12/31/2011,0,2011
+In School,300,12/31/2012,15,2012
+Risk dropping out,250,12/31/2012,0,2012
+Out of  School,500,12/31/2012,0,2012
+In School,600,12/31/2013,18,2013
+Risk dropping out,450,12/31/2013,0,2013
+Out of  School,800,12/31/2013,0,2013
+Risk dropping out,550,12/31/2014,32,2014
+Out of  School,800,12/31/2014,0,2014
+In School,400,12/31/2014,0,2014
+Risk dropping out,250,12/31/2015,24,2015
+Out of  School,500,12/31/2015,0,2015
+In School,550,12/31/2015,0,2015
+Risk dropping out,300,12/31/2016,53,2016
+Out of  School,600,12/31/2016,0,2016
+In School,700,12/31/2016,0,2016
+Risk dropping out,480,12/31/2017,64,2017
+Out of  School,900,12/31/2017,0,2017
+In School,800,12/31/2017,0,2017
