@@ -61,7 +61,7 @@ d3.csv("data/bar-data.csv", function(error, data) {
   svg.selectAll("bar")
       .data(data)
       .enter().append("rect")
-      .style("fill", "steelblue")
+      .style("fill", "#ff8080")
       .attr("x", function(d) { return x(d.date); })
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.value); })
