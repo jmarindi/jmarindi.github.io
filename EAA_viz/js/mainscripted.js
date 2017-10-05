@@ -3,7 +3,7 @@ var StatusRingChart = dc.pieChart("#Status-ring-chart"),
    PerYearRowChart = dc.rowChart("#chart-row-peryear");
 	
 
-d3.csv("data/syria_data.csv", function(error, spendData) {
+d3.csv("data/syria_data_m1.csv", function(error, spendData) {
   if (error) throw error;
   
 var ndx = crossfilter(spendData),
