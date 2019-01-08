@@ -1,0 +1,179 @@
+/* demo page styles */
+body {
+   /* background:#eee;  */
+	 background:#fffff; 
+    margin:0;
+    padding:0;
+}
+.toppanel {
+    width:1000px;
+    height:100px;
+   /* border:1px #000 solid;*/
+    margin:10px auto;
+    padding:5px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+}
+
+.mainpage {
+    width:1100px;
+    /*height:800px;	*/
+	/*height:1000px; */
+	height:850px;
+    border:1px #000 solid;
+    margin:20px auto;
+    padding:15px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+}
+
+.topnav {
+    width:900px;
+    height:50px;
+    border:1px #000 solid;
+    margin:20px auto;
+    padding:15px;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+}
+
+/* main menu styles */
+#nav,#nav ul {
+   /* background-image:url(../images/tr75.png);  */
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+#nav {
+   /* height:41px;*/
+   height:41px;
+    padding-left:5px;
+    padding-top:5px;
+    position:relative;
+    z-index:2;
+}
+#nav ul {
+    left:-9999px;
+    position:absolute;
+    top:37px;
+    width:auto;
+}
+#nav ul ul {
+    left:-9999px;
+    position:absolute;
+    top:0;
+    width:auto;
+}
+#nav li {
+    float:left;
+    margin-right:5px;
+    position:relative;
+}
+#nav li a {
+    background:#c1c1bf;
+    color:#000;
+    display:block;
+    float:left;
+    font-size:16px;
+    padding:8px 10px;
+    text-decoration:none;
+}
+#nav > li > a {
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    -o-border-radius:6px;
+    border-radius:6px;
+
+    overflow:hidden;
+}
+#nav li a.fly {
+   background:#c1c1bf url(../images/arrow.gif) no-repeat right center;
+    padding-right:15px;
+}
+#nav ul li {
+    margin:0;
+}
+#nav ul li a {
+    width:120px;
+}
+#nav ul li a.fly {
+    padding-right:10px;
+}
+
+/*hover styles*/
+#nav li:hover > a {
+    background-color:#858180;
+    color:#fff;
+}
+
+/*focus styles*/
+    #nav li a:focus {
+    outline-width:0;
+}
+
+/*popups*/
+#nav li a:active + ul.dd,#nav li a:focus + ul.dd,#nav li ul.dd:hover {
+    left:0;
+}
+#nav ul.dd li a:active + ul,#nav ul.dd li a:focus + ul,#nav ul.dd li ul:hover {
+    left:140px;
+}
+/*popups*/
+#nav li a:active + ul.summaries,#nav li a:focus + ul.summaries,#nav li ul.summaries:hover {
+    left:0;
+}
+#nav ul.summaries li a:active + ul,#nav ul.summaries li a:focus + ul,#nav ul.summaries li ul:hover {
+    left:140px;
+}
+/*popups*/
+#nav li a:active + ul.ratesclass,#nav li a:focus + ul.ratesclass,#nav li ul.ratesclass:hover {
+    left:0;
+}
+#nav ul.ratesclass li a:active + ul,#nav ul.ratesclass li a:focus + ul,#nav ul.ratesclass li ul:hover {
+    left:140px;
+}
+/*popups*/
+#nav li a:active + ul.macroclass,#nav li a:focus + ul.macroclass,#nav li ul.macroclass:hover {
+    left:0;
+}
+#nav ul.macroclass li a:active + ul,#nav ul.macroclass li a:focus + ul,#nav ul.macroclass li ul:hover {
+    left:140px;
+}
+/*popups*/
+#nav li a:active + ul.billsclass,#nav li a:focus + ul.billsclass,#nav li ul.billsclass:hover {
+    left:0;
+}
+#nav ul.billsclass li a:active + ul,#nav ul.billsclass li a:focus + ul,#nav ul.billsclass li ul:hover {
+    left:140px;
+}
+/*popups*/
+#nav li a:active + ul.npaymentsclass,#nav li a:focus + ul.npaymentsclass,#nav li ul.npaymentsclass:hover {
+    left:0;
+}
+#nav ul.npaymentsclass li a:active + ul,#nav ul.npaymentsclass li a:focus + ul,#nav ul.npaymentsclass li ul:hover {
+    left:140px;
+}
+/*popups*/
+#nav li a:active + ul.diasporaclass,#nav li a:focus + ul.diasporaclass,#nav li ul.diasporaclass:hover {
+    left:0;
+}
+#nav ul.diasporaclass li a:active + ul,#nav ul.diasporaclass li a:focus + ul,#nav ul.diasporaclass li ul:hover {
+    left:140px;
+}
+/*popups*/
+#nav li a:active + ul.countyclass,#nav li a:focus + ul.countyclass,#nav li ul.countyclass:hover {
+    left:0;
+}
+#nav ul.countyclass li a:active + ul,#nav ul.countyclass li a:focus + ul,#nav ul.countyclass li ul:hover {
+    left:140px;
+}
+/*popups*/
+#nav li a:active + ul.cbkclass,#nav li a:focus + ul.cbkclass,#nav li ul.cbkclass:hover {
+    left:0;
+}
+#nav ul.cbkclass li a:active + ul,#nav ul.cbkclass li a:focus + ul,#nav ul.cbkclass li ul:hover {
+    left:140px;
+}
