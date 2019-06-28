@@ -1,0 +1,156 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">	  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- CSS styles -->
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/styling.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link href="css/skeleton.min.css" rel="stylesheet" type="text/css">
+  <!-- Javascripts -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/d3.v3.min.js" charset="utf-8"></script>
+  <script src="js/mustache.min.js"></script>
+  <script src="js/d3-queue.min.js"></script>
+  
+    <title>DDG Somalia Security monitoring</title>
+     
+    
+  </head>
+  <body>
+  
+    <!--<div class="container-fluid"> -->
+      <div id="main">        
+		 <h3 class="twelve columns">Time is Now: Strenghtening Police Accountability and Access to Justice</h3>
+		 <hr>
+		  <div class="row">
+           <div class="col-sm-3" style="background-color:white;"> 
+                 <div id="d0_main">
+				<!-- <div class="row"> -->
+				  <!-- <div id="d0_1"> </div> -->
+				  <p><img src="images/DDG_logo.png" alt="logo" width="100" height="50"> </p>
+				   	  <select id="select-key"> 
+					   <option value="Overall" selected>Filter by report</option>
+       	               <option value="Overall">Overall security</option>
+		               <option value="ArmedConflict">Armed Conflict cases</option>
+		               <option value="Terrorism" >Terrorism cases</option>
+		               <option value="Crime" >Crime cases</option>
+		               <option value="CivilUnrest" >Civil Unrest cases</option>
+		               <option value="Hazards" >Hazards</option>
+		               <option value="Health" >Health </option>
+		               <option value="Continuity">Continuity</option>
+	                  </select>
+	                <!-- -->
+					 <select id="select-Tool"> 
+					   <option value="Overall" selected>Filter by Tool</option>
+       	               <option value="Tool 1">Tool 1</option>
+		               <option value="Tool 2">Tool 2</option>
+		               <option value="Tool 3" >Tool 3</option>
+		               <option value="Tool 4" >Tool 4</option>
+		               <option value="Tool 5" >Tool 5</option>
+					   </select>
+					   <!-- 
+					   <select id="select-oneDrive"> 
+					   <option value="Overall" selected>OneDrive</option>
+       	               <option value="SouthCentral">South Central</option>
+		               <option value="Puntland">Puntland</option>
+		               <option value="Somaliland" >Somaliland</option>
+				   </select> -->
+				   	  <form>
+                      <input class="LinkerButton" type="button" value="One Drive" onclick="window.location.href='http://ngov.kwachua.com/document-uploads/'" />
+                      </form>
+					  <form>
+                      <input class="LinkerButton" type="button" value="Dialog Forum" onclick="window.location.href='http://ngov.kwachua.com/community/'" />
+                      </form>
+					 <!-- 
+					   <select id="select-DialogForum"> 
+					   <option value="dialogforum" selected>Dialog Forum</option>
+       	               <option value="Topic1">Topic 1</option>
+		               <option value="Topic2">Topic 2</option>
+		               <option value="Topic2">Topic 3</option>
+				   </select> -->
+					 <!-- </div> <!--
+					  <p><strong>Events Calendar</strong></p> -->
+					  <form>
+                      <input class="LinkerButton" type="button" value="Events Calendar" onclick="window.location.href='http://localhost/wordpress/community/'" />
+                      </form>
+					  <form>
+                      <input class="LinkerButton" type="button" value="Main site" onclick="window.location.href='http://ngov.kwachua.com/'" />
+                      </form>
+				</div>
+				</div>
+          
+           <div class="col-sm-6" style="background-color:white;"> 
+               <div id="d1"> 
+			       <div id="map"><!-- Map container --></div>
+                   <div id="legend"><!-- Legend container --></div>
+			      <!-- <Strong>Data sources</strong>: <h6>Data from the Danish Demining group, the <a href="https://data.humdata.org" target="_blank">geographical data</a> and the <a href="http://www.bfs.admin.ch/bfs/portal/de/index/regionen/02/daten.html" target="_blank">statistical data</a>.</h6> -->
+				</div>
+			</div>
+		   <div class="col-sm-3" style="background-color:white;">
+				 <div id="d2">
+                          <div id="details" class="hidden row"><!-- Details container --></div>
+                          <div class="footer"></div>
+                    </div>		
+				  
+				</div>
+           </div>
+      <!--   <div class="col-sm-3" style="background-color:white;"> 
+           <div id="d2"></div>-->
+           </div> 
+         </div>
+		  <!-- Mustache template, rendered later to show the details of a feature -->
+    <script id="template" type="x-tmpl-mustache">
+      <!--<h3 class="six columns">{{ name }}</h3> -->
+   
+	   <table class="nine columns"; font-size: 10pt;>
+	   <tr>
+	   <thead font size = 30pt>
+          <th> {{ name }}</th>
+       </thead>   
+        </tr>
+        <tr>
+          <th>Overall:</th>
+          <td>{{ Overall }}%</td>
+        </tr>
+        <tr>
+          <th>Armed Conflict:</th>
+          <td>{{ ArmedConflict }} %</td>
+        </tr>
+        <tr>
+          <th>Terrorism:</th>
+          <td>{{ Terrorism }} %</td>
+        </tr>
+        <tr>
+          <th>Crime:</th>
+          <td>{{ Crime }} %</td>
+        </tr>
+        <tr>
+          <th>Civil Unrest:</th>
+          <td>{{ CivilUnrest }} %</td>
+        </tr>
+		        <tr>
+          <th>Hazards:</th>
+          <td>{{ Hazards }} %</td>
+        </tr>
+        <tr>
+          <th>Health:</th>
+          <td>{{ Health }} %</td>
+        </tr>
+        <tr>
+          <th>Continuity:</th>
+          <td>{{ Continuity }} %</td>
+        </tr>
+      </table>
+      <a href="#" id="close-details" class="one column" onclick="hideDetails(); return false;">&#x274c;</a>
+	 
+    </script>
+
+    
+    <!-- Custom JS code -->
+    <script src="js/map.js"></script>
+	<!--<script src="js/map2.js"></script>  -->
+</body>
+
+</html>

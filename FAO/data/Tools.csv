@@ -1,0 +1,19 @@
+id,OBJECTID,name,admin1Name,admin1Pcod,admin1RefN,Tool 1,Tool 2,Tool 3,Tool 4,Tool 5,Tool 6,Overall,ArmedConflict,Terrorism,Crime,CivilUnrest,Hazards,Health,Continuity
+1,1,Awdal,Awdal,SO11,Awdal,51.3,30.9,5.2,85,87,65,85,87,65,65,95,81,19,100
+2,2,Bakool,Bakool,SO25,Bakool,40.1,28.2,0.9,68,26,77,68,26,77,50,97,26,63,77
+3,3,Banadir,Banadir,SO22,Banadir,55.4,28.6,0.4,35,20,82,35,20,82,77,29,94,92,51
+4,4,Bari,Bari,SO16,Bari,55.8,29,2.6,90,91,60,90,91,60,36,15,76,93,52
+5,5,Bay,Bay,SO24,Bay,46.2,33.2,0.6,27,73,53,27,73,53,65,31,78,11,44
+6,6,Galgaduud,Galgaduud,SO19,Galgaduud,70,20.6,1.1,79,61,72,79,61,72,32,76,76,85,23
+7,7,Gedo,Gedo,SO26,Gedo,62.2,17.2,2.6,78,88,42,78,88,42,71,34,47,86,43
+8,8,Hiraan,Hiraan,SO20,Hiraan,59.6,23.7,7.7,20,70,59,20,70,59,12,97,84,70,23
+9,9,Middle Juba,Middle Juba,SO27,Middle Juba,64.2,18.6,1.2,31,16,63,31,16,63,13,22,66,34,34
+10,10,Lower Juba,Lower Juba,SO28,Lower Juba,49.3,21.3,5.2,38,15,48,38,15,48,36,29,63,36,15
+11,11,Mudug,Mudug,SO18,Mudug,55.2,19.9,4,43,10,72,43,10,72,16,79,20,75,10
+12,12,Nugaal,Nugaal,SO17,Nugaal,64.8,22.7,2.1,87,57,30,87,57,30,81,91,28,57,87
+13,13,Sanaag,Sanaag,SO15,Sanaag,38.1,49.8,1.1,88,85,82,88,85,82,100,69,91,28,63
+14,14,Middle Shabelle,Middle Shabelle,SO21,Middle Shabelle,34,21,4.2,43,40,17,43,40,17,41,33,89,44,49
+15,15,Lower Shabelle,Lower Shabelle,SO23,Lower Shabelle,63.7,22.7,2.6,92,42,22,92,42,22,12,29,87,92,34
+16,16,Sool,Sool,SO14,Sool,57.7,33.9,0.4,66,78,76,66,78,76,20,59,80,65,44
+17,17,Togdheer,Togdheer,SO13,Togdheer,48.2,45.3,1.6,36,59,22,36,59,22,57,71,58,70,13
+18,18,Woqooyi Galbeed,Woqooyi Galbeed,SO12,Woqooyi Galbeed,55,38.1,0,68,53,11,68,53,11,67,47,67,41,23
