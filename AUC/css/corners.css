@@ -1,0 +1,50 @@
+table, th, td {
+    border: 3px solid black;
+	border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;    
+}
+
+ #Bodydiv{
+    border: 3px solid black;
+	width: 100%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 80px;
+    background-color: lightblue;
+}    
+#rcorners0 {
+    border-radius: 20px;
+    border: 2px solid #73AD21;
+	left : 5px;
+    padding: 20px; 
+    width: 200px;
+    height: 700px;    
+}
+#rcorners1 {
+    border-radius: 25px;
+    background: #73AD21;
+    padding: 10px; 
+    width: 30px;
+    height: 700px;    
+}
+
+#rcornersMap {
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 20px; 
+    width: 800px;
+    height: 700px;    
+}
+#rcorners3 {
+    border-radius: 25px;
+    background: url(paper.gif);
+    background-position: left top;
+    background-repeat: repeat;
+    padding: 20px; 
+    width: 200px;
+    height: 150px;    
+}
