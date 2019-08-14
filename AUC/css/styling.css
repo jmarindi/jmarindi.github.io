@@ -61,7 +61,7 @@ td {
 }
 
 #legend {
-  border: 1px solid silver;
+  border: 0.5px solid silver;
   /* font-size: xx-small; */
   border-top: 0;
 }
