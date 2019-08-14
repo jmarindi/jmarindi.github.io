@@ -381,7 +381,7 @@ function calculateScaleCenter(features) {
  * the data CSV.
  */
 function getValueOfData(d) {
-  return +d[currentKey];
+  return d[currentKey];
 }
 
 /**
