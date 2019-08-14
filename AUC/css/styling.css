@@ -33,17 +33,7 @@ td, th {
 td {
   text-align: right;
 }
-/*
-.Mapcontainer {
- /* width: 100%;
- width: 50%;
- align: left;
-}
-.Filtercontainer {
- /* width: 100%;
- width: 30%;
- align: left;
-}*/
+
 .footer {
   border-top: 1px solid silver;
   color: #888888;
@@ -130,23 +120,7 @@ g.features path:hover {
 	padding: 5px 5px 5px 5px;
     width: 100px;
   }
- /* 
-#d0_main{
-	border-radius: 10px;
-  border: 2px solid #73AD21;
-	padding: 5px 5px 5px 5px;
-    width: 200px;
-    height: 80%;    
-  }
  
-#d1{
-	border-radius: 10px;
- 	border: 2px solid #73AD21;
-	padding: 5px 5px 5px 5px;
-	width: 430px;
-  height: 80%;    
-  } */
-
 #d2{
   border-radius: 5px;	
   padding: 2px 5px 5px 0px;
