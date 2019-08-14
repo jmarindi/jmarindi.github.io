@@ -32,17 +32,17 @@ td, th {
 td {
   text-align: right;
 }
-
+/*
 .Mapcontainer {
- /* width: 100%;*/
+ /* width: 100%;
  width: 50%;
  align: left;
 }
 .Filtercontainer {
- /* width: 100%;*/
+ /* width: 100%;
  width: 30%;
  align: left;
-}
+} */
 .footer {
   border-top: 1px solid silver;
   color: #888888;

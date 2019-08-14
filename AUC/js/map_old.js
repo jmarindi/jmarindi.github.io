@@ -1,9 +1,9 @@
 // We define a variable holding the current key to visualize on the map.
-//var currentKey = 'Overall';
-var currentKey = '2018_Population';
+var currentKey = 'Overall';
+
 // Listen to changes of the dropdown on filter by report to select the key to visualize on
 // the map.
-d3.select('#Indicator_list').on('change', function(a) {
+d3.select('#select-key').on('change', function(a) {
   // Change the current key and call the function to update the colors.
   currentKey = d3.select(this).property('value');
   updateMapColors();
@@ -13,11 +13,88 @@ d3.select('#Indicator_list').on('change', function(a) {
 // the window is resized.
 window.onresize = updateLegend;
 
+/*================================================================================*/
+// Listen to changes of the dropdown on filter by report to select the key to visualize on
+// the map.
+/*
+function UploadToolData(){
+  d3.queue()
+  .defer(d3.csv, "data/tools.csv")
+  .defer(d3.tsv, "geo/SomaliaAdmin1Geo.geojson")
+  .await(analyze);
+
+function analyze(error, tools, SomaliaAdmin1Geo) {
+  if(error) { console.log(error); }
+
+  console.log(tools[0]);
+  console.log(SomaliaAdmin1Geo[0]);
+  Toolsdata();
+}
+
+d3.json('geo/SomaliaAdmin1Geo.geojson', function(error, features) {
+
+  // Get the scale and center parameters from the features.
+  var scaleCenter = calculateScaleCenter(features);
+
+  // Apply scale, center and translate parameters.
+  projection.scale(scaleCenter.scale)
+    .center(scaleCenter.center)
+    .translate([width/2, height/2]);
+
+  // Read the data for the cartogram
+  
+  d3.csv('data/Tools.csv', function(data) {
+
+    // We store the data object in the variable which is accessible from
+    // outside of this function.
+    mapData = data;
+
+    // This maps the data of the CSV so it can be easily accessed by
+    // the ID of the admin unit, for example: dataById[2196]
+    dataById = d3.nest()
+      .key(function(d) { return d.OBJECTID; })
+      .rollup(function(d) { return d[0]; })
+      .map(data);
+
+    // We add the features to the <g> element created before.
+    // D3 wants us to select the (non-existing) path objects first ...
+    mapFeatures.selectAll('path')
+        // ... and then enter the data. For each feature, a <path>
+        // element is added.
+      .data(features.features)
+      .enter().append('path')
+        // As "d" attribute, we set the path of the feature.
+        .attr('d', path)
+        // When the mouse moves over a feature, show the tooltip.
+        .on('mousemove', showTooltip)
+        // When the mouse moves out of a feature, hide the tooltip.
+		.on('mouseout', hideTooltip)
+        // When a feature is clicked, show the details of it.
+        .on('click', showDetails);
+
+    // Call the function to update the map colors.
+    updateMapColors();
+
+  });
+
+});
+	
+}
+
+d3.select('#select-Tool').on('change', function(a) {
+	UploadToolData();
+  // Change the current key and call the function to update the colors.
+  currentKey = d3.select(this).property('value');
+  updateMapColors();
+}); */
+/*================================================================================*/
 
 // We specify the dimensions for the map container. We use the same
 // width and height as specified in the CSS above.
+/*var width = 700,
+    height = 400;*/
 	
-	var width = 500,
+	var width = 600,
     height = 550;
 
 // We define a variable to later hold the data of the CSV.
@@ -53,6 +130,7 @@ var zoom = d3.behavior.zoom()
 svg.call(zoom);
 
 // We define a geographical projection
+//     https://github.com/mbostock/d3/wiki/Geo-Projections
 // and set some dummy initial scale. The correct scale, center and
 // translate parameters will be set once the features are loaded.
 var projection = d3.geo.mercator()
@@ -71,7 +149,6 @@ var dataById = d3.map();
 // values are known.
 var quantize = d3.scale.quantize()
   .range(d3.range(9).map(function(i) { return 'q' + i + '-9'; }));
- // .range(d3.range(14).map(function(i) { return 'q' + i + '-14'; }));
 
 // We prepare a number format which will always return 2 decimal places.
 var formatNumber = d3.format('.2f');
@@ -172,7 +249,9 @@ function updateLegend() {
 
   // We update the legend caption. To do this, we take the text of the
   // currently selected dropdown option.
-   var keyDropdown = d3.select('#Indicator_list').node();
+  var keyDropdown = d3.select('#select-DialogForum').node();
+  var keyDropdown = d3.select('#select-OneDrive').node();
+  var keyDropdown = d3.select('#select-Tool').node();
   var keyDropdown = d3.select('#select-key').node();
   var selectedOption = keyDropdown.options[keyDropdown.selectedIndex];
   g.selectAll('text.caption')
@@ -187,8 +266,8 @@ function updateLegend() {
 }
 
 // Load the features from the GeoJSON.
-	
-d3.json('geo/Af0.geojson', function(error, features) {
+
+d3.json('geo/somaliaAdmin2Geo.geojson', function(error, features) {
 
   // Get the scale and center parameters from the features.
   var scaleCenter = calculateScaleCenter(features);
@@ -199,7 +278,7 @@ d3.json('geo/Af0.geojson', function(error, features) {
     .translate([width/2, height/2]);
 
   // Read the data for the cartogram
- d3.csv('data/Aucdata.csv', function(data) {
+  d3.csv('data/somaliaStats.csv', function(data) {
 
     // We store the data object in the variable which is accessible from
     // outside of this function.
@@ -208,7 +287,7 @@ d3.json('geo/Af0.geojson', function(error, features) {
     // This maps the data of the CSV so it can be easily accessed by
     // the ID of the admin unit, for example: dataById[2196]
     dataById = d3.nest()
-      .key(function(d) { return d.myID; })
+      .key(function(d) { return d.OBJECTID_1; })
       .rollup(function(d) { return d[0]; })
       .map(data);
 
@@ -300,7 +379,7 @@ function showTooltip(f) {
   // Get the ID of the feature.
   var id = getIdOfFeature(f);
   // Use the ID to get the data entry.
-  //var d = dataById[myID_1];
+  //var d = dataById[OBJECTID_1];
    var d = dataById[id];
    
 
@@ -396,6 +475,6 @@ function getValueOfData(d) {
  * @param {object} f - A GeoJSON Feature object.
  */
 function getIdOfFeature(f) {
-  //return f.properties.myID_1;
-  return f.properties.myID;
+  //return f.properties.OBJECTID_1;
+  return f.properties.OBJECTID_1;
 }
