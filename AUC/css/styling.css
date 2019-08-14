@@ -1,14 +1,3 @@
-/*#main{
-  position:absolute;
-  width:90%;
-  height:95%;
-  padding: 20px 5px 5px 5px;
-/*  border:1px solid black; 
-  border:0px solid black;
-  border-radius: 20px;
-  float:center;
-  
-} */
 #main > div{
  
   float:left;
@@ -20,7 +9,7 @@
     /* border: 2px solid #73AD21; 
 	border: 2px solid #73AD21;*/
 	padding: 5px 5px 5px 5px;
-    width: 200px;
+    width: 150px;
    /* height: 85%; */    
   }
   
