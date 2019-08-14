@@ -298,7 +298,7 @@ function showTooltip(f) {
   var id = getIdOfFeature(f);
   // Use the ID to get the data entry.
   //var d = dataById[myID_1];
-   var d = dataById[myID];
+   var d = dataById[id];
    
 
   // Get the current mouse position (as integer)
