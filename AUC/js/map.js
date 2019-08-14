@@ -308,7 +308,8 @@ function showTooltip(f) {
   // Calculate the absolute left and top offsets of the tooltip. If the
   // mouse is close to the right border of the map, show the tooltip on
   // the left.
-  var left = Math.min(width - 4 * d.name.length, mouse[0] + 5);
+  var left = Math.min(width - 4 * d.Country.length, mouse[0] + 5);
+  //var left = Math.min(width - 4 * d.name.length, mouse[0] + 5);
   var top = mouse[1] + 25;
     
   //var left = Math.min(width - 70 * d.name.length, mouse[0] + 5);
@@ -319,7 +320,7 @@ function showTooltip(f) {
   tooltip.classed('hidden', false)
     .attr("style", "left:" + left + "px; top:" + top + "px")
     //.html(d.name);
-	.html(d.name);
+	.html(d.Country);
 	console.log(f);
 }
 
