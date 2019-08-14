@@ -1,5 +1,4 @@
 // We define a variable holding the current key to visualize on the map.
-//var currentKey = 'Overall';
 var currentKey = '2018_Population';
 // Listen to changes of the dropdown on filter by report to select the key to visualize on
 // the map.
@@ -299,7 +298,7 @@ function showTooltip(f) {
   var id = getIdOfFeature(f);
   // Use the ID to get the data entry.
   //var d = dataById[myID_1];
-   var d = dataById[id];
+   var d = dataById[myID];
    
 
   // Get the current mouse position (as integer)
