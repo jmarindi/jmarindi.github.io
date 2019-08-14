@@ -17,8 +17,8 @@ window.onresize = updateLegend;
 // We specify the dimensions for the map container. We use the same
 // width and height as specified in the CSS above.
 	
-	var width = 550,
-    height = 600;
+	var width = 500,
+    height = 550;
 
 // We define a variable to later hold the data of the CSV.
 var mapData;
