@@ -299,8 +299,7 @@ function showTooltip(f) {
   // Use the ID to get the data entry.
   //var d = dataById[myID_1];
    var d = dataById[id];
-   
-
+  
   // Get the current mouse position (as integer)
   var mouse = d3.mouse(d3.select('#map').node()).map(
     function(d) { return parseInt(d); }
@@ -311,8 +310,7 @@ function showTooltip(f) {
   // the left.
   var left = Math.min(width - 4 * d.name.length, mouse[0] + 5);
   var top = mouse[1] + 25;
-  
-  
+    
   //var left = Math.min(width - 70 * d.name.length, mouse[0] + 5);
   //var top = mouse[1] + 40;
 
