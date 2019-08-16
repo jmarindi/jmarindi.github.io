@@ -81,7 +81,8 @@ var legendX = d3.scale.linear();
 // as they also depend on the data.
 var legendXAxis = d3.svg.axis()
   .scale(legendX)
-  .orient("bottom")
+  .orient("top")
+  //.orient("bottom")
   .tickSize(13)
   .tickFormat(function(d) {
     return formatNumber(d);
