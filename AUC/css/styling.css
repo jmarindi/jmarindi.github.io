@@ -1,6 +1,7 @@
 /* ===== formerly styles.css ==========*/
 body {
   margin: 25px;
+  padding: 10px;
 }
 
 .tooltip {
