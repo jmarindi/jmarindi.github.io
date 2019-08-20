@@ -125,18 +125,18 @@ g.features path:hover {
 #main > div{
   float:left;
   margin:10px;
-  padding: 5px 5px 5px 5px;
+ /* padding: 5px 5px 5px 5px; */
   height: 100%;
 } 
 #indicator_div{
 	border-radius: 10px;
-	padding: 5px 5px 5px 5px;
+/*	padding: 5px 5px 5px 5px;*/
     width: 100px;
   }
  
 #d2{
   border-radius: 5px;	
-  padding: 2px 5px 5px 0px;
+/*  padding: 2px 5px 5px 0px; */
   width:390px;
   height:80%;
   /*border:1px solid blue;*/
