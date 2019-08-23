@@ -92,7 +92,7 @@ var legendXAxis = d3.svg.axis()
 // dimensions.
 var legendSvg = d3.select('#legend').append('svg')
   .attr('width', '100%')
-  .attr('height', '44');
+  .attr('height', '60');
 
 // To this SVG element, we add a <g> element which will hold all of our
 // legend entries.
