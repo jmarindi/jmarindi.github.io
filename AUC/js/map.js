@@ -189,8 +189,7 @@ function updateLegend() {
   // currently selected dropdown option.
    var keyDropdown = d3.select('#Indicator_list').node();
    var selectedOption = keyDropdown.options[keyDropdown.selectedIndex];
-  console.log(selectedOption);
-  g.selectAll('text.caption')
+   g.selectAll('text.caption')
     .text(selectedOption.text);
 
   // We set the calculated domain as tickValues for the legend axis.
