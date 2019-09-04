@@ -12,14 +12,14 @@ d3.select('#Indicator_list').on('change', function(a) {
   currentKey = d3.select(this).property('value');
   updateMapColors();
   });
-/*
+
 d3.select("#Indicator_list").on("change", change)
   function change() {
     selecteddropdownval = this.options[this.selectedIndex].value
     console.log(selecteddropdownval);
    // updateMapColors();
    updateLegend();
-  } */
+  } 
 
 // We add a listener to the browser window, calling updateLegend when
 // the window is resized.
