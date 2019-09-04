@@ -1,36 +1,101 @@
 // We define a variable holding the current key to visualize on the map.
-var currentKey = d3.select("#Indicator_list").node().value; 
-//var currentKey = '2018_Population';
-var currentID = 24;
-var loadtime = 0;
-var HoveredCountry = '';
-var selecteddropdownval = '';
+var currentKey = 'Overall';
+
 // Listen to changes of the dropdown on filter by report to select the key to visualize on
 // the map.
-d3.select('#Indicator_list').on('change', function(a) {
+d3.select('#select-key').on('change', function(a) {
   // Change the current key and call the function to update the colors.
   currentKey = d3.select(this).property('value');
   updateMapColors();
-  });
-/*
-d3.select("#Indicator_list").on("change", change)
-  function change() {
-    selecteddropdownval = this.options[this.selectedIndex].value
-    console.log(selecteddropdownval);
-   // updateMapColors();
-   updateLegend();
-  } */
+});
 
 // We add a listener to the browser window, calling updateLegend when
 // the window is resized.
 window.onresize = updateLegend;
-//window.onload = updateLegend();
-//window.onloadstart = updateLegend;
+
+/*================================================================================*/
+// Listen to changes of the dropdown on filter by report to select the key to visualize on
+// the map.
+/*
+function UploadToolData(){
+  d3.queue()
+  .defer(d3.csv, "data/tools.csv")
+  .defer(d3.tsv, "geo/SomaliaAdmin1Geo.geojson")
+  .await(analyze);
+
+function analyze(error, tools, SomaliaAdmin1Geo) {
+  if(error) { console.log(error); }
+
+  console.log(tools[0]);
+  console.log(SomaliaAdmin1Geo[0]);
+  Toolsdata();
+}
+
+d3.json('geo/SomaliaAdmin1Geo.geojson', function(error, features) {
+
+  // Get the scale and center parameters from the features.
+  var scaleCenter = calculateScaleCenter(features);
+
+  // Apply scale, center and translate parameters.
+  projection.scale(scaleCenter.scale)
+    .center(scaleCenter.center)
+    .translate([width/2, height/2]);
+
+  // Read the data for the cartogram
+  
+  d3.csv('data/Tools.csv', function(data) {
+
+    // We store the data object in the variable which is accessible from
+    // outside of this function.
+    mapData = data;
+
+    // This maps the data of the CSV so it can be easily accessed by
+    // the ID of the admin unit, for example: dataById[2196]
+    dataById = d3.nest()
+      .key(function(d) { return d.OBJECTID; })
+      .rollup(function(d) { return d[0]; })
+      .map(data);
+
+    // We add the features to the <g> element created before.
+    // D3 wants us to select the (non-existing) path objects first ...
+    mapFeatures.selectAll('path')
+        // ... and then enter the data. For each feature, a <path>
+        // element is added.
+      .data(features.features)
+      .enter().append('path')
+        // As "d" attribute, we set the path of the feature.
+        .attr('d', path)
+        // When the mouse moves over a feature, show the tooltip.
+        .on('mousemove', showTooltip)
+        // When the mouse moves out of a feature, hide the tooltip.
+		.on('mouseout', hideTooltip)
+        // When a feature is clicked, show the details of it.
+        .on('click', showDetails);
+
+    // Call the function to update the map colors.
+    updateMapColors();
+
+  });
+
+});
+	
+}
+
+d3.select('#select-Tool').on('change', function(a) {
+	UploadToolData();
+  // Change the current key and call the function to update the colors.
+  currentKey = d3.select(this).property('value');
+  updateMapColors();
+}); */
+/*================================================================================*/
 
 // We specify the dimensions for the map container. We use the same
 // width and height as specified in the CSS above.
-	var width = 700,
-      height = 750;
+/*var width = 700,
+    height = 400;*/
+	
+	var width = 600,
+    height = 550;
 
 // We define a variable to later hold the data of the CSV.
 var mapData;
@@ -65,6 +130,7 @@ var zoom = d3.behavior.zoom()
 svg.call(zoom);
 
 // We define a geographical projection
+//     https://github.com/mbostock/d3/wiki/Geo-Projections
 // and set some dummy initial scale. The correct scale, center and
 // translate parameters will be set once the features are loaded.
 var projection = d3.geo.mercator()
@@ -83,12 +149,9 @@ var dataById = d3.map();
 // values are known.
 var quantize = d3.scale.quantize()
   .range(d3.range(9).map(function(i) { return 'q' + i + '-9'; }));
- 
+
 // We prepare a number format which will always return 2 decimal places.
 var formatNumber = d3.format('.2f');
-
-//Format population numbers as displayed to include commas as 1000 separators
-var formatComma = d3.format(",");
 
 // For the legend, we prepare a very simple linear scale. Domain and
 // range will be set later as they depend on the data currently shown.
@@ -98,7 +161,6 @@ var legendX = d3.scale.linear();
 // as they also depend on the data.
 var legendXAxis = d3.svg.axis()
   .scale(legendX)
-  //.orient("top")
   .orient("bottom")
   .tickSize(13)
   .tickFormat(function(d) {
@@ -109,7 +171,7 @@ var legendXAxis = d3.svg.axis()
 // dimensions.
 var legendSvg = d3.select('#legend').append('svg')
   .attr('width', '100%')
-  .attr('height', '90');
+  .attr('height', '44');
 
 // To this SVG element, we add a <g> element which will hold all of our
 // legend entries.
@@ -159,7 +221,7 @@ function updateLegend() {
   // On smaller screens, there is not enough room to show all 10
   // category values. In this case, we add a filter leaving only every
   // third value of the domain.
-  if (legendWidth < 600) {
+  if (legendWidth < 400) {
     legendDomain = legendDomain.filter(function(d, i) {
       return i % 3 == 0;
     });
@@ -187,9 +249,11 @@ function updateLegend() {
 
   // We update the legend caption. To do this, we take the text of the
   // currently selected dropdown option.
-   var keyDropdown = d3.select('#Indicator_list').node();
-   var selectedOption = keyDropdown.options[keyDropdown.selectedIndex];
-  console.log(selectedOption);
+  var keyDropdown = d3.select('#select-DialogForum').node();
+  var keyDropdown = d3.select('#select-OneDrive').node();
+  var keyDropdown = d3.select('#select-Tool').node();
+  var keyDropdown = d3.select('#select-key').node();
+  var selectedOption = keyDropdown.options[keyDropdown.selectedIndex];
   g.selectAll('text.caption')
     .text(selectedOption.text);
 
@@ -202,8 +266,8 @@ function updateLegend() {
 }
 
 // Load the features from the GeoJSON.
-	
-d3.json('geo/Af0.geojson', function(error, features) {
+
+d3.json('geo/somaliaAdmin2Geo.geojson', function(error, features) {
 
   // Get the scale and center parameters from the features.
   var scaleCenter = calculateScaleCenter(features);
@@ -213,23 +277,20 @@ d3.json('geo/Af0.geojson', function(error, features) {
     .center(scaleCenter.center)
     .translate([width/2, height/2]);
 
-  // Read the data for the choropleth map
- d3.csv('data/Aucdata.csv', function(data) {
-  data.forEach(function(d) {
-    d.Population2018  = formatComma(d.Population2018); 
-    d.Population2063  = formatComma(d.Population2063);
-  });
+  // Read the data for the cartogram
+  d3.csv('data/somaliaStats.csv', function(data) {
+
     // We store the data object in the variable which is accessible from
     // outside of this function.
     mapData = data;
-   
+
     // This maps the data of the CSV so it can be easily accessed by
-    // the ID of the admin unit,
+    // the ID of the admin unit, for example: dataById[2196]
     dataById = d3.nest()
-      .key(function(d) { return d.myID; })
+      .key(function(d) { return d.OBJECTID_1; })
       .rollup(function(d) { return d[0]; })
       .map(data);
-   showDetails();
+
     // We add the features to the <g> element created before.
     // D3 wants us to select the (non-existing) path objects first ...
     mapFeatures.selectAll('path')
@@ -248,7 +309,7 @@ d3.json('geo/Af0.geojson', function(error, features) {
 
     // Call the function to update the map colors.
     updateMapColors();
-    
+
   });
 
 });
@@ -270,6 +331,7 @@ function updateMapColors() {
       // Use the quantized value for the class
       return quantize(getValueOfData(dataById[getIdOfFeature(f)]));
     });
+
   // We call the function to update the legend.
   updateLegend();
 }
@@ -281,23 +343,12 @@ function updateMapColors() {
  * @param {object} f - A GeoJSON Feature object.
  */
 function showDetails(f) {
-  var d = dataById[id];
-  if(loadtime < 1)
-  {
-    var id = currentID;
-    loadtime = loadtime + 1;
-    updateLegend();
-  }
-  else
-  {
   // Get the ID of the feature.
   var id = getIdOfFeature(f);
-  loadtime = loadtime + 1;
   // Use the ID to get the data entry.
-  //var d = dataById[id];
-  }
-   d = dataById[id];
-    // Render the Mustache template with the data object and put the
+  var d = dataById[id];
+
+  // Render the Mustache template with the data object and put the
   // resulting HTML output in the details container.
   var detailsHtml = Mustache.render(template, d);
 
@@ -328,24 +379,22 @@ function showTooltip(f) {
   // Get the ID of the feature.
   var id = getIdOfFeature(f);
   // Use the ID to get the data entry.
-  //var d = dataById[myID_1];
+  //var d = dataById[OBJECTID_1];
    var d = dataById[id];
-   //var d = dataById[Country];
-  console.log(d);
-  console.log(id);
+   
+
   // Get the current mouse position (as integer)
   var mouse = d3.mouse(d3.select('#map').node()).map(
     function(d) { return parseInt(d); }
-
   );
 
   // Calculate the absolute left and top offsets of the tooltip. If the
   // mouse is close to the right border of the map, show the tooltip on
   // the left.
-  var left = Math.min(width - 4 * d.Country.length, mouse[0] + 5);
-  //var left = Math.min(width - 4 * d.name.length, mouse[0] + 5);
+  var left = Math.min(width - 4 * d.name.length, mouse[0] + 5);
   var top = mouse[1] + 25;
-    
+  
+  
   //var left = Math.min(width - 70 * d.name.length, mouse[0] + 5);
   //var top = mouse[1] + 40;
 
@@ -354,10 +403,8 @@ function showTooltip(f) {
   tooltip.classed('hidden', false)
     .attr("style", "left:" + left + "px; top:" + top + "px")
     //.html(d.name);
-	.html(d.Country);
-  console.log(d.Country);
-  HoveredCountry = d.Country;
-  console.log(HoveredCountry);
+	.html(d.name);
+	console.log(f);
 }
 
 /**
@@ -412,13 +459,13 @@ function calculateScaleCenter(features) {
 /**
  * Helper function to access the (current) value of a data object.
  *
+ * Use "+" to convert text values to numbers.
+ *
  * @param {object} d - A data object representing an entry (one line) of
  * the data CSV.
  */
 function getValueOfData(d) {
- // return +d[currentKey];
   return +d[currentKey];
-  
 }
 
 /**
@@ -428,7 +475,6 @@ function getValueOfData(d) {
  * @param {object} f - A GeoJSON Feature object.
  */
 function getIdOfFeature(f) {
-  //return f.properties.myID_1;
-  return f.properties.myID;
-  console.log(f.properties.myID);
+  //return f.properties.OBJECTID_1;
+  return f.properties.OBJECTID_1;
 }

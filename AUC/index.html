@@ -3,7 +3,6 @@
     <meta charset="UTF-8">	  
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- CSS styles -->
-  <!--<link href="css/style.css" rel="stylesheet" type="text/css"> -->
   <link href="css/styling.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link href="css/skeleton.min.css" rel="stylesheet" type="text/css">
@@ -19,63 +18,49 @@
   </head>
   <body>
   <div class="row">
-  <div class="col-sm-2" style="background-color:white;"> 
-  <div id = "logoAuc">
-  <a href="https://au.int/en/commission/" target="_blank">
-  <img src="images/aucbig.png" alt="Africa Union Commission" width="120" height="55">  </div> </a>
+      <div class="col-sm-3" style="background-color:white;"> 
+         <div id = "logoAuc">
+           <a href="https://au.int/en/commission/" target="_blank">
+           <img src="images/aucbig.png" alt="Africa Union Commission" width="160" height="55"> 
+         </div> </a>
+      </div>
+      <div class="col-sm-4" style="background-color:white;"><h3>Africa Youth Indicators</h3> </div>
   </div>
- <div class="col-sm-4" style="background-color:white;"><h3>Africa Youth Indicators</h3> </div>
-   <!-- <h3>Africa Youth Indicators</h3> -->
-  </div>
-  <p style="font-size: 14px">
-    <i> A visualisation by the African Union Commission to track progress of various youth centred development indicators in Africa. In this visual, <b>Youth population - </b><i>refers to Male and female between ages 15 - 35.</i>
-    <b>Youth Unemployment - </b><i> refers to unemployed Male and female between ages 15 - 24.</i>This dataset and many more similar ones 
-      can be downloaded from the <a href="https://data.humdata.org/organization/auc">Humanitarian Data Exchange</a>. Select an indicator from the dropdown list and click on the choropleth map to view individual country statistics.
-    </i>
-     </p>
-  <div id="main">        
-		<hr>
-		  <div class="row">
-        <!--<div class="col-sm-3" style="background-color:white;"> -->
-        <div class="col-sm-4" style="background-color:white;"> 
-          <div id="indicator_div">				   
+   <div class="col-sm-10" style="background-color:white;">
+     A visualisation for the African Union Commission to track progress of various youth development indicators in Africa. In this visual, <b>Youth population - </b>refers to Male and female between ages 15 - 35.
+    <b>Youth Unemployment - </b> refers to unemployed Male and female between ages 15 - 24.This dataset can be downloaded from the <a href="https://data.humdata.org/organization/auc">Humanitarian Data Exchange</a>.
+     Select an indicator from the dropdown list and click on the choropleth map to view individual country statistics.
+     <hr> 
+           <div id="indicator_div">				   
 					  <select id="Indicator_list"> 
-					     <option value="2018_Population" selected>Filter by Indicator</option>
-					     <option value="2018_Population" >2018 Youth Population</option>
+					     <!--<option value="2018_Population" selected>Filter by Indicator</option> -->
+					     <option value="2018_Population"selected>2018 Youth Population</option>
        	       <option value="2018_Percent_Youth">2018 Youth Percentage</option>
 		           <option value="2063_Population">2063 Youth Population</option>
 		           <option value="2063_Percent_Youth" >2063 Youth percentage</option>
 					     <option value="Youth_Unemployment_2017" >2017 Youth Unemployment</option>
 		        </select>				
 				  </div>
-				</div>
-     <!-- <div class="col-sm-6" style="background-color:white;"> -->
-      <div class="col-sm-5" style="background-color:white;">
-          <div id="map"><!-- Map container -->
-          </div>
-         <div id="legend"> <!--Legend container -->
-          <!-- <p style="font-size: 8px">
-              <b>Youth population - </b><i> Male and female between ages 15 - 35.</i>
-              <b>Youth Unemployment - </b><i> Unemployed Male and female between ages 15 - 24</i>
-               </p>  -->
-            </div>  
+  <div id="main">  
+     <div class = "row">
+        <div class="col-sm-7" style="background-color:white;">
+          <div id="map"><!-- Map container --> </div>
+         <div id="legend"> <!--Legend container --></div>  
 			</div>
-       <!--<div class="col-sm-3" style="background-color:white;">-->
-       <div class="col-sm-3" style="background-color:white;">
+       <div class="col-sm-4" style="background-color:white;">
 				 <div id="d2">
             <div id="details" class="hidden row"><!-- Details container --></div>
                 <div class="footer"></div>
             </div>		
-				  </div>
-           </div>
-         </div> 
-         </div>
+			  </div>
+      </div>
 		  <!-- Mustache template, rendered later to show the details of a feature -->
-    <script id="template" type="x-tmpl-mustache">
+<script id="template" type="x-tmpl-mustache">
+    
 	   <table class="ten columns"; font-size: 8pt;>
 	   <tr>
 	   <thead font size = 10pt>
-          <th> {{ name }}</th>
+          <th> Youth Development Indicators </th>
        </thead>   
         </tr>
 		<tr>
@@ -84,7 +69,7 @@
         </tr>
         <tr>
           <th>2018 Youth Population:</th>
-          <td>{{ 2018_Population }}</td>
+          <td>{{Population2018}}</td>
         </tr>
         <tr>
           <th>2018 Youth Percentage:</th>
@@ -92,7 +77,7 @@
         </tr>
         <tr>
           <th>2063 Youth Population:</th>
-          <td>{{ 2063_Population }}</td>
+          <td>{{Population2063 }}</td>
         </tr>
         <tr>
           <th>2063 Youth percentage:</th>
@@ -107,10 +92,12 @@
           <td>{{ Youth_Unemployment_2017 }} %</td>
         </tr>
       </table>	  
-      <a href="#" id="close-details" class="one column" onclick="hideDetails(); return false;">&#x274c;</a>	 
-    </script>
+      <!--<a href="#" id="close-details" class="one column" onclick="hideDetails(); return false;">&#x274c;</a> -->
+      <a href="#" id="close-details" class="one column" onclick="hideDetails(); return false;">&#x2612;</a>
+      </script>
 
-	<script src="js/map.js"></script>
+  <script src="js/map.js"></script>
+</div> 
 </body>
 
 </html>
