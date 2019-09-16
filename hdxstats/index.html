@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<link rel="stylesheet" type="text/css" href="css/tabs.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<title>HDX Stats</title>
+</head>
+<body>
+
+<main class="container">
+	<div class="row">
+  		<div class="col-md-12 jumbotron">
+                <div class="col-md-2"> <img src="images/hdxlogo.PNG" alt="humanitarian data exchange" style="width:130px;height:70px;"></div>
+                <div class="col-md-8"><h2>Humanitarian Data Exchange Statistics</h2></div>
+		</div>
+
+		<div class="tab-panels">
+			<ul class="tabs">
+				<li data-panel-name="panel1" class="active">Organisations</li>
+				<li data-panel-name="panel2">Datasets</li>
+				<li data-panel-name="panel3">Downloads</li>
+				<li data-panel-name="panel4">Users</li>
+			</ul>
+
+			<div id="panel1" class="panel active">
+				<object width="100%" height="430px" data="http://jmarindi.github.io/HDX_organization_growth/index.htm"></object>
+			</div>
+
+			<div id="panel2" class="panel">
+				<object width="100%" height="430px" data="http://jmarindi.github.io/HDX_stats_Datasets_growth/index.html"></object>
+			</div>
+
+			<div id="panel3" class="panel">
+				<object width="100%" height="580px" data="http://jmarindi.github.io/HDX_stats_Downloads/index.html"></object>
+			</div>
+
+			<div id="panel4" class="panel">
+				<object width="100%" height="430px" data="http://jmarindi.github.io/HDX_stats_registered_users/index.htm"></object>
+			</div>
+		</div>
+
+	</div>
+</main>
+
+<!--jQuery 1.x-->
+<script src="js/jquery.min.js"></script>
+
+<script src="js/tabs.js"></script>
+</body>
+</html>
