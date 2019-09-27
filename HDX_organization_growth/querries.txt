@@ -1,0 +1,12 @@
+http://localhost/xampp/hdxstats1/pages/pages/organization_growth.html
+
+
+
+
+Monthly Human COD resource Downloads - https://mixpanel.com/report/975561/insights#report/6567180/monthly-human-cod-resource-downloads
+
+Monthly Human COD Dataset Downloads - https://mixpanel.com/report/975561/insights#report/6567227/monthly-human-cod-dataset-downloads
+
+Monthly programmatic COD dataset Downloads - https://mixpanel.com/report/975561/insights#report/6567307/monthly-programmatic-cod-dataset-downloads
+
+Monthly programmatic COD resource Downloads - https://mixpanel.com/report/975561/insights#report/6567311/monthly-programmatic-cod-resource-downloads
