@@ -1,7 +1,7 @@
 // A hierarchy of all data fields
 fieldHierarchy = [
   {
-    field: "INFORM COVID-19 RISK",
+    field: "INFORM COVID_19 RISK",
     subset: ["VULNERABILITY", "HAZARD & EXPOSURE", "LACK OF COPING CAPACITY"]
   },
   {
