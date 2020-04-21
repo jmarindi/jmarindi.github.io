@@ -9,7 +9,7 @@ var colorSchemes = {
 
   "INFORM COVID_19 RISK": d3.scale.linear()
   		.domain([0, 4, 8, 10])
-  		.range([colors["INFORM COVID_19 RISK"][0], colors[""][1], colors["INFORM COVID_19 RISK"][2], colors["INFORM COVID_19 RISK"][3]])
+  		.range([colors["INFORM COVID_19 RISK"][0], colors["INFORM COVID_19 RISK"][1], colors["INFORM COVID_19 RISK"][2], colors["INFORM COVID_19 RISK"][3]])
   		.interpolate(d3.interpolateLab),
 
   "HAZARD & EXPOSURE": d3.scale.linear()
