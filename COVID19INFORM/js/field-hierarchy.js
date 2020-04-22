@@ -173,7 +173,7 @@ fieldHierarchy = [
     subset: ["Hygiene"]
   },
   {
-    field: "population",
+    field: "Population",
     subset: ["Population density", "Urban population growth", "Population living in urban areas", "Population living in slums (% of urban population)", "Household size"]
   },
   {
