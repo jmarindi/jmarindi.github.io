@@ -81,6 +81,10 @@ fieldHierarchy = [
     subset: ["Recent Shocks"]
   },*/
   {
+    field: "Other Vulnerable Groups",
+    subset: ["Other Vulnerable Groups"]
+  },
+  {
     field: "Food Security",
     subset: ["Food Availability Score", "Food Utilization Score"]
   },
@@ -89,13 +93,10 @@ fieldHierarchy = [
     subset: ["Food Utilization Score"]
   },
   {
-    field: "Other Vulnerable Groups",
-    subset: ["Other Vulnerable Groups"]
+    field: "Food Utilization Score",
+    subset: ["Food Utilization Score"]
   },
-  {
-    field: "Other Vulnerable Groups",
-    subset: ["Other Vulnerable Groups"]
-  },
+
   {
     field: "GBV",
     subset: ["Proportion of ever-partnered women and girls subjected to physical and/or seual violence", "Attitudes towards violence"]
