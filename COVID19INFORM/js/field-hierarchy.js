@@ -6,7 +6,7 @@ fieldHierarchy = [
   },
   {
     field: "VULNERABILITY",
-    subset: ["Socio-Economic Vulnerability", "Vulnerable Groups","Covid-19 Vulnerability"]
+    subset: ["Socio-Economic Vulnerability", "Vulnerable Groups","COVID-19 VULNERABILITY"]
   },
   {
     field: "Socio-Economic Vulnerability",
@@ -97,14 +97,6 @@ fieldHierarchy = [
     subset: ["People requiring interventions against neglected tropical diseases"]
   },
   {
-    field: "Recent Shocks",
-    subset: ["Recent Shocks"]
-  },
-/*  {
-    field: "Other Vulnerable Groups",
-    subset: ["Other Vulnerable Groups"]
-  },*/
-  {
     field: "Food Security",
     subset: ["Food Availability Score", "Food Utilization Score"]
   },
@@ -116,7 +108,6 @@ fieldHierarchy = [
     field: "Food Utilization Score",
     subset: ["Food Utilization Score"]
   },
-
   {
     field: "GBV",
     subset: ["Proportion of ever-partnered women and girls subjected to physical and/or seual violence", "Attitudes towards violence"]
@@ -128,6 +119,10 @@ fieldHierarchy = [
   {
     field: "Attitudes towards violence",
     subset: ["Attitudes towards violence"]
+  },
+  {
+    field: "COVID-19 VULNERABILITY",
+    subset: ["Movements", "Behaviour", "Demographic and Co-morbidities"]
   },
   {
     field: "LACK OF COPING CAPACITY",
