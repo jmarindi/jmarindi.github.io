@@ -124,6 +124,63 @@ fieldHierarchy = [
     field: "COVID-19 VULNERABILITY",
     subset: ["Movements", "Behaviour", "Demographic and Co-morbidities"]
   },
+    {
+    field: "Movements",
+    subset: ["International movements", "Internal movements"]
+  },
+    {
+    field: "International movements",
+    subset: ["Air transport, passengers carried", "International tourism, number of arrivals", "Point of entry"]
+  },
+    {
+    field: "Air transport, passengers carried",
+    subset: ["Air transport, passengers carried"]
+  },
+  {
+    field: "International tourism, number of arrivals",
+    subset: ["International tourism, number of arrivals"]
+  },
+   {
+    field: "Point of entry",
+    subset: ["Point of entry"]
+  },
+    {
+    field: "Internal movements",
+    subset: ["Access to Cities","Road density"]
+  },
+  {
+    field: "Access to Cities",
+    subset: ["Access to Cities"]
+  },
+  {
+    field: "Behaviour",
+    subset: ["Awareness", "Trust"]
+  },
+   {
+    field: "Awareness",
+    subset: ["Adult literacy rate","Mobile cellular subscriptions", "Internet users"]
+  },
+     {
+    field: "Adult literacy rate",
+    subset: ["Adult literacy rate"]
+  },
+     {
+    field: "Mobile cellular subscriptions",
+    subset: ["Mobile cellular subscriptions"]
+  },
+     {
+    field: "Internet users",
+    subset: ["Internet users"]
+  },
+        {
+    field: "Trust",
+    subset: ["Trust"]
+  },
+  {
+    field: "Demographic and Co-morbidities",
+    subset: ["Demographic and Co-morbidities"]
+  },
+  //////////////////////////////////////////
   {
     field: "LACK OF COPING CAPACITY",
     subset: ["Institutional", "Infrastructure"]
