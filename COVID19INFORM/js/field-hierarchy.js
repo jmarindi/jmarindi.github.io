@@ -54,7 +54,7 @@ fieldHierarchy = [
   },
   {
     field: "Vulnerable Groups",
-    subset: ["Uprooted people", "INFORM Vulnerable Groups", "GBV"]
+    subset: ["Uprooted people", "Health Conditions", "GBV", "Food Security"]
   },
   {
     field: "Uprooted people",
@@ -70,7 +70,7 @@ fieldHierarchy = [
   },
   {
     field: "Health Conditions",
-    subset: ["Health Conditions"]
+    subset: ["HIV", "Incidence of Tuberculosis", "Malaria incidence per 1,000 population at risk","People requiring interventions against neglected tropical diseases"]
   },
  /* {
     field: "Children U5",
