@@ -89,6 +89,18 @@ fieldHierarchy = [
     subset: ["Other Vulnerable Groups"]
   },
   {
+    field: "GBV",
+    subset: ["Proportion of ever-partnered women and girls subjected to physical and/or seual violence", "Attitudes towards violence"]
+  },
+    {
+    field: "Proportion of ever-partnered women and girls subjected to physical and/or seual violence",
+    subset: ["Proportion of ever-partnered women and girls subjected to physical and/or seual violence"]
+  },
+  {
+    field: "Attitudes towards violence",
+    subset: ["Attitudes towards violence"]
+  },
+  {
     field: "LACK OF COPING CAPACITY",
     subset: ["Institutional", "Infrastructure"]
   },
