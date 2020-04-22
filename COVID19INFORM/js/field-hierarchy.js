@@ -154,7 +154,7 @@ fieldHierarchy = [
  // },
   {
    field: "P2P",
-   subset: ["WaSH", "population"]
+   subset: ["WaSH", "Population"]
   },
   {
     field: "WaSH",
