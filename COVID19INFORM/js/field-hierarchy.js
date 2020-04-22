@@ -82,7 +82,15 @@ fieldHierarchy = [
   },*/
   {
     field: "Food Security",
-    subset: ["Food Security"]
+    subset: ["Food Availability Score", "Food Utilization Score"]
+  },
+    {
+    field: "Food Availability Score",
+    subset: ["Food Utilization Score"]
+  },
+  {
+    field: "Other Vulnerable Groups",
+    subset: ["Other Vulnerable Groups"]
   },
   {
     field: "Other Vulnerable Groups",
