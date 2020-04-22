@@ -106,10 +106,10 @@ fieldHierarchy = [
   },
   {
     field: "Access to health care",
-    subset: ["Health Expenditure", "Immunization coverage", "Health system capacity", "Maternal Mortality Ratio"]
+    subset: ["per capita public and private expenditure on health care", "Immunization coverage", "Health system capacity", "Maternal Mortality Ratio"]
   },
     {
-    field: "Health Expenditure",
+    field: "per capita public and private expenditure on health care",
     subset: ["per capita public and private expenditure on health care"]
   },
   {
