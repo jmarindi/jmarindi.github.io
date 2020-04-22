@@ -152,13 +152,13 @@ fieldHierarchy = [
  //   field: "Natural",
  //   subset: ["P2P"]
  // },
-  //{
-  //  field: "Natural",
-  //  subset: ["Natural"]
-  // },
   {
-    field: "P2P",
-    subset: ["Sanitation", "Drinking water", "Hygiene", "WaSH", "Population density", "Urban population growth", "Population living in urban areas", "Population living in slums (% of urban population)", "Household size", "Population"]
+   field: "P2P",
+   subset: ["WaSH", "population"]
+  },
+  {
+    field: "WaSH",
+    subset: ["Sanitation", "Drinking water", "Hygiene"]
   },
   {
     field: "Sanitation",
@@ -172,9 +172,9 @@ fieldHierarchy = [
     field: "Hygiene",
     subset: ["Hygiene"]
   },
-    {
-    field: "WaSH",
-    subset: ["WaSH"]
+  {
+    field: "population",
+    subset: ["Population density", "Urban population growth", "Population living in urban areas", "Population living in slums (% of urban population)", "Household size"]
   },
   {
     field: "Population density",
@@ -196,10 +196,7 @@ fieldHierarchy = [
     field: "Household size",
     subset: ["Household size"]
   },
-  {
-    field: "Population",
-    subset: ["Population"]
-  },
+
  /* {
     field: "Human",
     subset: ["Projected Conflict Risk", "Current Highly Violent Conflict Intensity"]
