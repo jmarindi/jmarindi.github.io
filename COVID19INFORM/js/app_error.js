@@ -1,5 +1,5 @@
 var colors = {
-  "INFORM COVID-19 RISK": ["#ffe6e3","#e85945", "#911200", '#730d00'],
+  "INFORM COVID_19 RISK": ["#ffe6e3","#e85945", "#911200", '#730d00'],
   "HAZARD & EXPOSURE": ['#fff3e4', '#ffb148', '#ba6a00', '#945400'],
   "VULNERABILITY": ['#e7ecf3', '#789cd5', '#36578b', '#1b3c72'],
   "LACK OF COPING CAPACITY": ['#e6eae2', '#94ad70', '#506236', '#34461b']
@@ -7,9 +7,9 @@ var colors = {
 
 var colorSchemes = {
 
-  "INFORM COVID-19 RISK": d3.scale.linear()
+  "INFORM COVID_19 RISK": d3.scale.linear()
   		.domain([0, 4, 8, 10])
-  		.range([colors["INFORM COVID-19 RISK"][0], colors["INFORM COVID-19 RISK"][1], colors["INFORM COVID-19 RISK"][2], colors["INFORM COVID-19 RISK"][3]])
+  		.range([colors["INFORM COVID_19 RISK"][0], colors["INFORM COVID_19 RISK"][1], colors["INFORM COVID_19 RISK"][2], colors["INFORM COVID_19 RISK"][3]])
   		.interpolate(d3.interpolateLab),
 
   "HAZARD & EXPOSURE": d3.scale.linear()
@@ -28,7 +28,7 @@ var colorSchemes = {
   		.interpolate(d3.interpolateLab)
 
 }
-var selectedCategory = "INFORM COVID-19 RISK";
+var selectedCategory = "INFORM COVID_19 RISK";
 
 function updateColorScheme() {
 }
@@ -48,7 +48,7 @@ var createLegend = function() {
 createLegend();
 
 // Hard code staring points
-var selectedMetric = "INFORM COVID-19 RISK";
+var selectedMetric = "INFORM COVID_19 RISK";
 var selectedCountry = "";
 //test//var selectedCountry = "Somalia";
 
@@ -232,8 +232,8 @@ function ready(error, risk) {
   var selectMetric = function(metricName) {
 
     switch (metricName) {
-      case "INFORM COVID-19 RISK":
-        selectedCategory = "INFORM COVID-19 RISK";
+      case "INFORM COVID_19 RISK":
+        selectedCategory = "INFORM COVID_19 RISK";
         break;
       case "HAZARD & EXPOSURE":
         selectedCategory = "HAZARD & EXPOSURE";
@@ -263,7 +263,7 @@ function ready(error, risk) {
     }
 
   }
-  selectMetric("INFORM COVID-19 RISK");
+  selectMetric("INFORM COVID_19 RISK");
 
   // Displaying arcs
   function displayArcs() {
@@ -518,7 +518,7 @@ function ready(error, risk) {
 
     d3.select('#svg').append('h2').attr('class', 'instructions').text('select a country on the map');
 
-    selectMetric("INFORM COVID-19 RISK");
+    selectMetric("INFORM COVID_19 RISK");
 
     d3.select('#thisMetric').text('');
     d3.select('#countryRankingLabel').text('');
