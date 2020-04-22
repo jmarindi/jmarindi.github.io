@@ -64,14 +64,14 @@ fieldHierarchy = [
     field: "Health Conditions",
     subset: ["Health Conditions"]
   },
-  {
+ /* {
     field: "Children U5",
     subset: ["Children U5"]
   },
   {
     field: "Recent Shocks",
     subset: ["Recent Shocks"]
-  },
+  },*/
   {
     field: "Food Security",
     subset: ["Food Security"]
@@ -146,7 +146,7 @@ fieldHierarchy = [
   },
   {
     field: "COVID-19 HAZARD & EXPOSURE",
-    subset: ["P2P", "Human"]
+    subset: ["P2P"]
   },
  // {
  //   field: "Natural",
@@ -200,7 +200,7 @@ fieldHierarchy = [
     field: "Population",
     subset: ["Population"]
   },
-  {
+ /* {
     field: "Human",
     subset: ["Projected Conflict Risk", "Current Highly Violent Conflict Intensity"]
   },
