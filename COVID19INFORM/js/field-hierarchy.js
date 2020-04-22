@@ -211,5 +211,5 @@ fieldHierarchy = [
   {
     field: "Current Highly Violent Conflict Intensity",
     subset: ["Current Highly Violent Conflict Intensity"]
-  }
+  } */
 ];
