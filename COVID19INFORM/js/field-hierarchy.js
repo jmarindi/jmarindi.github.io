@@ -58,7 +58,15 @@ fieldHierarchy = [
   },
   {
     field: "Uprooted people",
-    subset: ["Uprooted people"]
+    subset: ["Uprooted people (total population)", "Total Uprooted people (percentage of the total population)"]
+  },
+  {
+    field: "Uprooted people (total population)",
+    subset: ["Uprooted people (total population)"]
+  },
+  {
+    field: "Total Uprooted people (percentage of the total population)",
+    subset: ["Total Uprooted people (percentage of the total population)"]
   },
   {
     field: "Health Conditions",
