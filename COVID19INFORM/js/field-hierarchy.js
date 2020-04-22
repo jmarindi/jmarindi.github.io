@@ -72,18 +72,38 @@ fieldHierarchy = [
     field: "Health Conditions",
     subset: ["HIV", "Incidence of Tuberculosis", "Malaria incidence per 1,000 population at risk","People requiring interventions against neglected tropical diseases"]
   },
- /* {
-    field: "Children U5",
-    subset: ["Children U5"]
+ {
+    field: "HIV",
+    subset: ["Estimated number of people living with HIV - Adult (>15) rate", "Number of new HIV infections per 1,000 uninfected population"]
+  },
+  {
+    field: "Estimated number of people living with HIV - Adult (>15) rate",
+    subset: ["Estimated number of people living with HIV - Adult (>15) rate"]
+  },
+    {
+    field: "Number of new HIV infections per 1,000 uninfected population",
+    subset: ["Number of new HIV infections per 1,000 uninfected population"]
+  },
+    {
+    field: "Incidence of Tuberculosis",
+    subset: ["Incidence of Tuberculosis"]
+  },
+      {
+    field: "Malaria incidence per 1,000 population at risk",
+    subset: ["Malaria incidence per 1,000 population at risk"]
+  },
+  {
+    field: "People requiring interventions against neglected tropical diseases",
+    subset: ["People requiring interventions against neglected tropical diseases"]
   },
   {
     field: "Recent Shocks",
     subset: ["Recent Shocks"]
-  },*/
-  {
+  },
+/*  {
     field: "Other Vulnerable Groups",
     subset: ["Other Vulnerable Groups"]
-  },
+  },*/
   {
     field: "Food Security",
     subset: ["Food Availability Score", "Food Utilization Score"]
