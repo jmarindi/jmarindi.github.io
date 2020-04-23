@@ -2,7 +2,7 @@
 fieldHierarchy = [
   {
     field: "INFORM COVID-19 RISK",
-    subset: ["VULNERABILITY", "HAZARD & EXPOSURE", "LACK OF COPING CAPACITY"]
+    subset: ["VULNERABILITY", "Covid-19 Hazard & Eposure", "LACK OF COPING CAPACITY"]
   },
   {
     field: "VULNERABILITY",
@@ -134,15 +134,15 @@ fieldHierarchy = [
   },
     {
     field: "International movements",
-    subset: ["Air transport, passengers carried", "International tourism, number of arrivals", "Point of entry"]
+    subset: ["Air transport(passengers carried)", "International tourism(number of arrivals)", "Point of entry"]
   },
     {
-    field: "Air transport, passengers carried",
-    subset: ["Air transport, passengers carried"]
+    field: "Air transport(passengers carried)",
+    subset: ["Air transport(passengers carried)"]
   },
   {
-    field: "International tourism, number of arrivals",
-    subset: ["International tourism, number of arrivals"]
+    field: "International tourism(number of arrivals)",
+    subset: ["International tourism(number of arrivals)"]
   },
    {
     field: "Point of entry",
@@ -259,7 +259,7 @@ fieldHierarchy = [
   },
   ////////////////////////////////////////////////////////////////////////////////////////////////
   {
-    field: "HAZARD & EXPOSURE",
+    field: "Covid-19 Hazard & Eposure",
    subset: ["WaSH", "Population"]
   },
   {
