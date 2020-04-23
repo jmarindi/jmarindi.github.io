@@ -6,7 +6,11 @@ fieldHierarchy = [
   },
   {
     field: "VULNERABILITY",
-    subset: ["Socio-Economic Vulnerability", "Vulnerable Groups","COVID-19 VULNERABILITY"]
+    subset: ["VULNERABILITY (Hazard-independent)", "COVID-19 VULNERABILITY"]
+  },
+    {
+    field: "VULNERABILITY (Hazard-independent)",
+    subset: ["Socio-Economic Vulnerability", "Vulnerable Groups"]
   },
   {
     field: "Socio-Economic Vulnerability",
