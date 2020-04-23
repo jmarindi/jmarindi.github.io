@@ -2,7 +2,7 @@
 fieldHierarchy = [
   {
     field: "INFORM COVID-19 RISK",
-    subset: ["VULNERABILITY", "Covid-19 Hazard & Eposure", "LACK OF COPING CAPACITY"]
+    subset: ["VULNERABILITY", "Covid-19 Hazard & Exposure", "LACK OF COPING CAPACITY"]
   },
   {
     field: "VULNERABILITY",
@@ -259,7 +259,7 @@ fieldHierarchy = [
   },
   ////////////////////////////////////////////////////////////////////////////////////////////////
   {
-    field: "Covid-19 Hazard & Eposure",
+    field: "Covid-19 Hazard & Exposure",
    subset: ["WaSH", "Population"]
   },
   {

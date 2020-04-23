@@ -1,6 +1,6 @@
 var colors = {
   "INFORM COVID-19 RISK": ["#ffe6e3","#e85945", "#911200", '#730d00'],
-  "Covid-19 Hazard & Eposure": ['#fff3e4', '#ffb148', '#ba6a00', '#945400'],
+  "Covid-19 Hazard & Exposure": ['#fff3e4', '#ffb148', '#ba6a00', '#945400'],
   "VULNERABILITY": ['#e7ecf3', '#789cd5', '#36578b', '#1b3c72'],
   "LACK OF COPING CAPACITY": ['#e6eae2', '#94ad70', '#506236', '#34461b']
 }
@@ -12,9 +12,9 @@ var colorSchemes = {
   		.range([colors["INFORM COVID-19 RISK"][0], colors["INFORM COVID-19 RISK"][1], colors["INFORM COVID-19 RISK"][2], colors["INFORM COVID-19 RISK"][3]])
   		.interpolate(d3.interpolateLab),
 
-  "Covid-19 Hazard & Eposure": d3.scale.linear()
+  "Covid-19 Hazard & Exposure": d3.scale.linear()
   		.domain([0, 4, 8, 10])
-  		.range([colors["Covid-19 Hazard & Eposure"][0], colors["Covid-19 Hazard & Eposure"][1], colors["Covid-19 Hazard & Eposure"][2], colors["Covid-19 Hazard & Eposure"][3]])
+  		.range([colors["Covid-19 Hazard & Exposure"][0], colors["Covid-19 Hazard & Exposure"][1], colors["Covid-19 Hazard & Exposure"][2], colors["Covid-19 Hazard & Exposure"][3]])
   		.interpolate(d3.interpolateLab),
 
   "VULNERABILITY": d3.scale.linear()
@@ -235,8 +235,8 @@ function ready(error, risk) {
       case "INFORM COVID-19 RISK":
         selectedCategory = "INFORM COVID-19 RISK";
         break;
-      case "Covid-19 Hazard & Eposure":
-        selectedCategory = "Covid-19 Hazard & Eposure";
+      case "Covid-19 Hazard & Exposure":
+        selectedCategory = "Covid-19 Hazard & Exposure";
         break;
       case "VULNERABILITY":
         selectedCategory = "VULNERABILITY";
