@@ -106,7 +106,7 @@ fieldHierarchy = [
   },
     {
     field: "Food Availability Score",
-    subset: ["Food Utilization Score"]
+    subset: ["Food Availability Score"]
   },
   {
     field: "Food Utilization Score",
@@ -114,11 +114,11 @@ fieldHierarchy = [
   },
   {
     field: "GBV",
-    subset: ["Proportion of ever-partnered women and girls subjected to physical and/or seual violence", "Attitudes towards violence"]
+    subset: ["Proportion of ever-partnered women and girls subjected to physical and/or sexual violence", "Attitudes towards violence"]
   },
     {
-    field: "Proportion of ever-partnered women and girls subjected to physical and/or seual violence",
-    subset: ["Proportion of ever-partnered women and girls subjected to physical and/or seual violence"]
+    field: "Proportion of ever-partnered women and girls subjected to physical and/or sexual violence",
+    subset: ["Proportion of ever-partnered women and girls subjected to physical and/or sexual violence"]
   },
   {
     field: "Attitudes towards violence",
