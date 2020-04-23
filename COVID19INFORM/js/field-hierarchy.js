@@ -180,9 +180,13 @@ fieldHierarchy = [
     field: "Demographic and Co-morbidities",
     subset: ["Demographic and Co-morbidities"]
   },
-  //////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////
   {
     field: "LACK OF COPING CAPACITY",
+    subset: ["LACK OF COPING CAPACITY (Hazard-independent)", "COVID-19 LACK OF COPING CAPACITY"]
+  },
+  {
+    field: "LACK OF COPING CAPACITY (Hazard-independent)",
     subset: ["Institutional", "Infrastructure"]
   },
   {
@@ -245,6 +249,11 @@ fieldHierarchy = [
     field: "Maternal Mortality Ratio",
     subset: ["Maternal Mortality Ratio"]
   },
+    {
+    field: "COVID-19 LACK OF COPING CAPACITY",
+    subset: ["IHR", "Operational readiness index"]
+  },
+  ////////////////////////////////////////////////////////////////////////////////////////////////
   {
     field: "HAZARD & EXPOSURE",
    subset: ["WaSH", "Population"]
@@ -290,16 +299,5 @@ fieldHierarchy = [
     subset: ["Household size"]
   },
 
- /* {
-    field: "Human",
-    subset: ["Projected Conflict Risk", "Current Highly Violent Conflict Intensity"]
-  },
-  {
-    field: "Projected Conflict Risk",
-    subset: ["Projected Conflict Risk"]
-  },
-  {
-    field: "Current Highly Violent Conflict Intensity",
-    subset: ["Current Highly Violent Conflict Intensity"]
-  } */
+ 
 ];
