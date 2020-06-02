@@ -1,0 +1,79 @@
+var targetCall = $.ajax({ 
+    type: 'GET', 
+    url: 'dataupdates/TargetCall.json',
+  //  url: 'https://proxy.hxlstandard.org/data.json?strip-headers=on&force=on&url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1owJcsDzljKTefkHn0rpdLQ5w_vYCdq5tYUE5kr24ph8%2Fedit%23gid%3D935073182',
+    dataType: 'json',
+});
+
+https://docs.google.com/spreadsheets/d/148Onbg00d8OGHnb9Ev4H5LjdT2tleW3lOAKr3mStlxc/edit#gid=935073182
+
+148Onbg00d8OGHnb9Ev4H5LjdT2tleW3lOAKr3mStlxc
+
+935073182
+
+HXL PROXYLATED https://proxy.hxlstandard.org/data.json?strip-headers=on&force=on&url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F148Onbg00d8OGHnb9Ev4H5LjdT2tleW3lOAKr3mStlxc%2Fedit%23gid%3D935073182
+
+
+
+
+
+###############################################################################################################################################################
+
+
+var progressCall = $.ajax({ 
+    type: 'GET', 
+    url: 'dataupdates/progressCall.json',
+    //url: 'https://proxy.hxlstandard.org/data.json?strip-headers=on&force=on&url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1owJcsDzljKTefkHn0rpdLQ5w_vYCdq5tYUE5kr24ph8%2Fedit%23gid%3D0',
+    dataType: 'json',
+});
+
+
+Spreadsheet: https://docs.google.com/spreadsheets/d/1owJcsDzljKTefkHn0rpdLQ5w_vYCdq5tYUE5kr24ph8/edit',
+
+
+
+
+
+###############################################################################################################################################################
+
+
+
+var keyfigureTargetCall = $.ajax({ 
+    type: 'GET', 
+    url: 'dataupdates/KeyfigureTargetCall.json',
+    //url: 'https://proxy.hxlstandard.org/data.json?strip-headers=on&force=on&url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1owJcsDzljKTefkHn0rpdLQ5w_vYCdq5tYUE5kr24ph8%2Fedit%23gid%3D1820516564',
+    dataType: 'json',
+});
+
+Somalia SPREADSHEET ===  https://docs.google.com/spreadsheets/d/1owJcsDzljKTefkHn0rpdLQ5w_vYCdq5tYUE5kr24ph8/edit#gid=1820516564
+
+
+
+###############################################################################################################################################################
+
+
+
+var keyfigureProgressCall = $.ajax({ 
+    type: 'GET', 
+    url: 'dataupdates/KeyFigureProgressCall.json',
+    //url: 'https://proxy.hxlstandard.org/data.json?strip-headers=on&force=on&url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1owJcsDzljKTefkHn0rpdLQ5w_vYCdq5tYUE5kr24ph8%2Fedit%23gid%3D959244210',
+    dataType: 'json',
+});
+
+Somalia SPREADSHEET = https://docs.google.com/spreadsheets/d/1owJcsDzljKTefkHn0rpdLQ5w_vYCdq5tYUE5kr24ph8/edit#gid=959244210
+
+
+###############################################################################################################################################################
+
+var descriptionCall = $.ajax({ 
+    type: 'GET', 
+    url: 'dataupdates/DescriptionCall.json',
+    //url: 'https://proxy.hxlstandard.org/data.json?strip-headers=on&force=on&url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1owJcsDzljKTefkHn0rpdLQ5w_vYCdq5tYUE5kr24ph8%2Fedit%23gid%3D546323230',
+    dataType: 'json',
+});
+
+
+
+
+
+###############################################################################################################################################################
