@@ -1,0 +1,104 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">	  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-control" content="no-cache">	  
+  <!-- CSS styles -->
+  <link href="css/styling.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link href="css/skeleton.min.css" rel="stylesheet" type="text/css">
+  <!-- Javascripts -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/d3.v3.min.js" charset="utf-8"></script>
+  <script src="js/mustache.min.js"></script>
+  <script src="js/d3-queue.min.js"></script>
+  
+    <title>AU Commission</title>  
+    
+  </head>
+  <body>
+  <div class="row">
+      <div class="col-sm-3" style="background-color:white;"> 
+         <div id = "logoAuc">
+           <a href="https://au.int/en/commission/" target="_blank">
+           <img src="images/aucbig.png" alt="Africa Union Commission" width="160" height="55"> 
+         </div> </a>
+      </div>
+      <div class="col-sm-4" style="background-color:white;"><h3>Africa Youth Indicators</h3> </div>
+  </div>
+   <div class="col-sm-10" style="background-color:white;">
+     A visualisation for the African Union Commission to track progress of various youth development indicators in Africa. In this visual, <b>Youth population - </b>refers to Male and female between ages 15 - 35.
+    <b>Youth Unemployment - </b> refers to unemployed Male and female between ages 15 - 24.This dataset can be downloaded from the <a href="https://data.humdata.org/organization/auc">Humanitarian Data Exchange</a>.
+     Select an indicator from the dropdown list and click on the choropleth map to view individual country statistics.
+     <hr> 
+           <div id="indicator_div">				   
+					  <select id="Indicator_list"> 
+					     <!--<option value="2018_Population" selected>Filter by Indicator</option> -->
+					     <option value="2018_Population"selected>2018 Youth Population</option>
+       	       <option value="2018_Percent_Youth">2018 Youth Percentage</option>
+		           <option value="2063_Population">2063 Youth Population</option>
+		           <option value="2063_Percent_Youth" >2063 Youth percentage</option>
+					     <option value="Youth_Unemployment_2017" >2017 Youth Unemployment</option>
+		        </select>				
+				  </div>
+  <div id="main">  
+     <div class = "row">
+        <div class="col-sm-7" style="background-color:white;">
+          <div id="map"><!-- Map container --> </div>
+         <div id="legend"> <!--Legend container --></div>  
+			</div>
+       <div class="col-sm-4" style="background-color:white;">
+				 <div id="d2">
+            <div id="details" class="hidden row"><!-- Details container --></div>
+                <div class="footer"></div>
+            </div>		
+			  </div>
+      </div>
+		  <!-- Mustache template, rendered later to show the details of a feature -->
+<script id="template" type="x-tmpl-mustache">
+    
+	   <table class="ten columns"; font-size: 8pt;>
+	   <tr>
+	   <thead font size = 10pt>
+          <th> Youth Development Indicators </th>
+       </thead>   
+        </tr>
+		<tr>
+          <th>Country:</th>
+          <td>{{ Country }}</td>
+        </tr>
+        <tr>
+          <th>2018 Youth Population:</th>
+          <td>{{Population2018}}</td>
+        </tr>
+        <tr>
+          <th>2018 Youth Percentage:</th>
+          <td>{{ 2018_Percent_Youth }} %</td>
+        </tr>
+        <tr>
+          <th>2063 Youth Population:</th>
+          <td>{{Population2063 }}</td>
+        </tr>
+        <tr>
+          <th>2063 Youth percentage:</th>
+          <td>{{ 2063_Percent_Youth }} %</td>
+        </tr>
+        <tr>
+          <th>Youth Policy exists:</th>
+          <td>{{ Youth_Policy }}</td>
+        </tr>
+	    	<tr>
+          <th>2017 Youth Unemployment:</th>
+          <td>{{ Youth_Unemployment_2017 }} %</td>
+        </tr>
+      </table>	  
+      <!--<a href="#" id="close-details" class="one column" onclick="hideDetails(); return false;">&#x274c;</a> -->
+      <a href="#" id="close-details" class="one column" onclick="hideDetails(); return false;">&#x2612;</a>
+      </script>
+
+  <script src="js/map.js"></script>
+</div> 
+</body>
+
+</html>
