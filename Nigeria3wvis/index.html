@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>OCHA Sudan Who is doing What and Where</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+
+   <link href="css/style.css" rel="stylesheet">
+
+
+   <style>
+   	#loadinggif{
+	  position: fixed;
+	  z-index: 9000;
+	  top: 0;
+	  left: 0;
+	  width: 100vw;
+	  height: 100vh;
+	  background: rgba(0,0,0,.4);
+	  text-align: center;
+	  padding-top: 45vh;
+	  display: none;
+	}
+	#loadinggif img{
+		width: 100px;
+	}
+   </style>
+  </head>
+
+  <body>
+   	<div class="container" width:80%; margin: 0 auto;>
+
+  	<div id="loadinggif"><img src="https://ui-ex.com/images/gif-transparent-loading-4.gif"></div>
+
+  	<!-- HEADER -->
+    <div id="blockhead" class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+      <table style="float: right;">
+            <tr>
+                <td>
+			        <img style="height: 50px; padding-right: 30px" class="img-responsive hdx" src='images/ocha.PNG'>
+                </td>
+            </tr>
+        </table>
+      <h3 class="my-0 mr-md-auto font-weight-bold">OCHA Sudan 3W Mapping</h3>
+      <div class="col-3 blockmaptop" style="border-right:0px">
+		    <font class="blockmaptop_title">
+	    	</font>
+	    	<center>
+	    		<select class="form-control" id="periodselect" data-default ="0">
+	    		</select>     
+	    	</center>
+	  </div>
+
+      <nav class="my-2 my-md-0 mr-md-3">
+      	<h4 class="button" font-weight= 'bold' id="resetall">Clear Filter</h4>
+      </nav>
+
+    </div>
+    <!-- END HEADER -->
+
+    <!-- START Page Content -->
+    <div class="container-fluid" id='maincontainer'>
+    	<div class="row">
+
+        	<!-- CENTER PANEL -->
+
+        	<div class="col-12">
+    			<div class="col-md-12 apanel">
+	    		 <div class="row">
+	    			<div class="row blockrow">
+	    				<div class="col-md-12" style="text-align: left;">
+	    					<p class="pmap">A mapping of Humanitarian agencies response in Sudan. The Visualisation shows humanitarian organisation's Sector activities at locality level.
+	    					</p>
+	    				</div>
+		            </div>
+	    		</div>						
+				
+	    		<div class="col-md-12 apanel">
+	    			<div class="row">
+	    				<div class="col-md-6">
+	    					<div id='States_div'></div>
+	    				</div>
+	    				<div class="col-md-6">
+	    					<div class="row">
+	    						<div class="col-md-4">
+	    							<div class="col-md-12 paneltitle">
+	    							<div id="val1" class="thevaluedata"></div>
+	    								<font class="panelTitleVal">Organizations</font>
+					    			</div>
+					    		</div>
+					    		<div class="col-md-4">
+	    							<div class="col-md-12 paneltitle">
+	    							<div id="val2" class="thevaluedata"></div>
+	    								</font><font class="panelTitleVal">Activities</font>
+					    			</div>
+					    		</div>
+					    		<div class="col-md-4">
+	    							<div class="col-md-12 paneltitle">
+	    							<div id="val3" class="thevaluedata"></div>
+	    								</font><font class="panelTitleVal">Locations</font>
+					    			</div>
+					    		</div>
+	    					<!--	<div class="col-md-6">
+				    				<div class="col-md-12 paneltitle" style="margin-top: 1rem">
+					    				<font class="panelTitleBold">Organization Type</font>
+					    			</div>
+					    			<div id="pieOrg"></div>
+					    		</div>
+					    		<div class="col-md-6">
+				    				<div class="col-md-12 paneltitle" style="margin-top: 1rem">
+					    				<font class="panelTitleBold">Activity Status</font>
+					    			</div>
+					    			<div id="pieStat"></div>
+					    		</div> -->
+					    		<div class="col-md-12" style="margin-top: 1rem">
+				    				<div class="col-md-12 paneltitle2">
+					    				<font class="panelTitleBold" >Sector Activity</font>
+					    			</div>
+					    			<div id="barSect"></div>
+					    		</div>						
+								
+	    					</div>
+	    				</div>
+	    				
+	    			</div>
+	    				
+	    		</div>
+	    	</div>
+			
+			<!--===============Third Level ==============-->
+			
+    			<div align="left" class="col-md-6 paneltitle" style="margin-top: 1rem">
+				   			<font class="panelTitleBold">Organization Type</font>
+				   		</div>
+				<div id="pieOrg"></div>		
+								
+			<!--===============Third Level ==============-->
+								
+    		<div class="col-md-12 hidewhenmobile order-md-4" style="margin-top: 2rem">
+    			<left>
+	    			<p class="pmap">
+				<!--	The information is based on the latest compilation of reports by Department of Disaster Management Affairs (DoDMA) and Humanitarian partners. Listed activities are only taken from the reports that include minimum information that can be mapped. This will be updated fortnightly.
+					-->
+					</p>
+				</center>
+	    		<div class="col-md-12 apanel" style="margin-top: 10px;">
+	    			<div class="row">
+		    			<div class="col-md-12">
+		    				<table id="datatable" class="table table-striped table-bordered table-hover" style= 'width:100%; overflow-y: scroll'></table>
+		    			</div>
+		    		</div>
+	    		</div>
+	    	</div>
+	    	<footer>
+                <div style="font-size: 12px; padding-right: 30px; padding-top: 10px">
+                	<table style="float: right;">
+                		<tr>
+                			<td>Powered by &nbsp;</td>
+                			<td>
+                				<a target="_blank" href="https://data.humdata.org">
+			                		<img style="height: 17px" class="img-responsive hdx" src='images/HDX-logo-home.svg'>
+			                	</a>
+                			</td>
+                		</tr>
+                	</table>            	
+                	
+                </div>
+                </div>
+            </footer> 
+
+    	</div>
+    </div>
+    <!-- END Page Content -->
+    <br/><br/>
+
+
+    <!-- JAVASCRIPT LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+   integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+   crossorigin=""></script>
+    <script type="text/javascript" src = "mainapp/maincode.js"></script>
+
+
+  </body>
+
+</html>
