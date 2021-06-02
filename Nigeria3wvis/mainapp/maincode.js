@@ -20,7 +20,8 @@
 			var geojson;
 			var map = L.map('States_div', { //map is a global variable
 			    //center: [14.5844444, 29.4917691],
-				center: [16.789856, 30.814952],
+				//center: [16.789856, 30.814952],
+				center: [9.789856, 8.814952],
 			   // zoom: 7,
 			    zoom: 5.2,
 			    zoomDelta: 0.5,
