@@ -4,7 +4,7 @@
     		var thedata,
     			theDataTableInit = 0,
     			human_number = d3.format(",d"),
-    			SelectedState = 'admin2Name',
+    			SelectedState = 'LGA',
     			statesData = 0,
     			locationCount = [],
     			reportingperiod = [],
@@ -43,7 +43,8 @@
 
 			function drawboundaries(){
 				//d3.json('mwi_admbnda_adm0_nso_20181016.geojson',function(jso){	
-				d3.json('geo/sudan_adm0.geojson',function(jso){	
+				//d3.json('geo/sudan_adm0.geojson',function(jso){	
+				d3.json('geo/Admin0_NGA.geojson',function(jso){	
 					
 	    			function style(feature) {
 						return {
@@ -75,10 +76,10 @@
 
 				info.update = function (props) {
 					// if(props){
-					// 	console.log(locationCount,props.admin2Name);
+					// 	console.log(locationCount,props.LGA);
 					// }					
 					this._div.innerHTML = '<h6><align = Left><b>Organisation Activities per locality<b></h6>' +  (props ?
-						'<b>' + props.admin2Name + '</b><br />' + locationCount[props.admin2Name.toUpperCase()] + ' Activities'
+						'<b>' + props.LGA + '</b><br />' + locationCount[props.LGA.toUpperCase()] + ' Activities'
 						: 'Hover over a locality');
 				};
 
@@ -101,7 +102,7 @@
 						color: 'white',
 						dashArray: '1',
 						fillOpacity: 0.7,
-						fillColor: getColor(locationCount[feature.properties.admin2Name.toUpperCase()]) 
+						fillColor: getColor(locationCount[feature.properties.LGA.toUpperCase()]) 
 					};
 				}
 
@@ -130,7 +131,7 @@
 
 				function zoomToFeature(e) {
 					// map.fitBounds(e.target.getBounds());
-					let kec = e.target.feature.properties.admin2Name;
+					let kec = e.target.feature.properties.LGA;
 					let select = kec.replace(' ','-');
 					$('#Stateselect option').removeAttr('selected').filter('[value=' + select + ']').attr('selected', true);
 					redrawvis(kec);
@@ -344,7 +345,7 @@
 	    						z['Organization Type'],
 	    						z['Sector'],
 	    						z['State'],
-	    						z['admin2Name'],
+	    						z['LGA'],
 	    					//	z['Status'],
 	    					 // z['Total Beneficiaries'],
 	    					];
@@ -415,7 +416,7 @@
     			datatblnew = [];
     			orgtotal=[];
     			$('#Stateselect').html('');
-    			$('#Stateselect').append('<option value="0">ALL admin2Name</option>');
+    			$('#Stateselect').append('<option value="0">ALL LGA</option>');
 
     			if(theperiod == 0){
     				reportingperiod = [];
@@ -435,7 +436,7 @@
 	    		thedata.forEach(function(d){
 	    			if(d['Reporting period'] == theperiod){
 	    				datatblnew.push(d);
-	    				let tempat = d['admin2Name'].toUpperCase();
+	    				let tempat = d['LGA'].toUpperCase();
 		    			if(locationCount[tempat]){
 		    				locationCount[tempat] += 1;
 		    			}else{
@@ -493,7 +494,7 @@
 	    		$('#val1').html(orgtotal.length);
 	    	}
 
-	    	function redrawvis(namaadmin2Name){
+	    	function redrawvis(namaLGA){
 	    		$('#loadinggif').show();
 	    		map.removeLayer(geojson);
 	    		$('.info').remove();
@@ -506,9 +507,9 @@
     			orgtotal=[];
 
 	    		thedata.forEach(function(d){
-	    			if(namaadmin2Name == '0' && periodselect == d['Reporting period'] ){
+	    			if(namaLGA == '0' && periodselect == d['Reporting period'] ){
 	    				datatblnew.push(d);
-	    				let tempat = d['admin2Name'].toUpperCase();
+	    				let tempat = d['LGA'].toUpperCase();
 		    			if(locationCount[tempat]){
 		    				locationCount[tempat] += 1;
 		    			}else{
@@ -544,9 +545,9 @@
 		    				orgtotal.push(org);
 		    			}
 	    			}
-	    			else if(d['admin2Name'].toUpperCase() == namaadmin2Name.toUpperCase() && periodselect == d['Reporting period']){
+	    			else if(d['LGA'].toUpperCase() == namaLGA.toUpperCase() && periodselect == d['Reporting period']){
 	    				datatblnew.push(d);
-	    				let tempat = d['admin2Name'].toUpperCase();
+	    				let tempat = d['LGA'].toUpperCase();
 		    			if(locationCount[tempat]){
 		    				locationCount[tempat] += 1;
 		    			}else{
@@ -623,14 +624,14 @@
 	    			console.log(Stateselect);
 
 		    		thedata.forEach(function(d){
-		    			if( d['admin2Name'].toUpperCase() == Stateselect){
-		    				console.log(d['admin2Name'].toUpperCase())
+		    			if( d['LGA'].toUpperCase() == Stateselect){
+		    				console.log(d['LGA'].toUpperCase())
 		    			}
-		    		//	if(d['Status'].toUpperCase() == stat && d['Reporting period'] == periodselect && (Stateselect == 0 || Stateselect == d['admin2Name'].
-						if(d['Reporting period'] == periodselect && (Stateselect == 0 || Stateselect == d['admin2Name'].
+		    		//	if(d['Status'].toUpperCase() == stat && d['Reporting period'] == periodselect && (Stateselect == 0 || Stateselect == d['LGA'].
+						if(d['Reporting period'] == periodselect && (Stateselect == 0 || Stateselect == d['LGA'].
 						toUpperCase()) ){
 		    				datatblnew.push(d);
-		    				let tempat = d['admin2Name'].toUpperCase();
+		    				let tempat = d['LGA'].toUpperCase();
 			    			if(locationCount[tempat]){
 			    				locationCount[tempat] += 1;
 			    			}
@@ -696,9 +697,9 @@
 	    			//statusCount = [];
 
 		    		thedata.forEach(function(d){
-		    			if(d['Organization Type'].toUpperCase() == org && d['Reporting period'] == periodselect && (Stateselect == 0 || Stateselect == d['admin2Name'].toUpperCase())){
+		    			if(d['Organization Type'].toUpperCase() == org && d['Reporting period'] == periodselect && (Stateselect == 0 || Stateselect == d['LGA'].toUpperCase())){
 		    				datatblnew.push(d);
-		    				let tempat = d['admin2Name'].toUpperCase();
+		    				let tempat = d['LGA'].toUpperCase();
 			    			if(locationCount[tempat]){
 			    				locationCount[tempat] += 1;
 			    			}else{
@@ -765,9 +766,9 @@
 	    			orgtotal=[];
 
 		    		thedata.forEach(function(d){
-		    			if(d['Sector'].toUpperCase() == sector && d['Reporting period'] == periodselect && (Stateselect == 0 || Stateselect == d['admin2Name'].toUpperCase())){
+		    			if(d['Sector'].toUpperCase() == sector && d['Reporting period'] == periodselect && (Stateselect == 0 || Stateselect == d['LGA'].toUpperCase())){
 		    				datatblnew.push(d);
-		    				let tempat = d['admin2Name'].toUpperCase();
+		    				let tempat = d['LGA'].toUpperCase();
 			    			if(locationCount[tempat]){
 			    				locationCount[tempat] += 1;
 			    			}else{
@@ -822,7 +823,7 @@
 	    		orgtotal=[];
 	    		var therepper = 0;
 	    		thedata.forEach(function(d){
-		    			let tempat = d['admin2Name'].toUpperCase();
+		    			let tempat = d['LGA'].toUpperCase();
 		    			if(locationCount[tempat]){
 		    				locationCount[tempat] += 1;
 		    			}else{
@@ -891,11 +892,14 @@
 	    	$('#loadinggif').show();
 		   // d3.json('mwi_admbnda_adm2_nso_20181016.geojson',function(jso){	
 	    	//	statesData = jso;
-	    	d3.json('geo/Sudan_admin_2.geojson',function(jso){	
+	    	//d3.json('geo/Sudan_admin_2.geojson',function(jso){	
+			d3.json('geo/Nigeria2Geojson.geojson',function(jso){	
 	    	statesData = jso;
 			console.log(statesData);
 	    		//call the original data
-	    		d3.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSSxq5F32bBfiJAwWLcR9hNJtcWHHlqKArC8e3UVbCZXztzqFz156vaeqCcDSBDfLK4p0i007RUsIA1/pub?output=csv',
+	    		//d3.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSSxq5F32bBfiJAwWLcR9hNJtcWHHlqKArC8e3UVbCZXztzqFz156vaeqCcDSBDfLK4p0i007RUsIA1/pub?output=csv',
+				d3.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vQukOGqK19kAewQZEKlHd2tonGgS4ExGOB3cGAxQNZVdRL7ub-p2ejpfgm4X48nMzLyeHGBK9TvKbay/pub?output=csv',
+				
 				
 				function(data){
 		    		//set the data called to variable thedata
