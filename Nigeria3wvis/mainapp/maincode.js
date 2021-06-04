@@ -23,7 +23,7 @@
 				//center: [16.789856, 30.814952],
 				center: [9.789856, 8.814952],
 			   // zoom: 7,
-			    zoom: 5.2,
+			    zoom: 7,
 			    zoomDelta: 0.5,
 		            zoomSnap: 0,
 			    zoomControl: false,
