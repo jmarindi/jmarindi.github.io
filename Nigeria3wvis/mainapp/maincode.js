@@ -26,7 +26,7 @@
 
 			   // zoom: 7,
 			   // zoom: 6.5, ---worked
-			   zoom: 6.4,
+			   zoom: 6.5,
 			    zoomDelta: 0.5,
 		            zoomSnap: 0,
 			    zoomControl: false,
@@ -34,7 +34,7 @@
 			    attributionControl: true,
 			    //minZoom: 7,
 			    //maxZoom: 19,
-			    minZoom: 6.4,
+			    minZoom: 6.5,
 			    maxZoom: 7,
 			});
 			var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
