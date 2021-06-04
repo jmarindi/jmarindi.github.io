@@ -901,8 +901,7 @@
 	    		//d3.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSSxq5F32bBfiJAwWLcR9hNJtcWHHlqKArC8e3UVbCZXztzqFz156vaeqCcDSBDfLK4p0i007RUsIA1/pub?output=csv',
 				//d3.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vQukOGqK19kAewQZEKlHd2tonGgS4ExGOB3cGAxQNZVdRL7ub-p2ejpfgm4X48nMzLyeHGBK9TvKbay/pub?output=csv',
 				  d3.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vRRdzUkWp3mX7ZtbIbDijKHnhS4ppOATR0duEun7aFqPGU2c6iWgnOZ_y1bCCQ3Rna690keS7U4Shq0/pub?output=csv',
-				
-				
+					
 				function(data){
 		    		//set the data called to variable thedata
 		    		thedata = data;
