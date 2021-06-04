@@ -19,15 +19,14 @@
 
 			var geojson;
 			var map = L.map('States_div', { //map is a global variable
-			    //center: [14.5844444, 29.4917691],
-				//center: [16.789856, 30.814952],
-				//center: [9.789856, 8.814952],---worked
+			   
 				//center: [10.846139, 12.240604],
-				center: [10.349389, 13.273319],
+				//center: [10.349389, 13.273319], ---worked
+				center: [9.548634, 12.943729], 
 
 			   // zoom: 7,
 			   // zoom: 6.5, ---worked
-			   zoom: 7.0,
+			   zoom: 7.5,
 			    zoomDelta: 0.5,
 		            zoomSnap: 0,
 			    zoomControl: false,
@@ -35,7 +34,7 @@
 			    attributionControl: true,
 			    //minZoom: 7,
 			    //maxZoom: 19,
-			    minZoom: 7.0,
+			    minZoom: 7.5,
 			    maxZoom: 8,
 			});
 			var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
