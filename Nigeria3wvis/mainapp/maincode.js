@@ -27,7 +27,7 @@
 
 			   // zoom: 7,
 			   // zoom: 6.5, ---worked
-			   zoom: 6.0,
+			   zoom: 7.0,
 			    zoomDelta: 0.5,
 		            zoomSnap: 0,
 			    zoomControl: false,
@@ -35,8 +35,8 @@
 			    attributionControl: true,
 			    //minZoom: 7,
 			    //maxZoom: 19,
-			    minZoom: 6.0,
-			    maxZoom: 7,
+			    minZoom: 7.0,
+			    maxZoom: 8,
 			});
 			var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
 				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
