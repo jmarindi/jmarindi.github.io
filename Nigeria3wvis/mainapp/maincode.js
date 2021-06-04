@@ -21,9 +21,12 @@
 			var map = L.map('States_div', { //map is a global variable
 			    //center: [14.5844444, 29.4917691],
 				//center: [16.789856, 30.814952],
+				//center: [9.789856, 8.814952],---worked
 				center: [9.789856, 8.814952],
+
 			   // zoom: 7,
-			    zoom: 6.5,
+			   // zoom: 6.5, ---worked
+			   zoom: 4.5,
 			    zoomDelta: 0.5,
 		            zoomSnap: 0,
 			    zoomControl: false,
@@ -31,8 +34,8 @@
 			    attributionControl: true,
 			    //minZoom: 7,
 			    //maxZoom: 19,
-			    minZoom: 6.5,
-			    maxZoom: 8,
+			    minZoom: 4.5,
+			    maxZoom: 6,
 			});
 			var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
 				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
