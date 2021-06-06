@@ -46,6 +46,7 @@
    	<div class="container" width:80%; margin: 0 auto;>
 
   	<!-- <div id="loadinggif"><img src="https://ui-ex.com/images/gif-transparent-loading-4.gif"></div> -->
+	<div id="loadinggif"><img src="images/hdxgd.gif"></div>
 
   	<!-- HEADER -->
     <div id="blockhead" class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
@@ -56,7 +57,7 @@
                 </td>
             </tr>
         </table>
-      <h3 class="my-0 mr-md-auto font-weight-bold">OCHA Nigeria 3W Mapping</h3>
+      <h3 class="my-0 mr-md-auto font-weight-bold">OCHA Nigeria 3W</h3>
       <div class="col-3 blockmaptop" style="border-right:0px">
 		    <font class="blockmaptop_title">
 	    	</font>
@@ -67,7 +68,7 @@
 	  </div>
 
       <nav class="my-2 my-md-0 mr-md-3">
-      	<h4 class="button" font-weight= 'bold' id="resetall">Clear Filter</h4>
+      	<h4 class="button" background-color: #5b92e5; font-weight= 'bold' id="resetall">Clear Filter</h4>
       </nav>
 
     </div>
@@ -84,7 +85,8 @@
 	    		 <div class="row">
 	    			<div class="row blockrow">
 	    				<div class="col-md-12" style="text-align: left;">
-	    					<p class="pmap">A mapping of Humanitarian agencies response in Nigeria. The Visualisation shows humanitarian organisation's Sector activities at locality level.
+	    					<!--<p class="pmap">A mapping of Humanitarian agencies response in Nigeria. The Visualisation shows humanitarian organisation's Sector activities at locality level. -->
+							<h6><align = Left><b>Organisation Activities per locality Nigeria</b></h6>
 	    					</p>
 	    				</div>
 		            </div>
@@ -120,12 +122,6 @@
 					    				<font class="panelTitleBold">Organization Type</font>
 					    			</div>
 					    			<div id="pieOrg"></div>
-					    		</div>
-					    		<div class="col-md-6">
-				    				<div class="col-md-12 paneltitle" style="margin-top: 1rem">
-					    				<font class="panelTitleBold">Activity Status</font>
-					    			</div>
-					    			<div id="pieStat"></div>
 					    		</div> -->
 					    		<div class="col-md-12" style="margin-top: 1rem">
 				    				<div class="col-md-12 paneltitle2">
@@ -143,12 +139,25 @@
 	    	</div>
 			
 			<!--===============Third Level ==============-->
-			
+	<!-- <div class="col-md-12 apanel"> -->
+	    <div class="row">		
+		     <div class="col-md-6">
     			<div align="left" class="col-md-6 paneltitle" style="margin-top: 1rem">
 				   			<font class="panelTitleBold">Organization Type</font>
-				   		</div>
-				<div id="pieOrg"></div>		
-								
+				</div>
+				<div id="pieOrg"></div>	
+			</div>
+						
+				
+		
+		    <div class="col-md-6">
+				<div class="col-md-12 paneltitle" style="margin-top: 1rem">
+					<font class="panelTitleBold">Activity Status</font>
+				</div>
+			    <div id="pieStat"></div>
+			</div> 
+		</div>
+	<!-- </div>	-->						
 			<!--===============Third Level ==============-->
 								
     		<div class="col-md-12 hidewhenmobile order-md-4" style="margin-top: 2rem">

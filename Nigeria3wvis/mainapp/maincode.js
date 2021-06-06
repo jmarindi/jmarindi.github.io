@@ -9,7 +9,7 @@
     			locationCount = [],
     			reportingperiod = [],
     			organisationCount = [],
-    			//statusCount = [],
+    			statusCount = [],
     			sectorCount = [],
     			orgtotal = 0,
     			periodselect = 0,
@@ -19,21 +19,14 @@
 
 			var geojson;
 			var map = L.map('States_div', { //map is a global variable
-			   
-				//center: [10.846139, 12.240604],
-				//center: [10.349389, 13.273319], ---worked
+			 	//center: [10.349389, 13.273319], ---worked
 				center: [10.013979, 13.042606], 
-
-			   // zoom: 7,
-			   // zoom: 6.5, ---worked
 			   zoom: 6.5,
 			    zoomDelta: 0.5,
 		            zoomSnap: 0,
 			    zoomControl: false,
 			    layerControl:false,
 			    attributionControl: true,
-			    //minZoom: 7,
-			    //maxZoom: 19,
 			    minZoom: 6.5,
 			    maxZoom: 7,
 			});
@@ -46,9 +39,7 @@
 
 
 			function drawboundaries(){
-				//d3.json('mwi_admbnda_adm0_nso_20181016.geojson',function(jso){	
-				//d3.json('geo/sudan_adm0.geojson',function(jso){	
-				d3.json('geo/Admin0_NGA.geojson',function(jso){	
+						d3.json('geo/Admin0_NGA.geojson',function(jso){	
 					
 	    			function style(feature) {
 						return {
@@ -82,7 +73,8 @@
 					// if(props){
 					// 	console.log(locationCount,props.LGA);
 					// }					
-					this._div.innerHTML = '<h6><align = Left><b>Organisation Activities per locality<b></h6>' +  (props ?
+					//this._div.innerHTML = '<h6><align = Left><b>Organisation Activities per locality<b></h6>' +  (props ?
+					this._div.innerHTML = '<h6><align = Left><b><b></h6>' +  (props ?
 						'<b>' + props.LGA + '</b><br />' + locationCount[props.LGA.toUpperCase()] + ' Activities'
 						: 'Hover over a locality');
 				};
@@ -154,7 +146,8 @@
 					onEachFeature: onEachFeature
 				}).addTo(map);
 
-				
+				//LEGEND
+				//=======================
 				var legend = L.control({position: 'bottomright'});
 
 				legend.onAdd = function (map) {
@@ -196,9 +189,14 @@
 
 				  // Optional; add a title and set the width and height of the chart
 				  var options = {
-				  	legend: 'none',
+				  	//legend: 'none',
+					//legend:{position: 'top', textStyle: {color: 'blue', fontSize: 16}},
+                   legend: {
+                        "position": "labeled"
+                         },					
 				  	padding:'15px',
-			        pieSliceText: 'label',
+			       pieSliceText: 'none',
+					//pieSliceText: 'percentage',
 			        pieStartAngle: 100,
 			        colors: ['#157A72', '#1B9D93', '#20BFB3', '#48CAC0', '#85DCD5'],
 			        chartArea:{
@@ -220,7 +218,10 @@
 				}
 	    	}
 				
-			/*function f_drawPieStat(){
+				/*PROJECT STATUS */
+				/* ==========================================================================================*/
+				
+			function f_drawPieStat(){
 	    		var thedata = [['Project Status', 'Total']];
 	    		for(x in statusCount){
 	    			thedata.push([x,statusCount[x]])
@@ -257,7 +258,12 @@
 					  redrawbasestat(thedata[sel+1][0]);
 				  });
 				}
-	    	}		*/
+	    	}		
+			
+			
+							/*PROJECT STATUS END*/
+				/* ==========================================================================================*/
+
 
 	    	function f_drawBarSect(){
 	    		var head = ['Sector', 'Total',{type: 'string', role: 'annotation'}];
@@ -350,7 +356,7 @@
 	    						z['Sector'],
 	    						z['State'],
 	    						z['LGA'],
-	    					//	z['Status'],
+	    					    z['Project Status'],
 	    					 // z['Total Beneficiaries'],
 	    					];
 	    			
@@ -366,7 +372,7 @@
 			            { title: "Sector" },
 			            { title: "State" },
 			            { title: "Locality" },
-			            //{ title: "Status" },
+			            { title: "Project Status" },
 			            //{ title: "Total Beneficiaries" },
 			        ],
 			        responsive: true,	        
@@ -412,9 +418,8 @@
 	    		map.removeLayer(geojson);
 	    		$('.info').remove();
 	    		var therepper = 0;
-
     			organisationCount = [];
-    			//statusCount = [];
+    			statusCount = [];
     			sectorCount = [];
     			locationCount=[];
     			datatblnew = [];
@@ -454,15 +459,16 @@
 		    			}else{
 		    				organisationCount[orgtype] = 1;
 		    			}
-
-		    		/*	let stattype = d['Status'].toUpperCase();
+               /*PROJECT STATUS*/
+		    			let stattype = d['Project Status'].toUpperCase();
 		    			if(stattype!=''){
 		    				if(statusCount[stattype]){
 			    				statusCount[stattype] += 1;
 			    			}else{
 			    				statusCount[stattype] = 1;
 			    			}
-		    			}*/
+		    			}
+						/*PROJECT STATUS END*/
 
 		    			let sectortype = d['Sector'].toUpperCase();
 		    			if(sectorCount[sectortype]){
@@ -483,7 +489,8 @@
 
 	    		drawStatediv();
 	    		f_drawPieOrg();
-	    		//f_drawPieStat();
+	    		//f_drawPieStat(); PROJECT STATUS
+				f_drawPieStat();
 	    		f_drawBarSect();
 	    		f_drawDataTable(datatblnew);
 
@@ -504,7 +511,8 @@
 	    		$('.info').remove();
 
     			organisationCount = [];
-    			//statusCount = [];
+    			//statusCount = []; PROJECT STATUS
+				statusCount = [];
     			sectorCount = [];
     			locationCount=[];
     			datatblnew = [];
@@ -526,15 +534,20 @@
 		    			}else{
 		    				organisationCount[orgtype] = 1;
 		    			}
+				/*PROJECT STATUS */
+				/* ===================*/
 
-		    		/*	let stattype = d['Status'].toUpperCase();
+		    			let stattype = d['Project Status'].toUpperCase();
 		    			if(stattype!=''){
 		    				if(statusCount[stattype]){
 			    				statusCount[stattype] += 1;
 			    			}else{
 			    				statusCount[stattype] = 1;
 			    			}
-		    			}*/
+		    			}
+						
+				/*PROJECT STATUS */
+				/* ===================*/
 
 		    			let sectortype = d['Sector'].toUpperCase();
 		    			if(sectorCount[sectortype]){
@@ -563,15 +576,19 @@
 		    			}else{
 		    				organisationCount[orgtype] = 1;
 		    			}
+				/*PROJECT STATUS */
+				/* ===================*/
 
-		    		/*	let stattype = d['Status'].toUpperCase();
+		    			let stattype = d['Project Status'].toUpperCase();
 		    			if(stattype!=''){
 		    				if(statusCount[stattype]){
 			    				statusCount[stattype] += 1;
 			    			}else{
 			    				statusCount[stattype] = 1;
 			    			}
-		    			}*/
+		    			}
+				/*PROJECT STATUS */
+				/* ===================*/
 
 		    			let sectortype = d['Sector'].toUpperCase();
 		    			if(sectorCount[sectortype]){
@@ -591,7 +608,7 @@
 
 	    		drawStatediv();
 	    		f_drawPieOrg();
-	    		//f_drawPieStat();
+	    		f_drawPieStat();
 	    		f_drawBarSect();
 	    		f_drawDataTable(datatblnew);
 
@@ -631,9 +648,8 @@
 		    			if( d['LGA'].toUpperCase() == Stateselect){
 		    				console.log(d['LGA'].toUpperCase())
 		    			}
-		    		//	if(d['Status'].toUpperCase() == stat && d['Reporting period'] == periodselect && (Stateselect == 0 || Stateselect == d['LGA'].
-						if(d['Reporting period'] == periodselect && (Stateselect == 0 || Stateselect == d['LGA'].
-						toUpperCase()) ){
+		    	if(d['Project Status'].toUpperCase() == stat && d['Reporting period'] == periodselect && (Stateselect == 0 || Stateselect == d['LGA'].toUpperCase())){
+				//if(d['Reporting period'] == periodselect && (Stateselect == 0 || Stateselect == d['LGA'].toUpperCase())){
 		    				datatblnew.push(d);
 		    				let tempat = d['LGA'].toUpperCase();
 			    			if(locationCount[tempat]){
@@ -671,7 +687,6 @@
 		    		f_drawPieOrg();
 		    		f_drawDataTable(datatblnew);
 		    		f_drawBarSect();
-
 		    		let val3 = 0;
 		    		let val2 = 0;
 		    		for(x in locationCount){
@@ -698,7 +713,7 @@
 	    			locationCount = [];
 	    			orgtotal=[];
 	    			sectorCount=[];
-	    			//statusCount = [];
+	    			statusCount = [];
 
 		    		thedata.forEach(function(d){
 		    			if(d['Organization Type'].toUpperCase() == org && d['Reporting period'] == periodselect && (Stateselect == 0 || Stateselect == d['LGA'].toUpperCase())){
@@ -725,21 +740,24 @@
 			    				sectorCount[sectortype] = 1;
 			    			}
 
-			    		/*	let stattype = d['Status'].toUpperCase();
+			    		/*PROJECT STATUS*/
+						let stattype = d['Project Status'].toUpperCase();
 			    			if(stattype!=''){
 			    				if(statusCount[stattype]){
 				    				statusCount[stattype] += 1;
 				    			}else{
 				    				statusCount[stattype] = 1;
 				    			}
-			    			} */
+			    			} 
+							
+							/*PROJECT STATUS*/
 		    			}
 		    		})
 
 		    		drawStatediv();
 		    		f_drawDataTable(datatblnew);
 		    		f_drawBarSect();
-		    		//f_drawPieStat();
+		    		f_drawPieStat();
 
 		    		let val3 = 0;
 		    		let val2 = 0;
@@ -764,7 +782,7 @@
 		    		$('.info').remove();
 		    		
 		    		organisationCount = [];
-	    			//statusCount = [];
+	    			statusCount = [];
 	    			datatblnew = [];
 	    			locationCount = [];
 	    			orgtotal=[];
@@ -789,14 +807,16 @@
 			    				organisationCount[orgtype] = 1;
 			    			}
 
-			    		/*	let stattype = d['Status'].toUpperCase();
+			    		/*	PROJECT STATUS*/
+						let stattype = d['Project Status'].toUpperCase();
 			    			if(stattype!=''){
 			    				if(statusCount[stattype]){
 				    				statusCount[stattype] += 1;
 				    			}else{
 				    				statusCount[stattype] = 1;
 				    			}
-			    			} */
+			    			} 
+							/*	PROJECT STATUS*/
 
 			    			let org=d['Organization'];
 			    			let cek = $.inArray( org, orgtotal ); 
@@ -808,7 +828,7 @@
 
 		    		drawStatediv();
 		    		f_drawPieOrg();
-		    		//f_drawPieStat();
+		    		f_drawPieStat();
 		    		f_drawDataTable(datatblnew);
 
 		    		let val3 = 0;
@@ -850,30 +870,30 @@
 		    			}else{
 		    				organisationCount[orgtype] = 1;
 		    			}
-/*
-		    			let stattype = d['Status'].toUpperCase();
+/*PROJECT STATUS */
+		    			let stattype = d['Project Status'].toUpperCase();
 		    			if(stattype!=''){
 		    				if(statusCount[stattype]){
 			    				statusCount[stattype] += 1;
 			    			}else{
 			    				statusCount[stattype] = 1;
 			    			}
-		    			}
-*/
+						}
+/*PROJECT STATUS END*/
 		    			let sectortype = d['Sector'].toUpperCase();
 		    			if(sectorCount[sectortype]){
 		    				sectorCount[sectortype] += 1;
 		    			}else{
 		    				sectorCount[sectortype] = 1;
 		    			}
-		    			
-		    			
+		    					    			
 		    			let org=d['Organization'];
 		    			let cek = $.inArray( org, orgtotal ); 
 		    			if(cek == -1){
 		    				orgtotal.push(org);
 		    			}
-		    	});
+		    	//});  where error is ')'
+				});
 
 
 		    		drawStatediv();
@@ -894,16 +914,11 @@
 	    	}
 
 	    	$('#loadinggif').show();
-		   // d3.json('mwi_admbnda_adm2_nso_20181016.geojson',function(jso){	
-	    	//	statesData = jso;
-	    	//d3.json('geo/Sudan_admin_2.geojson',function(jso){	
-			d3.json('geo/Nigeria2Geojson.geojson',function(jso){	
+		  	d3.json('geo/Nigeria2Geojson.geojson',function(jso){	
 	    	statesData = jso;
 			console.log(statesData);
 	    		//call the original data
-	    		//d3.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSSxq5F32bBfiJAwWLcR9hNJtcWHHlqKArC8e3UVbCZXztzqFz156vaeqCcDSBDfLK4p0i007RUsIA1/pub?output=csv',
-				//d3.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vQukOGqK19kAewQZEKlHd2tonGgS4ExGOB3cGAxQNZVdRL7ub-p2ejpfgm4X48nMzLyeHGBK9TvKbay/pub?output=csv',
-				  d3.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vRRdzUkWp3mX7ZtbIbDijKHnhS4ppOATR0duEun7aFqPGU2c6iWgnOZ_y1bCCQ3Rna690keS7U4Shq0/pub?output=csv',
+	  d3.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vRRdzUkWp3mX7ZtbIbDijKHnhS4ppOATR0duEun7aFqPGU2c6iWgnOZ_y1bCCQ3Rna690keS7U4Shq0/pub?output=csv',
 					
 				function(data){
 		    		//set the data called to variable thedata

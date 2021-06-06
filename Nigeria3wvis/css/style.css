@@ -193,6 +193,7 @@ div.dataTables_wrapper div.dataTables_filter label {
     height: 18px;
     float: left;
     margin-right: 8px;
+	text-align: left;
     opacity: 0.7;
 }
 .leaflet-right .leaflet-control{
@@ -200,7 +201,7 @@ div.dataTables_wrapper div.dataTables_filter label {
 }
 
 .button {
-    background-color: #20BFB3;
+  	background-color: #5b92e5;
     border: none;
     color: white;
     padding: 15px 25px;
