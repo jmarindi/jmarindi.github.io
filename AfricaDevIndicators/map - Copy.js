@@ -14,11 +14,8 @@ tooltip = d3.select("body").append("div")
 	.style("opacity", 0);
 
 queue()
-  /*.defer(d3.csv, "smoking-data.csv")
+	.defer(d3.csv, "smoking-data.csv")
 	.defer(d3.json, "us.json")
-	.await(ready); */
-	.defer(d3.csv, "PopulationAFRICA.csv")
-	.defer(d3.json, "Af0topo.json")
 	.await(ready);
 
 var legendText = ["", "10%", "", "15%", "", "20%", "", "25%"];
