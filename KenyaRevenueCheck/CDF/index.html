@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">	  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-control" content="no-cache">	  
+  <!-- CSS styles -->
+  <link href="css/styling.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link href="css/skeleton.min.css" rel="stylesheet" type="text/css">
+  <!-- Javascripts -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/d3.v3.min.js" charset="utf-8"></script>
+  <script src="js/mustache.min.js"></script>
+  <script src="js/d3-queue.min.js"></script>
+  
+    <title>Kenya census Report 2019</title>  
+    
+  </head>
+  <body>
+
+  <div class="container">
+  <div class="row">
+      <div class="col-sm-3" style="background-color:white;"> 
+         <div id = "logoAuc">
+           <a href="https://data.humdata.org/organization/kenya-national-bureau-of-statistics" target="_blank">
+           <img src="images/KNBS.png" alt="Visual by the Humanitarian Data Exchange team" width="160" height="95"> 
+         </div> </a>
+      </div>
+      <div class="col-sm-7" style="background-color:white;"><h3>Kenya Census Population Statistics 2019</h3> </div>
+  </div>
+   <div class="col-sm-10" style="background-color:white;">
+     A visualisation for Kenya census Population data. Data for this visual comes from the recently released population census report for 2019.This dataset can be downloaded from the <a href="https://data.humdata.org/dataset/kenya-population-per-county-from-census-report-2019">Humanitarian Data Exchange</a>.
+     Select an indicator from the dropdown list and click on the choropleth map to view individual county statistics.
+     <hr> 
+           <div id="indicator_div">				   
+					  <select id="Indicator_list"> 
+					     <!--<option value="2018_Population" selected>Filter by Indicator</option> -->
+					     <option value="Total_Population19"selected>2019 County Population</option>
+       	       <option value="Male19">2019 Male Population</option>
+		           <option value="Female19">2019 Female Population</option>
+		           <option value="Intersex19" >2019 Intersex population</option>
+               <option value="Households" >Households per county</option>
+               <option value="Av_HH_Size" >Av.Households size</option>
+               <option value="PopDensity" >Pop.Density per county</option>
+               <option value="Pop2009" >2009 population per county</option>
+               <option value="Pop_change" >Change in population</option>
+		        </select>				
+				  </div>
+  <div id="main">  
+     <div class = "row">
+        <div class="col-sm-7" style="background-color:white;">
+          <div id="map"><!-- Map container --> </div>
+         <div id="legend"> <!--Legend container --></div>  
+			</div>
+       <div class="col-sm-4" style="background-color:white;">
+				 <div id="d2">
+            <div id="details" class="hidden row"><!-- Details container --></div>
+                <div class="footer"></div>
+            </div>		
+			  </div>
+      </div>
+		  <!-- Mustache template, rendered later to show the details of a feature -->
+<script id="template" type="x-tmpl-mustache">
+    
+	   <table class="ten columns"; font-size: 8pt;>
+	   <tr>
+	   <thead font size = 10pt>
+          <th> Kenya Population statistics </th>
+       </thead>   
+        </tr>
+		<tr>
+          <th>County:</th>
+          <td>{{ County }}</td>
+        </tr>
+        <tr>
+          <th>2019 Total Population:</th>
+          <td>{{Total_Population19}}</td>
+        </tr>
+        <tr>
+          <th>2019 Male Population:</th>
+          <td>{{ Male19 }} </td>
+        </tr>
+        <tr>
+          <th>2019 Female Population:</th>
+          <td>{{Female19 }}</td>
+        </tr>
+        <tr>
+          <th>2019 Intersex Population:</th>
+          <td>{{ Intersex19 }}</td>
+        </tr>
+        <tr>
+          <th>2009 Total Population:</th>
+          <td>{{ Pop2009 }}</td>
+        </tr>
+        <tr>
+          <th>2009 vs 2019 Population change:</th>
+          <td>{{ Pop_change }}</td>
+        </tr>
+        <tr>
+          <th>County size in Sq Km:</th>
+          <td>{{LandArea}}</td>
+        </tr>
+        <tr>
+          <th>Population Density:</th>
+          <td>{{PopDensity}}</td>
+        </tr>
+	    	<tr>
+          <th>Average Household size:</th>
+          <td>{{Av_HH_Size}}</td>
+        </tr>
+      </table>	  
+      <!--<a href="#" id="close-details" class="one column" onclick="hideDetails(); return false;">&#x274c;</a> -->
+      <a href="#" id="close-details" class="one column" onclick="hideDetails(); return false;">&#x2612;</a>
+      </script>
+
+  <script src="js/map.js"></script>
+</div> 
+</div>
+</div>
+</body>
+
+</html>
