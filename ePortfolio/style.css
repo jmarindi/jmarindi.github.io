@@ -37,7 +37,12 @@
 .imageAboutPage {
     width: 100%;
 }
-
+.centerImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 
 /* social media icons styling */
 .social-icons {
