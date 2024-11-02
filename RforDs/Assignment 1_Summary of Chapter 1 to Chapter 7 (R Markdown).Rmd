@@ -1,0 +1,1212 @@
+---
+title: 'Assignment 1: Summary of Chapter 1 to Chapter 7 (R Markdown)'
+author: "Joseph Marindi - SDS6/46284/2024"
+date: "2024-10-31"
+output: 
+  pdf_document:
+    toc: true
+    number_sections: true
+  html_document:
+    toc: true
+    number_sections: true
+    theme: cosmo
+  word_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# **Chapter 1**: Introduction
+
+## Introduction to Data Science
+
+
+**Data science** is an exciting discipline that allows you to *transform raw data into understanding, insight, and knowledge.* 
+This serves as a summary of important items/take-aways from chapter 1 of the **“R for Data Science”** which are important to a data scientist to efficiently write code reproducibly.
+
+The steps of a typical data science project looks something like
+
+   1. <span class="highlight"> Import </span> - take data stored in a file, database, or web application programming interface (API) and load it into a data frame in R.
+   
+   2. Tidy - Tidying means storing in a consistent form that matches the semantics of the dataset with how it is stored. In brief, when your data is tidy,                each column is a variable and each row is an observation
+   
+   3. Transform - includes narrowing in on observations of interest (like all people in one city or all data from the last year), creating new variables that are functions of existing variables (like computing speed from distance and time), and calculating a set of summary statistics (like counts or means)
+   
+   4. Visualize - good visualization will show you things you did not expect or raise new questions about the data. A good visualization might also hint that you’re asking the wrong question or that you need to collect different data.
+   
+   5. Model - complementary tools to visualization. Once you have made your questions sufficiently precise, you can use a model to answer them.
+   
+   6. Communicate - The last step of data science is communication, an absolutely critical part of any data analysis project. It doesn’t matter how well your models and visualization have led you to understand the data unless you can also communicate your results to others.
+
+## Prerequisites
+
+ **R**
+
+This must be installed as a first step. To download R, go to CRAN, the comprehensive R archive network, https://cloud.r-project.org.
+
+**RStudio**
+
+RStudio is an integrated development environment, or IDE, for R programming, which you can download from https://posit.co/download/rstudio-desktop/.
+
+ **The tidyverse**
+
+You’ll also need to install some R packages. An R package is a collection of functions, data, and documentation that extends the capabilities of base R. Using packages is key to the successful use of R. `install.packages("tidyverse")`
+
+To check if tidyverse has installed correctly, run the following command
+
+```{r}
+library(tidyverse)
+
+```
+
+
+This tells you that tidyverse loads nine packages: dplyr , forcats, ggplot2, lubridate, purrr, readr, stringr, tibble, tidyr. 
+        
+        
+These are considered the core of the tidyverse because you’ll use them in almost every analysis.Packages in the tidyverse change fairly frequently. You can see if updates are available by running `tidyverse_update()`
+
+In addition to tidyverse, we will also use the palmerpenguins package, which includes the penguins dataset
+containing body measurements for penguins on three islands in the Palmer Archipelago, and the ggthemes package,
+which offers a colorblind safe color palette.
+```{r}
+library(palmerpenguins)
+library(ggthemes)
+
+```
+
+
+## The penguins data frame
+
+A data frame is a rectangular collection of variables (in the columns) and observations (in the rows). penguins contains 344 observations collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER
+The data frame in the console and R will print a preview of its contents.
+In the tidyverse, we use special data frames called *tibbles*. 
+To preview the contents of a data frame, type the name of the data frame in the console and R will print a preview of its contents.
+
+```{r}
+penguins 
+```
+The ultimate goal in this chapter is to recreate the following visualization displaying the relationship between flipper lengths and body masses of these penguins, taking into consideration the species of the penguin.
+
+```{r}
+ggplot(
+data = penguins,
+mapping = aes(x = flipper_length_mm, y = body_mass_g)
+) +
+geom_point()
+
+range
+#> (`geom_point()`).
+
+```
+
+Among the variables in penguins are:
+
+ 1. `species:`</mark> a penguin’s species (Adelie, Chinstrap, or Gentoo).
+
+ 2. `flipper_length_mm:` length of a penguin’s flipper, in millimeters.
+
+ 3. `body_mass_g:` body mass of a penguin, in grams.
+
+### Visualization using ggplot
+
+#### *steps to developing plots in ggplot*
+
+With *ggplot2*, you begin a plot with the function `ggplot()`, defining a plot object that you then add layers to.
+The first argument of `ggplot()` is the dataset to use in the graph and so:
+
+i). Creating a `ggplot(data = penguins)` -  creates an empty graph that is primed to display the penguins data
+
+ii).The `mapping` argument of the ggplot() function defines how variables in the dataset are mapped to visual properties (aesthetics) of the plot. The argument is always defined in the `aes()` function, and the x and y arguments of aes() specify which variables to map to the x and y axes.
+
+```{r}
+ggplot(
+  data = penguins,
+  mapping = aes(x = flipper_length_mm, y = body_mass_g)
+)
+
+```
+
+iii). Defining a `geom:` the geometrical object that a plot uses to represent data. These geometric objects are made available in ggplot2 with functions that start with `geom_`.
+
+For example:
+
+    - bar charts use bar geoms (geom_bar()), 
+    
+    - line charts use line geoms (geom_line()),
+    
+    - boxplots use boxplot geoms (geom_boxplot()), 
+    
+    - scatterplots use point geoms (geom_point()),
+    
+The function `geom_point()` adds a layer of points to a plot, which creates a scatterplot. ggplot2 comes with many geom functions that each adds a different type of layer to a plot. 
+
+```{r}
+ggplot(
+  data = penguins,
+  mapping = aes(x = flipper_length_mm, y = body_mass_g)
+) +
+  geom_point()
+
+```
+
+using this plot we can start answering the question that motivated our exploration: 
+
+**“What does the relationship between flipper length and body mass look like?”** : *The relationship appears to be positive (as flipper length increases, so does body mass), fairly linear (the points are clustered around a line instead of a curve), and moderately strong (there isn’t too much scatter around such a line). Penguins with longer flippers are generally larger in terms of their body mass.*
+
+iv). Adding aesthetics and layers: To achieve this, will we need to modify the aesthetic mapping, inside of `aes()`. This is achieved below:
+
+```{r}
+ggplot(
+  data = penguins,
+  mapping = aes(x = flipper_length_mm, y = body_mass_g, color = species)
+) +
+  geom_point()
+
+```
+
+When a categorical variable is mapped to an aesthetic, ggplot2 will automatically assign a unique value of the aesthetic (here a unique color) to each unique level of the variable (each of the three species), a process known as scaling. ggplot2 will also add a legend that explains which values correspond to which levels.
+
+We can add a new geom as a layer on top of our point geom: `geom_smooth()`. We specify that we want to draw the line of best fit based on a linear model with `method = "lm"`.
+
+```{r}
+ggplot(
+  data = penguins,
+  mapping = aes(x = flipper_length_mm, y = body_mass_g, color = species)
+) +
+  geom_point() +
+  geom_smooth(method = "lm")
+
+```
+
+When aesthetic mappings are defined in `ggplot()`, at the *global level*, they’re passed down to each of the subsequent geom layers of the plot. 
+Each geom function in ggplot2 can also take a mapping argument, which allows for aesthetic mappings at the *local level* that are added to those inherited from the global level.
+Since we want points to be colored based on species but don’t want the lines to be separated out for them, we should specify `color = species` for `geom_point()` only.
+
+```{r}
+
+ggplot(
+  data = penguins,
+  mapping = aes(x = flipper_length_mm, y = body_mass_g)
+) +
+  geom_point(mapping = aes(color = species)) +
+  geom_smooth(method = "lm")
+
+```
+
+ In addition to color, we can also map `species` to the `shape` aesthetic.
+ 
+```{r}
+
+ggplot(
+  data = penguins,
+  mapping = aes(x = flipper_length_mm, y = body_mass_g)
+) +
+  geom_point(mapping = aes(color = species, shape = species)) +
+  geom_smooth(method = "lm")
+
+
+```
+ 
+ The legend is automatically updated to reflect the different shapes of the points as well
+ 
+we can improve the labels of our plot using the `labs()` function in a new layer. Some of the arguments to `labs()` include: `title` adds a **title** and `subtitle` adds a **subtitle** to the plot. 
+
+Other arguments match the aesthetic mappings, `x` is the **x-axis label**, `y` is the **y-axis label**, and `color` and `shape` define the label for the legend. In addition, we can improve the color palette to be **colorblind safe** with the `scale_color_colorblind()` function from the `ggthemes` package.
+
+<details>
+  <summary> Click to expand </summary>
+
+```{r}
+
+ggplot(
+  data = penguins,
+  mapping = aes(x = flipper_length_mm, y = body_mass_g)
+) +
+  geom_point(aes(color = species, shape = species)) +
+  geom_smooth(method = "lm") +
+  labs(
+    title = "Body mass and flipper length",
+    subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
+    x = "Flipper length (mm)", y = "Body mass (g)",
+    color = "Species", shape = "Species"
+  ) +
+  scale_color_colorblind()
+
+
+```
+
+</details>
+
+**Summary**
+
+A more concise expression of ggplot2 code
+
+`
+ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) + 
+  geom_point()
+`
+
+Alternatively, one can use the **Pipe** 
+
+
+`penguins |> 
+  ggplot(aes(x = flipper_length_mm, y = body_mass_g)) + 
+  geom_point() `
+
+
+## Visualizing distributions
+
+How you visualize the distribution of a variable depends on the type of variable: **categorical** or **numerical**.
+
+### A categorical variable
+
+A variable is **categorical** if it can only take one of a small set of values. To examine the distribution of a categorical variable, you can use a bar chart. The height of the bars displays how many observations occurred with each `x` value.
+
+```{r}
+ggplot(penguins, aes(x = species)) +
+  geom_bar()
+
+```
+
+In bar plots of categorical variables with non-ordered levels, like the penguin `species` above, it’s often preferable to reorder the bars based on their frequencies. Doing so requires transforming the variable to a factor (how R handles categorical data) and then reordering the levels of that factor.
+
+```{r}
+ggplot(penguins, aes(x = fct_infreq(species))) +
+  geom_bar()
+```
+
+### A numerical variable
+
+A variable is **numerical** (or quantitative) if it can take on a wide range of numerical values, and it is sensible to add, subtract, or take averages with those values. Numerical variables can be continuous or discrete.
+
+One commonly used visualization for distributions of continuous variables is a histogram.
+
+```{r}
+ggplot(penguins, aes(x = body_mass_g)) +
+  geom_histogram(binwidth = 200)
+
+```
+
+You can set the width of the intervals in a histogram with the binwidth argument, which is measured in the units of the `x` variable.
+
+An alternative visualization for distributions of numerical variables is a density plot. <mark> A density plot is a smoothed-out version of a histogram and a practical alternative, particularly for continuous data that comes from an underlying smooth distribution particularly with respect to modes and skewness.<mark>
+
+```{r}
+ggplot(penguins, aes(x = body_mass_g)) +
+  geom_density()
+
+```
+
+### Visualizing relationships
+
+To visualize a relationship we need to have at least two variables mapped to aesthetics of a plot.
+
+#### A numerical and a categorical variable
+
+To visualize the relationship between a numerical and a categorical variable we can use side-by-side box plots. A **boxplot** is a type of visual shorthand for measures of position (percentiles) that describe a distribution.
+The distribution of body mass by species can be done using `geom_boxplot():`
+
+```{r}
+ggplot(penguins, aes(x = species, y = body_mass_g)) +
+  geom_boxplot()
+```
+
+Alternatively, we can make density plots with `geom_density()`.
+
+
+```{r}
+ggplot(penguins, aes(x = body_mass_g, color = species)) +
+  geom_density(linewidth = 0.75)
+
+```
+
+We can adjust the thickness of the lines using `linewidth`argument in order to make them stand out a bit more against the background.
+
+Additionally, we can map `species` to both `color` and `fill` aesthetics and use the `alpha` aesthetic to add transparency to the filled density curves. This aesthetic takes values between 0 (completely transparent) and 1 (completely opaque). In the following plot it’s set to 0.5.
+
+```{r}
+ggplot(penguins, aes(x = body_mass_g, color = species, fill = species)) +
+  geom_density(alpha = 0.5)
+```
+
+#### Two categorical variables
+
+We can use stacked bar plots to visualize the relationship between two categorical variables. For example, the following two stacked bar plots both display the relationship between `island` and `species`, or specifically, visualizing the distribution of species within each island.
+
+```{r}
+
+ggplot(penguins, aes(x = island, fill = species)) +
+  geom_bar()
+
+```
+
+
+#### Two numerical variables
+
+A `scatterplot` is probably the most commonly used plot for visualizing the relationship between two numerical variables.
+```{r}
+ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point()
+```
+
+#### Three or more variables
+
+we can incorporate more variables into a plot by mapping them to additional aesthetics. For example, in the following scatterplot the colors of points represent species and the shapes of points represent islands.
+```{r}
+ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(color = species, shape = island))
+
+```
+
+## Using Facets
+
+Adding too many aesthetic mappings to a plot makes it cluttered and difficult to make sense of. Another way, useful for categorical variables, is to split your plot into **facets**, subplots that each display one subset of the data.
+
+To facet your plot by a single variable, use `facet_wrap()`. The first argument of `facet_wrap()` is a formula, which can be created by `~` followed by a variable name. <mark>The variable that you pass to facet_wrap() should be **categorical**</mark>.
+
+```{r}
+ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(color = species, shape = species)) +
+  facet_wrap(~island)
+
+```
+
+## Saving plots
+
+Once a plot has been made, it can be saved as an image that you can use elsewhere.` ggsave()`, will save the plot most recently created to disk:
+
+```{r}
+ggplot(penguins, aes(x = body_mass_g, color = species, fill = species)) +
+  geom_density(alpha = 0.5)
+ggsave(filename = "penguin-plot.png")
+
+```
+
+# **Chapter 2:** Workflow: basics
+
+
+## Coding basics
+
+ You can use R to do basic math calculations:
+```{r}
+(20 + (40*5)/50)/8
+
+```
+ New objects can be created using the assignment operator
+ All R statements where you create objects, assignment statements, have the same form:
+ `object_name <- value`
+ Examples:
+ 
+```{r}
+
+Base <- 30
+Height <- 20
+
+```
+ 
+ You can combine multiple elements into a vector with c():
+ 
+```{r}
+primes <- c(2, 3, 5, 7, 11, 13)
+```
+ 
+## Comments 
+ 
+ R uses the Hash symbol `#` to indicate that it is a comment. This allows you to write comments, text that is ignored by R but read by other humans.
+Comments help explain the *why* of your code, not the *how* or the what. The what and how of your code are always possible to figure out, even if it might be tedious, by carefully reading it. 
+
+## Calling functions
+ 
+ In R functions are called in this format
+ 
+ `function_name(argument1 = value1, argument2 = value2, ...)`
+ 
+ Example:
+ 
+```{r}
+seq(from = 1, to = 10) 
+```
+ 
+ We often omit the names of the first several arguments in function calls, so we can rewrite this as follows:
+
+
+```{r}
+seq(1, 10)
+```
+ 
+ 
+ 
+# **Chapter 3:** Data Transformation
+
+##  Introduction
+This Chapter introduces the concept of data transformation in R, particularly using the `dplyr` package. It highlights the necessity of manipulating data to fit specific visualization needs.
+
+The chapter will cover various techniques:
+
+ 1. <mark>Row-wise and column-wise operations:</mark> Manipulating data within rows and columns to create new variables or summaries.
+ 
+2. <mark>The pipe operator (%>%):</mark> A tool to chain multiple operations together for a cleaner and more readable workflow.
+
+3. <mark> Group-wise operations:</mark> Working with data grouped by specific variables to calculate summary statistics or perform other operations on subsets of the data.
+
+The overall goal is get the skills to effectively transform and prepare their data for analysis and visualization.
+
+In this chapter, we’ll focus on the `dplyr` package, another core member of the `tidyverse`. We will be using data from the `nycflights13` package and use `ggplot2` to help us understand the data.
+
+
+
+```{r}
+library(nycflights13)
+library(tidyverse)
+```
+
+when tidyverse is loaded, dplyr overwrites some functions in base R. If you want to use the base version of these functions after loading dplyr, you’ll need to use their full names: `stats::filter()` and `stats::lag()`
+
+so when we need to be precise about which package a function comes from, we use the same syntax as R: `packagename::functionname().`
+
+**nycflights13**
+This dataset contains all 336,776 flights that departed from New York City in 2013. The data comes from the [US Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FGJ&QO_fu146_anzr=b0-gvzr) .
+
+```{r}
+flights
+```
+The most important difference between tibbles and data frames is the way tibbles print; <mark>they are designed for large datasets, so they only show the first few rows and only the columns that fit on one screen.</mark>
+
+##dplyr basics
+
+The primary `dplyr` verbs (functions), which will allows one to solve the vast majority of  data manipulation challenges have the following basics
+
+ 1. The first argument is always a data frame.
+
+ 2. The subsequent arguments typically describe which columns to operate on using the variable names (without quotes).
+
+ 3. The output is always a new data frame.
+ 
+ 
+Each verb does one thing well, solving complex problems will usually require combining multiple verbs.
+This is done with the pipe, `|>. `
+The pipe takes the thing on its left and passes it along to the function on its right so that `x |> f(y)` is equivalent to `f(x, y)`, and `x |> f(y) |> g(z)` is equivalent to `g(f(x, y), z)`.
+The easiest way to pronounce the pipe is “then”.
+
+***Example***
+
+```{r}
+flights |>
+  filter(dest == "IAH") |> 
+  group_by(year, month, day) |> 
+  summarize(
+    arr_delay = mean(arr_delay, na.rm = TRUE)
+  )
+
+```
+
+dplyr’s verbs are organized into four groups based on what they operate on: 
+
+i). Rows
+
+ii). Columns
+
+iii). Groups
+
+iv). Tables. 
+
+## Rows
+
+The most important verbs that operate on rows of a dataset are:
+
+ - `filter()`, - *which changes which rows are present without changing their order*
+ 
+ - `arrange()`, - *which changes the order of the rows without changing which are present.*
+ 
+Both functions only affect the rows, and the columns are left unchanged. 
+
+ - `distinct()` - *which finds rows with unique values.* 
+ 
+Unlike `arrange()` and `filter()`, `distinct()` can also optionally modify the columns.
+
+### `filter() `
+
+Allows one to keep rows based on the values of the columns. 
+The first argument is the **data frame**. The second and subsequent arguments are the **conditions that must be true to keep the row**.
+For example, we could find all flights that departed more than 120 minutes (two hours) late:
+
+```{r}
+flights |> 
+  filter(dep_delay > 120)
+```
+
+As well as <mark> (greater than)</mark>, you can use <mark> >= (greater than or equal to) </mark>, <mark>< (less than)</mark>, <mark><= (less than or equal to)</mark>, <mark>== (equal to)</mark>, and <mark>!= (not equal to)</mark>. You can also combine conditions with & or , to indicate “and” (check for both conditions) or with | to indicate “or” (check for either condition):
+
+There’s a useful shortcut when you’re combining `|` and `==`: the ` %in%.`  keeps rows where the variable equals one of the values on the right:
+
+```{r}
+# Shorter and concise way to select flights that departed in January or February
+flights |> 
+  filter(month %in% c(1, 2))
+```
+
+### arrange()
+
+`arrange()` changes the order of the rows based on the value of the columns.
+It takes a data frame and a set of column names (or more complicated expressions) to order by. 
+If you provide more than one column name, each additional column will be used to break ties in the values of the preceding columns. For example, the following code sorts by the departure time, which is spread over four columns. We get the earliest years first, then within a year, the earliest months, etc.
+
+```{r}
+flights |> 
+  arrange(year, month, day, dep_time)
+
+```
+
+You can use desc() on a column inside of arrange() to re-order the data frame based on that column in descending (big-to-small) order. For example, this code orders flights from most to least delayed:
+
+```{r}
+flights |> 
+  arrange(desc(dep_delay))
+
+```
+
+### distinct() 
+
+`distinct()` finds all the unique rows in a dataset.
+it primarily operates on the rows. Most of the time, however, you’ll want the distinct combination of some variables, so you can also optionally supply column names:
+
+
+```{r}
+# Remove duplicate rows, if any
+flights |> 
+  distinct()
+```
+
+```{r}
+# Find all unique origin and destination pairs
+flights |> 
+  distinct(origin, dest)
+```
+
+if you want to keep other columns when filtering for unique rows, you can use the `.keep_all = TRUE option.`
+
+```{r}
+flights |> 
+  distinct(origin, dest, .keep_all = TRUE)
+```
+
+If you want to find the number of occurrences instead, you swap `distinct()` for `count()`. With the `sort = TRUE argument`, you can arrange them in descending order of the number of occurrences.
+
+```{r}
+flights |>
+  count(origin, dest, sort = TRUE)
+```
+
+## Columns
+
+There are four important verbs that affect the columns without changing the rows:
+
+i). `mutate()`  - creates new columns that are derived from the existing columns,
+
+ii). `select()` -  changes which columns are present
+
+iii). `rename()` -  changes the names of the columns
+
+iv). `relocate()` -  changes the positions of the columns.
+
+### `Mutate()`
+
+ `mutate()` is to add new columns that are calculated from the existing columns.
+ 
+  Using `mutate` allows us to compute the `gain`, how much time a delayed flight made up in the air, and the `speed` in miles per hour:
+  
+```{r}
+flights |> 
+  mutate(
+    gain = dep_delay - arr_delay,
+    speed = distance / air_time * 60
+  )
+```
+  
+By default, `mutate()` adds new columns on the right-hand side of your dataset, which makes it difficult to see what’s happening here. We can use the `.before` argument to instead add the variables to the left-hand side2:
+
+```{r}
+flights |> 
+  mutate(
+    gain = dep_delay - arr_delay,
+    speed = distance / air_time * 60,
+    .before = 1
+  )
+
+```
+
+The . indicates that `.before` is an argument to the function, not the name of a third new variable we are creating. You can also use `.after` to add after a variable, and in both `.before` and `.after` you can use the variable name instead of a position. For example, we could add the new variables after day:
+
+```{r}
+flights |> 
+  mutate(
+    gain = dep_delay - arr_delay,
+    speed = distance / air_time * 60,
+    .after = day
+  )
+```
+
+
+Alternatively, you can control which variables are kept with the `.keep` argument. A particularly useful argument is `"used"` which specifies that we only keep the columns that were involved or created in the `mutate()` step. 
+The following output will contain only the variables `dep_delay`, `arr_delay`, `air_time`, `gain`, `hours`, and `gain_per_hour`.
+
+```{r}
+flights |> 
+  mutate(
+    gain = dep_delay - arr_delay,
+    hours = air_time / 60,
+    gain_per_hour = gain / hours,
+    .keep = "used"
+  )
+```
+
+
+### select()
+
+`. select()` allows you to rapidly zoom in on a useful subset using operations based on the names of the variables
+
+ . Select columns by name:
+ 
+```{r}
+flights |> 
+  select(year, month, day)
+```
+ 
+Select all columns between year and day (inclusive):
+
+```{r}
+flights |> 
+  select(year:day)
+```
+
+
+Select all columns except those from year to day (inclusive):
+
+```{r}
+flights |> 
+  select(!year:day)
+```
+
+
+Historically this operation was done with `-` instead of `!`, so you’re likely to see that in the wild.
+These two operators serve the same purpose but with subtle differences in behavior.
+It is recommended using `!` because it reads as “not” and combines well with `&` and `|`.
+
+Select all columns that are characters:
+
+```{r}
+flights |> 
+  select(where(is.character))
+```
+
+
+There are a number of helper functions you can use within `select()`:
+
+ * `starts_with("abc")`: matches names that begin with “abc”.
+ 
+ * `ends_with("xyz")`: matches names that end with “xyz”.
+ 
+ * `contains("ijk")`: matches names that contain “ijk”.
+ 
+ * `num_range("x", 1:3)`: matches `x1`, `x2` and `x3`.
+
+See ?select for more details. Once you know regular expressions (the topic of Chapter 15) you’ll also be able to use matches() to select variables that match a pattern.
+
+You can rename variables as you select() them by using =. The new name appears on the left-hand side of the =, and the old variable appears on the right-hand side:
+
+### rename()
+
+If you want to keep all the existing variables and just want to rename a few, you can use rename() instead of select():
+
+```{r}
+flights |> 
+  rename(tail_num = tailnum)
+```
+
+### relocate() 
+
+Use `relocate()` to move variables around. You might want to collect related variables together or move important variables to the front. 
+By default `relocate()` moves variables to the front:
+
+```{r}
+flights |> 
+  relocate(time_hour, air_time)
+```
+
+
+You can also specify where to put them using the `.before` and `.after` arguments, just like in `mutate()`:
+
+```{r}
+flights |> 
+  relocate(year:dep_time, .after = time_hour)
+flights |> 
+  relocate(starts_with("arr"), .before = dep_time)
+
+```
+
+## The pipe
+
+The real power of the Pipe arises when you start to combine multiple verbs.
+For example,if you wanted to find the fastest flights to Houston’s IAH airport: you need to combine `filter()`, `mutate()`, `select()`, and `arrange()`:
+
+```{r}
+flights |> 
+  filter(dest == "IAH") |> 
+  mutate(speed = distance / air_time * 60) |> 
+  select(year:day, dep_time, carrier, flight, speed) |> 
+  arrange(desc(speed))
+
+```
+
+## Groups
+
+`dplyr` gets even more powerful when you add in the ability to work with groups. 
+The most important functions: `group_by()`, `summarize()`, and the slice family of functions.
+
+### group_by() 
+
+Use `group_by()` to divide your dataset into groups meaningful for your analysis:
+```{r}
+flights |> 
+  group_by(month)
+```
+
+### summarize() 
+
+The most important grouped operation is a summary, which, if being used to calculate a single summary statistic, reduces the data frame to have a single row for each group. In dplyr, this operation is performed by `summarize()`
+
+```{r}
+flights |> 
+  group_by(month) |> 
+  summarize(
+    avg_delay = mean(dep_delay, na.rm = TRUE)
+  )
+
+```
+
+### The `slice_` functions
+
+There are five handy functions that allow you to extract specific rows within each group:
+
+ * <mark> df |> slice_head(n = 1)</mark> takes the first row from each group.
+
+ * <mark> df |> slice_tail(n = 1)</mark> takes the last row in each group.
+ 
+ * <mark> df |> slice_min(x, n = 1) </mark> takes the row with the smallest value of column x.
+ 
+ * <mark> df |> slice_max(x, n = 1) </mark> takes the row with the largest value of column x.
+ 
+ * <mark> df |> slice_sample(n = 1) </mark> takes one random row.
+
+```{r}
+flights |> 
+  group_by(dest) |> 
+  slice_max(arr_delay, n = 1) |>
+  relocate(dest)
+
+```
+
+
+### Grouping by multiple variables
+
+You can create groups using more than one variable. For example, we could make a group for each date.
+
+```{r}
+
+daily <- flights |>  
+  group_by(year, month, day)
+daily
+
+```
+
+
+# **Chapter 4:** Workflow: code style
+
+
+```{r}
+library(tidyverse)
+library(nycflights13)
+```
+
+## Introduction
+
+Good coding style is like correct punctuation. One can do without it but it makes things easier to read.
+
+## Names
+
+ Variable names (those created by `<-` and those created by `mutate()`) should use only lowercase letters, numbers, and `_.` Use _ to separate words within a name.
+ 
+```{r}
+# Good name:
+short_flights <- flights |> filter(air_time < 60)
+
+# Avoid:
+SHORTFLIGHTS <- flights |> filter(air_time < 60)
+
+
+```
+
+## Spaces
+
+Put spaces on either side of mathematical operators apart from `^` (i.e. `+`, `-`, `==`, `<`, …), and around the assignment operator (`<-`).
+
+`# Good spacing`
+`z <- (a + b)^2 / d`
+
+`# poor spacing`
+`z<-( a + b ) ^ 2/d`
+
+It’s OK to add extra spaces if it improves alignment. 
+For example, if you’re creating multiple variables in `mutate()`, you might want to add spaces so that all the = line up.
+This makes it easier to skim the code.
+
+```{r}
+flights |> 
+  mutate(
+    speed      = distance / air_time,
+    dep_hour   = dep_time %/% 100,
+    dep_minute = dep_time %%  100
+  )
+
+```
+
+## Pipes
+
+`|>` should always have a space before it and should typically be the last thing on a line.
+This makes it easier to add new steps, rearrange existing steps, modify elements within a step
+
+
+`# Good code `
+
+
+`flights |> ` 
+
+   ` filter(!is.na(arr_delay), !is.na(tailnum)) |> `
+  
+   ` count(dest)`
+  
+
+----------------------------------------
+
+`# Bad code`
+
+ `flights|>filter(!is.na(arr_delay), !is.na(tailnum))|>count(dest)`
+
+## ggplot2
+
+The same basic rules that apply to the pipe also apply to ggplot2; just treat `+` the same way as `|>.`
+
+if you can’t fit all of the arguments to a function on to a single line, put each argument on its own line:
+
+##  Sectioning comments
+
+As scripts get longer, you can use sectioning comments to break up your file into manageable pieces:
+
+` # Load data --------------------------------------`
+
+` # Plot data --------------------------------------`
+
+# **Chapter 5:** Data Tidying
+
+## Introduction
+
+This chapter, you will learn a consistent way to organize your data in R using a system called *`**tidy data***. 
+Getting your data into this format requires some work up front, but that work pays off in the long term.
+The data focuses on `tidyr`, a package that provides a bunch of tools to help tidy up your messy datasets. tidyr is a member of the core `tidyverse`.
+
+```{r}
+library(tidyverse)
+```
+
+There are three interrelated rules that make a dataset tidy:
+
+ * Each variable is a column; each column is a variable.
+ 
+ * Each observation is a row; each row is an observation.
+ 
+ * Each value is a cell; each cell is a single value.
+ 
+
+
+`dplyr`, `ggplot2`, and all the other packages in the tidyverse are designed to work with tidy data.
+Example 
+
+```{r}
+
+# Compute rate per 10,000
+table1 |>
+  mutate(rate = cases / population * 10000)
+
+```
+
+## Lengthening data
+
+`tidyr` provides two functions for pivoting data: `pivot_longer()` and `pivot_wider()`. We’ll first start with pivot_longer() because it’s the most common case. 
+
+### Data in column names
+
+The billboard dataset records the billboard rank of songs in the year 2000
+
+
+```{r}
+billboard
+```
+
+In this dataset, each observation is a song.
+The first three columns (`artist`, `track` and `date.entered`) are variables that describe the song. Then we have 76 columns (wk1-wk76) that describe the rank of the song in each week1.
+
+Here, the column names are one variable (the week) and the cell values are another (the rank).
+
+To tidy this data, we’ll use `pivot_longer():`
+
+```{r}
+billboard |> 
+  pivot_longer(
+    cols = starts_with("wk"), 
+    names_to = "week", 
+    values_to = "rank"
+  )
+
+```
+
+
+ * `cols` specifies which columns need to be pivoted, i.e. which columns aren’t variables. This argument uses the same syntax as `select()` so here we could use `!c(artist, track, date.entered)` or `starts_with("wk")`.
+ 
+ * `names_to names` the variable stored in the column names, we named that variable week.
+ 
+ * `values_to` names the variable stored in the cell values, we named that variable rank.
+
+### How Pivoting works
+
+Let’s start with a very simple dataset to make it easier to see what’s happening. Suppose we have three patients with ids A, B, and C, and we take two blood pressure measurements on each patient. We’ll create the data with `tribble()`, a handy function for constructing small tibbles by hand:
+
+```{r}
+df <- tribble(
+  ~id,  ~bp1, ~bp2,
+   "A",  100,  120,
+   "B",  140,  115,
+   "C",  120,  125
+)
+
+
+```
+We want our new dataset to have three variables: `id` (already exists), measurement (the column names), and value (the cell values). To achieve this, we need to pivot `df` longer:
+
+```{r}
+df |> 
+  pivot_longer(
+    cols = bp1:bp2,
+    names_to = "measurement",
+    values_to = "value"
+  )
+
+```
+
+### Widening data
+
+`pivot_wider()` has the opposite interface to `pivot_longer()`: instead of choosing new column names, we need to provide the existing columns that define the values `(values_from)` and the column name `(names_from)`:
+
+```{r}
+cms_patient_experience |> 
+  pivot_wider(
+    names_from = measure_cd,
+    values_from = prf_rate
+  )
+```
+
+The output doesn’t look quite right; we still seem to have multiple rows for each organization.
+That’s because, we also need to tell `pivot_wider()` which column or columns have values that uniquely identify each `row`; in this case those are the variables starting with "org":
+
+```{r}
+cms_patient_experience |> 
+  pivot_wider(
+    id_cols = starts_with("org"),
+    names_from = measure_cd,
+    values_from = prf_rate
+  )
+```
+
+## Summary
+
+Tidy data makes working in the tidyverse easier, because it’s a consistent structure understood by most functions, the main challenge is transforming the data from whatever structure you receive it in to a tidy format. To that end, you learned about `pivot_longer()` and `pivot_wider()` which allow you to tidy up many untidy datasets. The examples we presented here are a selection of those from `vignette("pivot", package = "tidyr")`
+
+# **Chapter 6:** Workflow : Scripts and Projects
+
+## Introduction
+
+This chapter introduces two essential tools for organizing your code: scripts and projects.
+
+## Scripts
+
+Scripts are written using the script editor. 
+It is accessible  by:
+
+ 1. clicking the File menu
+ 
+ 2. selecting New File, then R script
+ 
+ one can also use the keyboard shortcut Cmd/Ctrl + Shift + N. 
+ 
+The script editor is a great place to experiment with your code. Once you have written code that works and does what you want, you can save it as a script file to easily return to later.
+
+### Running code
+
+The key to using the script editor effectively is to memorize one of the most important keyboard shortcuts: **Cmd/Ctrl + Enter** .
+This executes the current R expression in the console. 
+
+Pressing Cmd/Ctrl + Enter will run the complete command that generates `not_cancelled`. It will also move the cursor to the following statement (beginning with `not_cancelled |>`). That makes it easy to step through your complete script by repeatedly pressing Cmd/Ctrl + Enter.
+
+Instead of running your code expression-by-expression, you can also execute the complete script in one step with `Cmd/Ctrl + Shift + S`. Doing this regularly is a great way to ensure that you’ve captured all the important parts of your code in the script.
+
+It is recommended that one always starts their scripts with the packages they need. That way, if you share your code with others, they can easily see which packages they need to install.
+
+
+### Saving and naming
+
+RStudio automatically saves the contents of the script editor when you quit, and automatically reloads it when you re-open.
+it’s a good idea to  save your scripts and to give them informative names.
+
+Three important principles for file naming are as follows:
+
+ 1. File names should be **machine** readable: avoid spaces, symbols, and special characters.
+ 
+ 2. File names should be **human readable:** use file names to describe what’s in the file.
+ 
+File names should play well with default ordering: start file names with numbers so that alphabetical sorting puts them in the order they get used.
+
+## Projects
+
+When working with R, there are common scenarios where good organizational practices are essential:
+
+ * **Switching Projects:** You might need to leave one project, attend to other tasks, and return later.
+ 
+ * **Multiple Analyses:** Separating analyses is essential to prevent data or code overlap.
+ 
+ * **External Data and Results:**  Bringing in data and exporting results often requires structure to ensure reproducibility.
+ 
+To effectively manage these situations, two decisions need to be made:
+
+ 1. **Source of Truth:** Where will your definitive data and code be stored?
+ 
+ 2. **Location of Analysis:** How will you manage and locate your analysis files?
+ 
+###  Establishing a Source of Truth
+
+***Environment vs. R Scripts:***
+
+Initially, many beginners use their current R environment as their main source of truth, relying on created objects and datasets as they work. However, this method has limitations:
+
+ - **Reproducibility Issues:** Without code records, reproducing past work is hard, especially if you depend solely on R’s memory of your workspace.
+ 
+ - **Collaborative Challenges:** Working with others becomes cumbersome if code isn’t captured effectively, as collaborators can’t replicate your environment without clear instructions.
+ 
+***Scripts as Source of Truth:***
+
+For reliable, shareable, and reproducible work, it's best to use R scripts as your source of truth:
+
+ - Scripts allow you to recreate the analysis environment from scratch.
+ 
+ - Relying solely on the environment can lead to problems in the future if the code isn’t documented.
+ 
+**Best Practice:** R scripts (along with any necessary data files) should serve as the definitive source, capturing all steps and making it easy to re-run the entire analysis as needed.
+
+## Setting RStudio for Reproducibility
+To further support the use of scripts as the source of truth, configuring RStudio to avoid workspace preservation is crucial:
+
+ * **Preventing Workspace Saving:** When RStudio saves your workspace (i.e., all objects and datasets currently in memory) by default, it keeps track of the environment between sessions. However, this can obscure essential parts of your analysis if you’re not careful.
+ 
+ * **Benefits of Clean Slate Start:** Starting with a blank slate ensures that you need to re-run your scripts each time, promoting the habit of writing down all code steps needed for your analysis. Though it may seem inconvenient at first, this practice eliminates future frustrations by ensuring that every calculation or transformation is documented in code, not just stored in memory.
+ 
+### How to Enable Clean Slate Mode:
+
+ * Run the `usethis::use_blank_slate()` command.
+ 
+ * Alternatively, in RStudio's Global Options
+ 
+    * Uncheck “Restore .RData into workspace at startup” to start with a blank slate each time.
+    
+    * Set “Save workspace to .RData on exit” to “Never” to prevent automatic workspace saving.
+    
+### Using Keyboard Shortcuts for Efficient Workflow
+ * **Restarting and Running Scripts:** To support a clean start and encourage script documentation, R offers shortcuts for restarting sessions and re-running scripts:
+
+  * **Cmd/Ctrl + Shift + F10** restarts R, clearing the environment.
+  
+  * **Cmd/Ctrl + Shift + S**  re-runs the current script, ensuring that all essential steps are executed afresh.
+
+ * **Benefits of Shortcut Workflow:** Regularly using these shortcuts ensures that your scripts contain the necessary code to recreate any analysis state, reducing the risk of missing steps that were only saved in memory.
+
+
+### Alternatives to Keyboard Shortcuts
+
+ * **Menu Options:** If shortcuts aren’t your preference, RStudio’s menu offers alternatives:
+ 
+   *  **Session > Restart R** to clear the environment.
+   
+   * **Highlight and re-run scripts** to manually re-execute all commands as needed.
+   
+### Summary
+
+By following these practices, your R analysis becomes more reliable and easier to share or revisit:
+
+ * **Scripts as a Single Source of Truth:** Capturing all important steps in code ensures that analyses are easily reproducible.
+ 
+ * **Clean Slate Practices:** Configuring RStudio to avoid workspace saving reinforces the habit of recording every critical step in your script.
+ 
+ * **Shortcuts and Re-runs:** Streamlining your workflow with shortcuts or menu options supports consistent re-testing and validation of code.
+ 
+**Outcome:** Adopting these practices results in an organized, replicable, and shareable analysis structure that benefits both individual work and collaboration.
+
+## RStudio Projects
+
+* **RStudio's project feature** helps manage files by keeping related scripts, data, and output in one directory. To create a project:
+
+  * Go to **File > New Project** and follow the prompts.
+  
+  * Choose an organized location and name for easy reference.
+  
+* Each project has its own working directory, `shown by getwd()`, keeping all analysis components together.
+
+# **Chapter 7:** Exploratory Data Analysis: Data Import
+
+## Introduction
+
+This chapter focuses on reading data into R, specifically from plain-text, rectangular files such as CSVs, using the readr package in the tidyverse. It begins with practical tips for handling column names, types, and missing data, explaining how to read single and multiple files as well as write data to files. It also covers handcrafting data frames in R.
+
+## Handling inputs:
+
+ * **Reading CSV Files:**  Introduces the `read_csv()` function to load CSV data, highlighting the structure and header row of typical CSV files. The chapter discusses how R categorizes columns based on data type, which it displays after reading the file.
+
+ * **Handling Missing Data and Variable Names:** Shows how to specify `NA` values (e.g., using `na = c("N/A", "")`) and handle non-syntactic column names using backticks. Also introduces `janitor::clean_names()` to standardize column names.
+
+* **Adjusting Variable Types:** Emphasizes converting categorical data (e.g., meal_plan) to factors and transforming variables, like converting age values to numbers using `parse_number()` and `if_else()`.
+
+ * **Additional Arguments in read_csv():** Demonstrates using skip and comment arguments to manage file metadata and comments, and col_names to assign or ignore column headers.
+
+ * **Other File Formats:** Outlines functions for reading different delimiters (e.g., read_csv2() for semicolons, read_tsv() for tabs, read_delim() for any delimiter) and special formats like fixed-width files with read_fwf() and log files with read_log().
+ 
+## Controlling column types
+
+This text explains how to control column types in `readr`, an R package for reading CSV files.
+
+ * **Type Guessing:** `readr` guesses column types by sampling up to 1,000 values and applies logical (TRUE/FALSE), numeric, or date type if data matches specific patterns. Otherwise, it treats data as strings.
+
+ * **Handling Missing Values:** Detection may fail if non-standard missing value indicators, like ".", appear in numeric columns. Users can specify column types manually with `col_types` and define custom missing value representations (e.g., `na = "."`).
+
+ * **Column Types:** Nine column types are available, including logical, integer, character, date, and factor types. Options like col_skip() can exclude columns, and .default can specify a default type.
+
+## Reading Multiple Files:
+`read_csv()` can combine data from multiple files, using an "id" column to track file origins. Lists or list.files() patterns can automate file selection.
+
+## Writing Files:
+
+Users can save data with `write_csv()`, though CSVs lose type information. `write_rds()` (binary) or `write_parquet()` (cross-platform) retain data structure for R reuse.
+
+## Manual Data Entry:
+`tibble()` and `tribble()` allow manual data entry by column or row for easy readability.
+
+ 
+ 
