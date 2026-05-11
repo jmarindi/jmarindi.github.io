@@ -110,7 +110,11 @@ def main():
         with col_img:
             st.image(image, caption="Uploaded X-ray", use_column_width=True)
         
+<<<<<<< HEAD
         if st.button("🚀 Run Triple-Model Analysis"):
+=======
+        if st.button(" Run Triple-Model Analysis"):
+>>>>>>> master
             if not (cnn_model and mobile_model and res_model):
                 st.error("Cannot run analysis. Please check model paths.")
                 return
